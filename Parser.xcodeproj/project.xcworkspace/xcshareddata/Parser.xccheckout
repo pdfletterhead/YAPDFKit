@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C533055F-79EA-40BF-9D59-39C9AEBCD206</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Parser</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C3584FEB-5AC8-4386-A103-5050E1AD9BD2</key>
+		<string>https://github.com/kozliappi/PDFCoolParser.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Parser.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C3584FEB-5AC8-4386-A103-5050E1AD9BD2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kozliappi/PDFCoolParser.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C3584FEB-5AC8-4386-A103-5050E1AD9BD2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C3584FEB-5AC8-4386-A103-5050E1AD9BD2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Parser</string>
+		</dict>
+	</array>
+</dict>
+</plist>

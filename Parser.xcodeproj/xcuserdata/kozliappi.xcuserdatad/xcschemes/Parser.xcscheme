@@ -28,6 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "198A6A3B194C885E0085588C"
+               BuildableName = "Parser Tests.xctest"
+               BlueprintName = "Parser Tests"
+               ReferencedContainer = "container:Parser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

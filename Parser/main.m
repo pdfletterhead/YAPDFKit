@@ -10,6 +10,9 @@
 #import <Foundation/NSObject.h>
 
 #import "PDFDocument.h"
+#import "PDFObject.h"
+#import "PDFStreamDecoder.h"
+#import "PDFPages.h"
 
 enum ParserStates {
     BEGIN_STATE = 0,
@@ -22,21 +25,42 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-      //  NSString *version = @"";
-      //  NSString *errorMessage = nil;
-        
-        NSData *fileData = [NSData dataWithContentsOfFile:@"/Users/kozliappi/Desktop/test_1/test_in.pdf"];
+        NSData *fileData = [NSData dataWithContentsOfFile:@"/Users/kozliappi/Desktop/test_1/in.pdf"];
+        PDFStreamDecoder *p = [[PDFStreamDecoder alloc] initWithData:fileData];
+        NSData *u = [p getDecrypted];
+        NSLog(@"%@",u);
         
         PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
+        [document getInfoForKey:@"Type"];
+        PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+        [pg getPageCount];
+        [pg getPagesTree];
+        
         if ([document errorMessage]) {
             NSLog(@"%@", [document errorMessage]);
         }
         else {
             NSLog(@"%@", [document version]);
-        }
-      /*
+        }/**/
+        
+        /* NSString * s = @"#20";
+        float i = [s floatValue];
+        NSLog(@"i %f", i);*/
+       /*
+        
+        //parsing an object
+        NSString *s = @"3868";
+        NSData *data = [s dataUsingEncoding:NSUTF8StringEncoding];
+        ObjectPaser *p = [[ObjectPaser alloc] initWithData:data];
+
+        
+        
+        //[obj checkNextStruct:&i];
+        
+      
         enum ParserStates state = BEGIN_STATE;
         
+       
         const char* rawData = (const char*)[fileData bytes];
         if (fileData.length < 5) {
             return 1;
