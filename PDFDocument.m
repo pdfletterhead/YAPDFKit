@@ -22,6 +22,8 @@ enum ParserStates {
     DEFAULT_STATE,
 };
 
+BOOL debug = false;
+
 const char* strblock(const char* p, int(^func)(char ch))
 {
     for (; *p && func(*p); ++p) {
@@ -45,6 +47,7 @@ const char* strblock(const char* p, int(^func)(char ch))
         free(buffer);
         
         [self parseData:dataWithNull];
+        //NSLog(@"ContentsDict: %@",contents);
         [self linkObjectsWithContents];
         
         return self;
@@ -209,7 +212,10 @@ const char* strblock(const char* p, int(^func)(char ch))
     memcpy(buffer, &rawData[i], (endOfCommentIdx - i) + 1);
     buffer[endOfCommentIdx - i] = 0;
     NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
-    NSLog(@"%@", comment);
+    
+    if(debug)
+        NSLog(@"\ncomment:%@", comment);
+    
     i = endOfCommentIdx;
     
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
@@ -334,8 +340,9 @@ const char* strblock(const char* p, int(^func)(char ch))
     }
     
     NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
-    
-    NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
+
+    if(debug)
+        NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
     
     skipBlankSymbols(rawData, &i);
     
@@ -375,7 +382,8 @@ const char* strblock(const char* p, int(^func)(char ch))
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             info = [currentValue objectForKey:key];
-            NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
+            if(debug)
+                NSLog(@"getInfoForKey%@ : obj num %@",info, [current getObjectNumber]);
         }
     }
     return info;
@@ -388,7 +396,8 @@ const char* strblock(const char* p, int(^func)(char ch))
     id objectValue = [object value];
     if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
         info = [objectValue objectForKey:key];
-        NSLog(@"getInfoForKey %@ : %@",key,info);
+        if(debug)
+            NSLog(@"getInfoForKey %@ : %@",key,info);
     }
     return info;
 }
@@ -404,7 +413,8 @@ const char* strblock(const char* p, int(^func)(char ch))
                 continue;
             }
             num = [current getObjectNumber];
-            NSLog(@"%@", num);
+            if(debug)
+                NSLog(@"getObjectNumberForKey: %@, key: %@, value: %@", num, key, value);
         }
     }
     return num;

@@ -43,7 +43,7 @@
 {
     [self getPageObjectNum];
     id pageNum = [document getInfoForKey:@"Count" inObject:pageInfoObjectNum];
-    NSLog(@"pages: %@ pages: %@",pageInfoObjectNum, pageNum);
+    NSLog(@"Object containing page count: %@ \n page count: %@",pageInfoObjectNum, pageNum);
     return (int)pageNum;
 }
 
@@ -58,6 +58,7 @@
 
 - (id)getPageNumber:(PDFDocument *)d
 {
+    NSLog(@"getPageNumber");
     id page;
     [self getPageObjectNum];
     

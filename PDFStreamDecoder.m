@@ -8,6 +8,8 @@
 
 #import <zlib.h>
 #import "PDFStreamDecoder.h"
+#import "NSData+Compression.h"
+
 
 enum FILTER {
     FLATEDECODE = 1,
@@ -23,11 +25,32 @@ enum FILTER {
 - (id)initWithData:(NSData *)d
 {
     if([super init]) {
-        data = d;
-        NSString *path = [ @"~/Desktop/test1.zip" stringByExpandingTildeInPath];
+
+//        data = [d zlibInflate];
+
+        //NSLog(@"data: %@",d);
+        
+        unsigned char *bytePtr = (unsigned char *)[d bytes];
+        //SLog(@"raw1inflated: %s", bytePtr);
+        
+        NSString *path = [ @"~/Desktop/test1.gzip" stringByExpandingTildeInPath];
         NSURL *pathUrl = [NSURL fileURLWithPath:path];
         [d writeToURL:pathUrl atomically:YES];
-        decrypted = [self decrypt];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        decrypted = [self decrypt];
+
+        
+        
+        
+        data = d;
         return self;
     }
 
@@ -112,6 +135,10 @@ int inf(FILE *source, FILE *dest)
     if(stat == Z_OK)
     {
         uncompressedData = [NSData dataWithBytes:dest length:destLen];
+        NSLog(@"dataunc: %@",uncompressedData);
+    }
+    else{
+        NSLog(@"not oke: ");
     }
     free(dest);
     

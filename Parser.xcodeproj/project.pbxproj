@@ -24,7 +24,6 @@
 		198A6A53194C8E980085588C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 198868F71931FE0200A43AF3 /* libz.dylib */; };
 		198DDE8C191E279B00B11929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		198DDE8F191E279B00B11929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198DDE8E191E279B00B11929 /* main.m */; };
-		198DDE93191E279B00B11929 /* Parser.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 198DDE92191E279B00B11929 /* Parser.1 */; };
 		198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
 		198E62451933422400D8C4D7 /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
 		198E6248193342AF00D8C4D7 /* PDFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* PDFString.m */; };
@@ -39,6 +38,7 @@
 		19C2C53C194CC0D800F6D35D /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
 		19C2C53D194CC0DF00F6D35D /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
 		19D8FF471933FB79003D557C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
+		3E2EF3D41C6247CE00B07808 /* NSData+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2EF3D31C6247CE00B07808 /* NSData+Compression.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				198DDE93191E279B00B11929 /* Parser.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -84,7 +83,6 @@
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		198DDE91191E279B00B11929 /* Parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parser-Prefix.pch"; sourceTree = "<group>"; };
-		198DDE92191E279B00B11929 /* Parser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Parser.1; sourceTree = "<group>"; };
 		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFDictionary.h; path = ../PDFDictionary.h; sourceTree = "<group>"; };
 		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFDictionary.m; path = ../PDFDictionary.m; sourceTree = "<group>"; };
 		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFArray.h; path = ../PDFArray.h; sourceTree = "<group>"; };
@@ -103,6 +101,9 @@
 		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPages.m; path = ../PDFPages.m; sourceTree = "<group>"; };
 		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFNumber.h; path = ../PDFNumber.h; sourceTree = "<group>"; };
 		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFNumber.m; path = ../PDFNumber.m; sourceTree = "<group>"; };
+		3E2EF3D11C6247CE00B07808 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
+		3E2EF3D21C6247CE00B07808 /* NSData+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Compression.h"; sourceTree = "<group>"; };
+		3E2EF3D31C6247CE00B07808 /* NSData+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Compression.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,34 +179,21 @@
 		198DDE8D191E279B00B11929 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				19D8FF451933FB79003D557C /* PDFNumber.h */,
-				19D8FF461933FB79003D557C /* PDFNumber.m */,
-				1991B7BE192D4A1B009C06FC /* Utils.h */,
-				198807641929F2F300D2770D /* PDFObject.h */,
-				198807651929F2F300D2770D /* PDFObject.m */,
-				198E624F1933563100D8C4D7 /* PDFName.h */,
-				198E62501933563100D8C4D7 /* PDFName.m */,
-				198E624C19334C8200D8C4D7 /* PDFBool.h */,
-				198E624D19334C8200D8C4D7 /* PDFBool.m */,
-				1991B7BF192D4A4C009C06FC /* Utils.c */,
+				3E2EF3D01C62336500B07808 /* utils */,
+				3E2EF3CF1C62332500B07808 /* empty */,
 				192F1D25191E483800D98CB6 /* PDFDocument.h */,
+				192F1D26191E483800D98CB6 /* PDFDocument.m */,
 				19958FC21935C3880018467C /* PDFPages.h */,
 				19958FC31935C3880018467C /* PDFPages.m */,
-				192F1D26191E483800D98CB6 /* PDFDocument.m */,
+				198807641929F2F300D2770D /* PDFObject.h */,
+				198807651929F2F300D2770D /* PDFObject.m */,
+				19D8FF451933FB79003D557C /* PDFNumber.h */,
+				19D8FF461933FB79003D557C /* PDFNumber.m */,
 				198712FC192FF5A60022A279 /* PDFStreamDecoder.h */,
 				198712FD192FF5A60022A279 /* PDFStreamDecoder.m */,
 				198712FF192FFB290022A279 /* PDFObjectReference.h */,
 				19871300192FFB290022A279 /* PDFObjectReference.m */,
-				198E6246193342AF00D8C4D7 /* PDFString.h */,
-				198E6247193342AF00D8C4D7 /* PDFString.m */,
-				198E6249193342C900D8C4D7 /* PDFHexString.h */,
-				198E624A193342C900D8C4D7 /* PDFHexString.m */,
-				198E62401933420700D8C4D7 /* PDFDictionary.h */,
-				198E62411933420700D8C4D7 /* PDFDictionary.m */,
-				198E62431933422400D8C4D7 /* PDFArray.h */,
-				198E62441933422400D8C4D7 /* PDFArray.m */,
 				198DDE8E191E279B00B11929 /* main.m */,
-				198DDE92191E279B00B11929 /* Parser.1 */,
 				198DDE90191E279B00B11929 /* Supporting Files */,
 			);
 			path = Parser;
@@ -217,6 +205,37 @@
 				198DDE91191E279B00B11929 /* Parser-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E2EF3CF1C62332500B07808 /* empty */ = {
+			isa = PBXGroup;
+			children = (
+				198E624F1933563100D8C4D7 /* PDFName.h */,
+				198E62501933563100D8C4D7 /* PDFName.m */,
+				198E624C19334C8200D8C4D7 /* PDFBool.h */,
+				198E624D19334C8200D8C4D7 /* PDFBool.m */,
+				198E6246193342AF00D8C4D7 /* PDFString.h */,
+				198E6247193342AF00D8C4D7 /* PDFString.m */,
+				198E6249193342C900D8C4D7 /* PDFHexString.h */,
+				198E624A193342C900D8C4D7 /* PDFHexString.m */,
+				198E62401933420700D8C4D7 /* PDFDictionary.h */,
+				198E62411933420700D8C4D7 /* PDFDictionary.m */,
+				198E62431933422400D8C4D7 /* PDFArray.h */,
+				198E62441933422400D8C4D7 /* PDFArray.m */,
+			);
+			name = empty;
+			sourceTree = "<group>";
+		};
+		3E2EF3D01C62336500B07808 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3E2EF3D11C6247CE00B07808 /* GZIP.h */,
+				3E2EF3D21C6247CE00B07808 /* NSData+Compression.h */,
+				3E2EF3D31C6247CE00B07808 /* NSData+Compression.m */,
+				1991B7BE192D4A1B009C06FC /* Utils.h */,
+				1991B7BF192D4A4C009C06FC /* Utils.c */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +350,7 @@
 				1991B7C0192D4A4C009C06FC /* Utils.c in Sources */,
 				198807661929F2F300D2770D /* PDFObject.m in Sources */,
 				198E6248193342AF00D8C4D7 /* PDFString.m in Sources */,
+				3E2EF3D41C6247CE00B07808 /* NSData+Compression.m in Sources */,
 				192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */,
 				198E62511933563100D8C4D7 /* PDFName.m in Sources */,
 				19871301192FFB290022A279 /* PDFObjectReference.m in Sources */,
