@@ -39,6 +39,7 @@
 		19C2C53C194CC0D800F6D35D /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
 		19C2C53D194CC0DF00F6D35D /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
 		19D8FF471933FB79003D557C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
+		3EC10EA61C62CA140079C21C /* pdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdf.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPages.m; path = ../PDFPages.m; sourceTree = "<group>"; };
 		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFNumber.h; path = ../PDFNumber.h; sourceTree = "<group>"; };
 		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFNumber.m; path = ../PDFNumber.m; sourceTree = "<group>"; };
+		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdf.h; sourceTree = "<group>"; };
+		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdf.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,9 +192,9 @@
 				198E624D19334C8200D8C4D7 /* PDFBool.m */,
 				1991B7BF192D4A4C009C06FC /* Utils.c */,
 				192F1D25191E483800D98CB6 /* PDFDocument.h */,
+				192F1D26191E483800D98CB6 /* PDFDocument.m */,
 				19958FC21935C3880018467C /* PDFPages.h */,
 				19958FC31935C3880018467C /* PDFPages.m */,
-				192F1D26191E483800D98CB6 /* PDFDocument.m */,
 				198712FC192FF5A60022A279 /* PDFStreamDecoder.h */,
 				198712FD192FF5A60022A279 /* PDFStreamDecoder.m */,
 				198712FF192FFB290022A279 /* PDFObjectReference.h */,
@@ -204,6 +207,8 @@
 				198E62411933420700D8C4D7 /* PDFDictionary.m */,
 				198E62431933422400D8C4D7 /* PDFArray.h */,
 				198E62441933422400D8C4D7 /* PDFArray.m */,
+				3EC10EA41C62CA140079C21C /* pdf.h */,
+				3EC10EA51C62CA140079C21C /* pdf.m */,
 				198DDE8E191E279B00B11929 /* main.m */,
 				198DDE92191E279B00B11929 /* Parser.1 */,
 				198DDE90191E279B00B11929 /* Supporting Files */,
@@ -327,6 +332,7 @@
 				198DDE8F191E279B00B11929 /* main.m in Sources */,
 				198712FE192FF5A60022A279 /* PDFStreamDecoder.m in Sources */,
 				198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */,
+				3EC10EA61C62CA140079C21C /* pdf.m in Sources */,
 				19958FC41935C3880018467C /* PDFPages.m in Sources */,
 				1991B7C0192D4A4C009C06FC /* Utils.c in Sources */,
 				198807661929F2F300D2770D /* PDFObject.m in Sources */,

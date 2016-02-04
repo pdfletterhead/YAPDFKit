@@ -36,6 +36,10 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (id)initWithData:(NSData*)data
 {
     if (self = [super init]) {
+        
+        
+        //NSLog(@"hhm: ===========\n%s\n----------------------", data.bytes);
+
         _version = @"";
         contents = [[NSMutableDictionary alloc] init];
         char *buffer = malloc(data.length + 1);
@@ -44,8 +48,12 @@ const char* strblock(const char* p, int(^func)(char ch))
         NSData *dataWithNull = [NSData dataWithBytes:buffer length:data.length + 1];
         free(buffer);
         
+        //NSLog(@"hhm: ===========\n%s\n----------------------", dataWithNull.bytes);
+
         [self parseData:dataWithNull];
         [self linkObjectsWithContents];
+        
+        
         
         return self;
     }
@@ -270,14 +278,21 @@ const char* strblock(const char* p, int(^func)(char ch))
     
     skipBlankSymbols(rawData, &i);
     NSString *objBodyStr = NULL;
+    NSData *objectData = NULL;
     
     if(objBodyEnd - objBodyBegin > 0) {
-        NSData *objectData = [NSData dataWithBytes:objBodyBegin length:objBodyEnd - objBodyBegin];
+        objectData = [NSData dataWithBytes:objBodyBegin length:objBodyEnd - objBodyBegin];
         objBodyStr = [[NSString alloc] initWithData:objectData encoding:NSASCIIStringEncoding];
+//        objBodyStr = [[NSString alloc] initWithData:objectData encoding:NSUTF8StringEncoding];
     }
+
+    //NSLog(@"hhm: ===========\n%s\n----------------------", objectData.bytes);
+
+//    NSLog(@"str?: %@", objBodyStr );
     
     NSData *d = [objBodyStr dataUsingEncoding:NSUTF8StringEncoding];
-    PDFObject *p = [[PDFObject alloc] initWithData:d first:&first second:&second];
+    PDFObject *p = [[PDFObject alloc] initWithData:objectData first:&first second:&second];
+    //PDFObject *p = [[PDFObject alloc] initWithData:d first:&first second:&second];
     
     [contents setObject:p forKey:[p getObjectNumber]];
 
@@ -335,7 +350,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     
     NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
     
-    NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
+    //NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
     
     skipBlankSymbols(rawData, &i);
     
