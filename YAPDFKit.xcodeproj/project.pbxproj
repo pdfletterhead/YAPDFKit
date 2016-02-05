@@ -81,8 +81,8 @@
 		198A6A47194C885E0085588C /* Parser Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parser Tests-Prefix.pch"; sourceTree = "<group>"; };
 		198DDE88191E279B00B11929 /* YAPDFKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = YAPDFKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
+		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../YAPDFKit/main.m; sourceTree = "<group>"; };
+		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YAPDFKit-Prefix.pch"; path = "../YAPDFKit/YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
 		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFDictionary.h; path = ../PDFDictionary.h; sourceTree = "<group>"; };
 		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFDictionary.m; path = ../PDFDictionary.m; sourceTree = "<group>"; };
 		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFArray.h; path = ../PDFArray.h; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPages.m; path = ../PDFPages.m; sourceTree = "<group>"; };
 		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFNumber.h; path = ../PDFNumber.h; sourceTree = "<group>"; };
 		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFNumber.m; path = ../PDFNumber.m; sourceTree = "<group>"; };
-		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdf.h; sourceTree = "<group>"; };
-		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdf.m; sourceTree = "<group>"; };
+		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pdf.h; path = ../YAPDFKit/pdf.h; sourceTree = "<group>"; };
+		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pdf.m; path = ../YAPDFKit/pdf.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,7 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parser/YAPDFKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
 				PRODUCT_NAME = YAPDFKit;
 			};
 			name = Debug;
@@ -506,7 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parser/YAPDFKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
 				PRODUCT_NAME = YAPDFKit;
 			};
 			name = Release;
