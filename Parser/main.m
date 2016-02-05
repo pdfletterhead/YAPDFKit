@@ -32,7 +32,7 @@ int main(int argc, const char * argv[])
         
             
         //Open the PDF source file:
-        FILE* filei = fopen([file UTF8String], "rb");
+        FILE* filei = fopen([file2 UTF8String], "rb");
         
 
         //Get the file length:
@@ -51,22 +51,7 @@ int main(int argc, const char * argv[])
         //NSUInteger size = // some size
         //unsigned char array[size];
         NSData* fileData = [NSData dataWithBytes:(const void *)buffer length:filelen];
-        //NSLog(@"hhm: %s\n----------------------", fileData.bytes);
-        //NSData *fileData = [NSData dataWithContentsOfFile:file];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //PDFStreamDecoder *p = [[PDFStreamDecoder alloc] initWithData:fileData];
-        //NSData *u = [p getDecrypted];
-        //NSLog(@"%@",u);
-        
+ 
         PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
         [document getInfoForKey:@"Type"];
         PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
@@ -79,8 +64,7 @@ int main(int argc, const char * argv[])
         else {
             NSLog(@"%@", [document version]);
         }
-        
-        //NSLog(@"hhm: %s\n----------------------", fileData.bytes);
-    }
+    
+     }
     return 0;
 }

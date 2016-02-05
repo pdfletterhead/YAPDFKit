@@ -338,9 +338,45 @@
 {
     NSUInteger i = *idx;
     
+    const char *b = NULL;
+    if (i+5 < dataLength) {
+        char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5],0};
+        if (![@(buffer)isEqualToString:@"stream"]){
+            return nil; //error
+        }
+        i += 5;
+        b = &rawData[i+2];
+    }
     
+    const char* e = NULL;
+    for(; i < dataLength; ++i) {
+        if (rawData[i] == 'e' && rawData[i-1] != '/' && i+8 < dataLength) {
+            char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5], rawData[i+6], rawData[i+7], rawData[i+8], 0};
+            if ([@(buffer)isEqualToString:@"endstream"]){
+                e = &rawData[i-1];
+                break;
+            }
+        }
+    }
+    
+    NSMutableData *data = [NSData dataWithBytes:b length:e - b];
+    //stream = (NSData *)data;
+    printf("\n\nB--------\n");
+    
+    //dumpCharArray(data.bytes, data.length);
+    NSString * found = convertStream(data);
+    //printf(@"string: %s",found);
+    printf("\nE--------\n\n");
 
+    i += 8;
+    *idx = i;
     
+    return data;
+}
+
+- (NSData *)checkStreamWorking:(NSUInteger *)idx
+{
+    NSUInteger i = *idx;
     
     const char *b = NULL;
     if (i+5 < dataLength) {
@@ -366,15 +402,8 @@
     NSMutableData *data = [NSData dataWithBytes:b length:e - b + 20];
     stream = (NSData *)data;
     //NSLog(@"stream: %s",data.bytes);
-    NSString * found = convertPDF(data);
+    NSString * found = findAndConvertStream(data);
     //NSLog(@"string: %s",found);
-    
-    
-    //NSString *responseStringUTF8    =   [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    //NSString *responseStringASCII    =   [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    //NSLog(@"UTF: %@", responseStringUTF8);
-    //NSLog(@"ASCII: %@", responseStringASCII);
-    
     
     i += 8;
     *idx = i;

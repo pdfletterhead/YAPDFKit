@@ -212,8 +212,57 @@ void ProcessOutput(char* output, size_t len)
 	}
 }
 
+NSString* convertStream(NSData * data)
+{
+    
+    //Skip to beginning and end of the data stream:
+    const char* buffer = data.bytes;
+    size_t streamstart = 0;
+    size_t streamend = data.length;
+    
+    if (buffer[streamstart]==0x0d && buffer[streamstart+1]==0x0a) streamstart+=2;
+    else if (buffer[streamstart]==0x0a) streamstart++;
+    
+    if (buffer[streamend-2]==0x0d && buffer[streamend-1]==0x0a) streamend-=2;
+    else if (buffer[streamend-1]==0x0a) streamend--;
+    
+    //Assume output will fit into 10 times input buffer:
+    size_t outsize = (streamend - streamstart)*10;
+    char *output = malloc(outsize*sizeof(char)); //Allocates the output
+    ZeroMemory(output, outsize);
+    
+    //Now use zlib to inflate:
+    z_stream zstrm;
+    ZeroMemory(&zstrm, sizeof(zstrm));
+    
+    zstrm.avail_in = streamend - streamstart + 1;
+    zstrm.avail_out = outsize;
+    zstrm.next_in = (Bytef*)(buffer + streamstart);
+    zstrm.next_out = (Bytef*)output;
+    
+    int rsti = inflateInit(&zstrm);
+    if (rsti == Z_OK)
+    {
+        int rst2 = inflate (&zstrm, Z_FINISH);
+        if (rst2 >= 0)
+        {
+            //Ok, got something, extract the text:
+            //size_t totout = zstrm.total_out;
+            printf("raw: %s",output);
+            //ProcessOutput(output, totout);
+        }
+    }
+    free(output);
+//    output=0;
+//    buffer+= streamend + 7;
+//    filelen = filelen - (streamend+7);
+    return @"";
+    
+}
+
+
 //int _tmain(int argc, _TCHAR* argv[])
-NSString* convertPDF(NSData * data)
+NSString* findAndConvertStream(NSData * data)
 {
     //Initialize result string
     result = [[NSMutableString alloc] init];
@@ -282,7 +331,7 @@ NSString* convertPDF(NSData * data)
                 {
                     //Ok, got something, extract the text:
                     size_t totout = zstrm.total_out;
-                    //NSLog(@"raw: %s",output);
+                    NSLog(@"raw: %s",output);
                     ProcessOutput(output, totout);
                 }
             }

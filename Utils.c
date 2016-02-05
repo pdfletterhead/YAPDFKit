@@ -33,3 +33,10 @@ void skipBlankSymbols(const char * rawData, size_t *idx)
     
     *idx = i;
 }
+
+void dumpCharArray(const char * rawData, size_t size)
+{
+    for (int j = 0; j < size; j++ ) {
+        printf("%c",  rawData[j]);
+    }
+}

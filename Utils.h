@@ -37,4 +37,6 @@ int isHexSymbol(char ch);
  */
 void skipBlankSymbols(const char * rawData, size_t *idx);
 
+void dumpCharArray(const char * rawData, size_t size);
+
 #endif
