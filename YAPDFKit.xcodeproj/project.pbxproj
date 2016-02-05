@@ -14,7 +14,7 @@
 		198868F81931FE0200A43AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 198868F71931FE0200A43AF3 /* libz.dylib */; };
 		198A6A3E194C885E0085588C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198A6A3D194C885E0085588C /* XCTest.framework */; };
 		198A6A44194C885E0085588C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A6A42194C885E0085588C /* InfoPlist.strings */; };
-		198A6A46194C885E0085588C /* Parser_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198A6A45194C885E0085588C /* Parser_Tests.m */; };
+		198A6A46194C885E0085588C /* YAPDFKit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198A6A45194C885E0085588C /* YAPDFKit_Tests.m */; };
 		198A6A4D194C88CC0085588C /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
 		198A6A4E194C8B300085588C /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
 		198A6A4F194C8E3C0085588C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
@@ -64,45 +64,45 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		192F1D25191E483800D98CB6 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFDocument.h; path = ../PDFDocument.h; sourceTree = "<group>"; };
-		192F1D26191E483800D98CB6 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFDocument.m; path = ../PDFDocument.m; sourceTree = "<group>"; };
-		198712FC192FF5A60022A279 /* PDFStreamDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFStreamDecoder.h; path = ../PDFStreamDecoder.h; sourceTree = "<group>"; };
-		198712FD192FF5A60022A279 /* PDFStreamDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFStreamDecoder.m; path = ../PDFStreamDecoder.m; sourceTree = "<group>"; };
-		198712FF192FFB290022A279 /* PDFObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFObjectReference.h; path = ../PDFObjectReference.h; sourceTree = "<group>"; };
-		19871300192FFB290022A279 /* PDFObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFObjectReference.m; path = ../PDFObjectReference.m; sourceTree = "<group>"; };
-		198807641929F2F300D2770D /* PDFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFObject.h; path = ../PDFObject.h; sourceTree = "<group>"; };
-		198807651929F2F300D2770D /* PDFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFObject.m; path = ../PDFObject.m; sourceTree = "<group>"; };
+		192F1D25191E483800D98CB6 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDocument.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		192F1D26191E483800D98CB6 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198712FC192FF5A60022A279 /* PDFStreamDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFStreamDecoder.h; sourceTree = "<group>"; };
+		198712FD192FF5A60022A279 /* PDFStreamDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFStreamDecoder.m; sourceTree = "<group>"; };
+		198712FF192FFB290022A279 /* PDFObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectReference.h; sourceTree = "<group>"; };
+		19871300192FFB290022A279 /* PDFObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectReference.m; sourceTree = "<group>"; };
+		198807641929F2F300D2770D /* PDFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObject.h; sourceTree = "<group>"; };
+		198807651929F2F300D2770D /* PDFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObject.m; sourceTree = "<group>"; };
 		198868F71931FE0200A43AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		198A6A3C194C885E0085588C /* YAPDFKit.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAPDFKit.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198A6A3D194C885E0085588C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		198A6A41194C885E0085588C /* YAPDFKit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YAPDFKit Tests-Info.plist"; sourceTree = "<group>"; };
 		198A6A43194C885E0085588C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		198A6A45194C885E0085588C /* Parser_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Parser_Tests.m; sourceTree = "<group>"; };
+		198A6A45194C885E0085588C /* YAPDFKit_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YAPDFKit_Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		198A6A47194C885E0085588C /* Parser Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parser Tests-Prefix.pch"; sourceTree = "<group>"; };
 		198DDE88191E279B00B11929 /* YAPDFKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = YAPDFKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../YAPDFKit/main.m; sourceTree = "<group>"; };
-		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YAPDFKit-Prefix.pch"; path = "../YAPDFKit/YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
-		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFDictionary.h; path = ../PDFDictionary.h; sourceTree = "<group>"; };
-		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFDictionary.m; path = ../PDFDictionary.m; sourceTree = "<group>"; };
-		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFArray.h; path = ../PDFArray.h; sourceTree = "<group>"; };
-		198E62441933422400D8C4D7 /* PDFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFArray.m; path = ../PDFArray.m; sourceTree = "<group>"; };
-		198E6246193342AF00D8C4D7 /* PDFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFString.h; path = ../PDFString.h; sourceTree = "<group>"; };
-		198E6247193342AF00D8C4D7 /* PDFString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFString.m; path = ../PDFString.m; sourceTree = "<group>"; };
-		198E6249193342C900D8C4D7 /* PDFHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFHexString.h; path = ../PDFHexString.h; sourceTree = "<group>"; };
-		198E624A193342C900D8C4D7 /* PDFHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFHexString.m; path = ../PDFHexString.m; sourceTree = "<group>"; };
-		198E624C19334C8200D8C4D7 /* PDFBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFBool.h; path = ../PDFBool.h; sourceTree = "<group>"; };
-		198E624D19334C8200D8C4D7 /* PDFBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFBool.m; path = ../PDFBool.m; sourceTree = "<group>"; };
-		198E624F1933563100D8C4D7 /* PDFName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFName.h; path = ../PDFName.h; sourceTree = "<group>"; };
-		198E62501933563100D8C4D7 /* PDFName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFName.m; path = ../PDFName.m; sourceTree = "<group>"; };
-		1991B7BE192D4A1B009C06FC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../Utils.h; sourceTree = "<group>"; };
-		1991B7BF192D4A4C009C06FC /* Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Utils.c; path = ../Utils.c; sourceTree = "<group>"; };
-		19958FC21935C3880018467C /* PDFPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFPages.h; path = ../PDFPages.h; sourceTree = "<group>"; };
-		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPages.m; path = ../PDFPages.m; sourceTree = "<group>"; };
-		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFNumber.h; path = ../PDFNumber.h; sourceTree = "<group>"; };
-		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFNumber.m; path = ../PDFNumber.m; sourceTree = "<group>"; };
-		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pdf.h; path = ../YAPDFKit/pdf.h; sourceTree = "<group>"; };
-		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pdf.m; path = ../YAPDFKit/pdf.m; sourceTree = "<group>"; };
+		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = YAPDFKit/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YAPDFKit-Prefix.pch"; path = "YAPDFKit/YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
+		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFArray.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E62441933422400D8C4D7 /* PDFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E6246193342AF00D8C4D7 /* PDFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFString.h; sourceTree = "<group>"; };
+		198E6247193342AF00D8C4D7 /* PDFString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFString.m; sourceTree = "<group>"; };
+		198E6249193342C900D8C4D7 /* PDFHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFHexString.h; sourceTree = "<group>"; };
+		198E624A193342C900D8C4D7 /* PDFHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFHexString.m; sourceTree = "<group>"; };
+		198E624C19334C8200D8C4D7 /* PDFBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFBool.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E624D19334C8200D8C4D7 /* PDFBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFBool.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E624F1933563100D8C4D7 /* PDFName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFName.h; sourceTree = "<group>"; };
+		198E62501933563100D8C4D7 /* PDFName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFName.m; sourceTree = "<group>"; };
+		1991B7BE192D4A1B009C06FC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		1991B7BF192D4A4C009C06FC /* Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Utils.c; sourceTree = "<group>"; };
+		19958FC21935C3880018467C /* PDFPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPages.h; sourceTree = "<group>"; };
+		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPages.m; sourceTree = "<group>"; };
+		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFNumber.h; sourceTree = "<group>"; };
+		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFNumber.m; sourceTree = "<group>"; };
+		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdf.h; sourceTree = "<group>"; };
+		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdf.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +127,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		198A6A3F194C885E0085588C /* Parser Tests */ = {
+		198A6A3F194C885E0085588C /* YAPDFKit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				198A6A45194C885E0085588C /* Parser_Tests.m */,
+				198A6A45194C885E0085588C /* YAPDFKit_Tests.m */,
 				198A6A40194C885E0085588C /* Supporting Files */,
 			);
+			name = "YAPDFKit Tests";
 			path = "Parser Tests";
 			sourceTree = "<group>";
 		};
@@ -149,8 +150,8 @@
 		198DDE7F191E279B00B11929 = {
 			isa = PBXGroup;
 			children = (
-				198DDE8D191E279B00B11929 /* Parser */,
-				198A6A3F194C885E0085588C /* Parser Tests */,
+				198DDE8D191E279B00B11929 /* YAPDFKit */,
+				198A6A3F194C885E0085588C /* YAPDFKit Tests */,
 				198DDE8A191E279B00B11929 /* Frameworks */,
 				198DDE89191E279B00B11929 /* Products */,
 			);
@@ -175,7 +176,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		198DDE8D191E279B00B11929 /* Parser */ = {
+		198DDE8D191E279B00B11929 /* YAPDFKit */ = {
 			isa = PBXGroup;
 			children = (
 				3EC10EA91C64DDE50079C21C /* ToBeRemoved */,
@@ -194,7 +195,7 @@
 				198DDE8E191E279B00B11929 /* main.m */,
 				198DDE90191E279B00B11929 /* Supporting Files */,
 			);
-			path = Parser;
+			path = YAPDFKit;
 			sourceTree = "<group>";
 		};
 		198DDE90191E279B00B11929 /* Supporting Files */ = {
@@ -336,7 +337,7 @@
 				19C2C53D194CC0DF00F6D35D /* PDFHexString.m in Sources */,
 				19C2C53C194CC0D800F6D35D /* PDFArray.m in Sources */,
 				198A6A4F194C8E3C0085588C /* PDFNumber.m in Sources */,
-				198A6A46194C885E0085588C /* Parser_Tests.m in Sources */,
+				198A6A46194C885E0085588C /* YAPDFKit_Tests.m in Sources */,
 				198A6A50194C8E3C0085588C /* PDFDictionary.m in Sources */,
 				198A6A4D194C88CC0085588C /* Utils.c in Sources */,
 				198A6A52194C8E510085588C /* PDFObjectReference.m in Sources */,

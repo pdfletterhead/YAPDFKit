@@ -1,15 +1,13 @@
 //
-//  PDFBool.m
-//  Parser
+//  PDFName.m
+//  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFBool.h"
+#import "PDFName.h"
 
-@implementation PDFBool
-
-@synthesize value;
+@implementation PDFName
 
 @end

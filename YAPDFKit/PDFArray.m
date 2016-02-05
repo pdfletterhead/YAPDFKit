@@ -1,13 +1,13 @@
 //
-//  PDFName.m
-//  Parser
+//  PDFArray.m
+//  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFName.h"
+#import "PDFArray.h"
 
-@implementation PDFName
+@implementation PDFArray
 
 @end

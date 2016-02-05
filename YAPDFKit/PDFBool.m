@@ -1,13 +1,15 @@
 //
-//  PDFString.m
-//  Parser
+//  PDFBool.m
+//  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFString.h"
+#import "PDFBool.h"
 
-@implementation PDFString
+@implementation PDFBool
+
+@synthesize value;
 
 @end

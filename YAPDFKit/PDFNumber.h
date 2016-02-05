@@ -1,6 +1,6 @@
 //
 //  PDFNumber.h
-//  Parser
+//  YAPDFKit
 //
 //  Created by Aliona on 27.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
