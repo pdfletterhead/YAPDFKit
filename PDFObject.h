@@ -14,7 +14,7 @@
 
 @property NSInteger firstNumber;
 @property NSInteger secondNumber;
-@property NSData *stream;
+//@property NSData *stream;
 @property id value;
 @property NSMutableDictionary *references;
 

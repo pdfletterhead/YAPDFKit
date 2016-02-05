@@ -29,14 +29,12 @@
    // NSMutableDictionary * pdfContents;
 }
 
-@synthesize value, firstNumber, secondNumber, stream, references;
+@synthesize value, firstNumber, secondNumber, references;
 
 - (id)initWithData :(NSData*)d first:(NSInteger*)first second:(NSInteger*)second 
 {
     if (self = [super init]) {
-
-        //NSLog(@"hhm: ===========\n%s\n----------------------", d.bytes);
-        
+       
         rawData = (const char *)[d bytes];
         dataLength = d.length;
         //pdfContents = documentContents;
@@ -65,7 +63,6 @@
         obj = [self checkNextStruct:&i];
         if(obj) {
             [contents addObject:obj];
-            //[obj dealloc];
         }
     }
     index = &i;
@@ -102,8 +99,8 @@
         structure = [self checkStream:&i];
         if(structure) {
             //stream = (NSData *)structure;
-            PDFStreamDecoder *decrypt = [[PDFStreamDecoder alloc] initWithData:stream];
-            stream = [decrypt getDecrypted];
+//            PDFStreamDecoder *decrypt = [[PDFStreamDecoder alloc] initWithData:stream];
+//            stream = [decrypt getDecrypted];
         }
     } else if (isBlank(rawData[i])) {
         skipBlankSymbols(rawData, &i);
@@ -148,7 +145,6 @@
     }
     
     *idx = i;
-  //  NSLog(@"Dictionary %@", dict);
     pdfDict = (PDFDictionary *)dict;
     return pdfDict;
 }
@@ -176,7 +172,6 @@
     
     PDFArray *pdfArray = (PDFArray*)array;
     *idx = i;
-   // NSLog(@"Array %@", array);
     return pdfArray;
 }
 
@@ -197,7 +192,6 @@
     }
     
     *idx = i;
-    // NSLog(@"boooool %@",str);
     return b;
 }
 
@@ -240,8 +234,6 @@
     ++i;
     
     for (; i < dataLength; ++i) {
-        // Может содержать в себе не экранированные скобки,
-        // но скобки должны закрываться в этом случае ()
         if (rawData[i] == '(' && rawData[i-1] != '\\') {
             brackets++;
         } else if (brackets && rawData[i] == ')') {
@@ -257,7 +249,6 @@
     
     *idx = i;
     pdfString = (PDFString *)str;
-   // NSLog(@"Textstring %@",str);
     return pdfString;
 }
 
@@ -274,7 +265,6 @@
     }
     
     *idx = i;
-   // NSLog(@"Name %@",name);
     pdfName = (PDFName *)name;
     return pdfName;
 }
@@ -360,7 +350,6 @@
     }
     
     NSMutableData *data = [NSData dataWithBytes:b length:e - b];
-    //stream = (NSData *)data;
     printf("\n\nB--------\n");
     
     //dumpCharArray(data.bytes, data.length);
@@ -374,42 +363,6 @@
     return data;
 }
 
-- (NSData *)checkStreamWorking:(NSUInteger *)idx
-{
-    NSUInteger i = *idx;
-    
-    const char *b = NULL;
-    if (i+5 < dataLength) {
-        char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5],0};
-        if (![@(buffer)isEqualToString:@"stream"]){
-            return nil; //error
-        }
-        i += 5;
-        b = &rawData[i-10];
-    }
-    
-    const char* e = NULL;
-    for(; i < dataLength; ++i) {
-        if (rawData[i] == 'e' && rawData[i-1] != '/' && i+8 < dataLength) {
-            char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5], rawData[i+6], rawData[i+7], rawData[i+8], 0};
-            if ([@(buffer)isEqualToString:@"endstream"]){
-                e = &rawData[i];
-                break;
-            }
-        }
-    }
-    
-    NSMutableData *data = [NSData dataWithBytes:b length:e - b + 20];
-    stream = (NSData *)data;
-    //NSLog(@"stream: %s",data.bytes);
-    NSString * found = findAndConvertStream(data);
-    //NSLog(@"string: %s",found);
-    
-    i += 8;
-    *idx = i;
-    
-    return data;
-}
 - (NSString *)getObjectNumber
 {
     NSString *num = @"";
