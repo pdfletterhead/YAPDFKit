@@ -1,11 +1,12 @@
-# YAPDFKit
+#  YAPDFKit
 
 Yet another PDF Kit is a independent PDF Kit written in objective-c for
 parsing and manipulating PDF's.
 
 WARNING: Currently the state of YAPDFKit is experimental.
 
-Motivation: This project started because I wanted to remove white
+## Motivation
+This project started because I wanted to remove white
 backgrounds from PDF's made by Applications like Apple Pages. YAPDFKit
 is used in the [PDF Letterhead App](http://pdfletterhead.net).
 
@@ -29,7 +30,14 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 
 ### Milestone 1
 
-- 
+- Make cocoapod
+- Return all document objects
+- Return all document pages
+- Return all page objects
+- Return page content object
+- Replace content object stream
+- Update content object lenth value in references object
+- Deflate content object stream
 
 ## Credits
 
