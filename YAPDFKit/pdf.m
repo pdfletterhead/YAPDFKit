@@ -248,15 +248,22 @@ NSString* convertStream(NSData * data)
         {
             //Ok, got something, extract the text:
             //size_t totout = zstrm.total_out;
-            printf("raw: %s",output);
+            //printf("raw: %s",output);
+            NSString *decompr = [NSString stringWithCString:output encoding:NSUTF8StringEncoding];
+
+            free(output);
+            return decompr;
             //ProcessOutput(output, totout);
         }
     }
+
     free(output);
-//    output=0;
+    return nil;
+    
+   //    output=0;
 //    buffer+= streamend + 7;
 //    filelen = filelen - (streamend+7);
-    return @"";
+    return nil;
     
 }
 

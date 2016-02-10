@@ -20,6 +20,7 @@ enum ParserStates {
     DEFAULT_STATE,
 };
 
+
 int main(int argc, const char * argv[])
 {
 
@@ -30,7 +31,6 @@ int main(int argc, const char * argv[])
 
         //Open the PDF source file:
         FILE* filei = fopen([file2 UTF8String], "rb");
-
 
         //Get the file length:
         int fseekres = fseek(filei,0, SEEK_END);   //fseek==0 if ok
@@ -45,22 +45,41 @@ int main(int argc, const char * argv[])
             return 0;
         }
 
-        //NSUInteger size = // some size
-        //unsigned char array[size];
         NSData* fileData = [NSData dataWithBytes:(const void *)buffer length:filelen];
 
         PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
-        [document getInfoForKey:@"Type"];
-        PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
-        [pg getPageCount];
-        [pg getPagesTree];
+        
+        //[document getInfoForKey:@"Type"];
+        
+        //SOME FEATURES
+        //NSLog(@"dict: %@", [document allObjects]);
+        
+        NSDictionary *pdfObjs = [document allObjects];
+        for(id key in pdfObjs) {
+            id pdfObject = [pdfObjs objectForKey:key];
+            NSLog(@"Objectnumber: %@",[pdfObject getObjectNumber]);
+            //NSLog(@"contents: %@",[pdfObject getContents]);
+            
+            if([pdfObject getStreamObject])
+            {
+//                NSLog(@"stream object: %@",[pdfObject getStreamObject]);
+                NSLog(@"stream unenc: %@",[[pdfObject getStreamObject] getDecompressedDataAsString]);
+            }
+        }
+        
+        
+        //PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+        //[pg getPageCount];
+        //[pg getPagesTree];
 
+        /*
         if ([document errorMessage]) {
             NSLog(@"%@", [document errorMessage]);
         }
         else {
             NSLog(@"%@", [document version]);
         }
+        */
 
      }
     return 0;

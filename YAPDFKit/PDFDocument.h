@@ -24,4 +24,6 @@
 - (id) getInfoForKey:(NSString *)key inObject:(NSString *)objectNumber;
 - (NSString *)getObjectNumberForKey:(NSString *)key :(NSString*)value;
 
+- (NSDictionary*)allObjects;
+
 @end

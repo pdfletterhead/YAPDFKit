@@ -36,7 +36,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (id)initWithData:(NSData*)data
 {
     if (self = [super init]) {
-        
+
         _version = @"";
         contents = [[NSMutableDictionary alloc] init];
         char *buffer = malloc(data.length + 1);
@@ -47,12 +47,17 @@ const char* strblock(const char* p, int(^func)(char ch))
 
         [self parseData:dataWithNull];
         [self linkObjectsWithContents];
-        
-        
-        
+
+        //NSLog(@"%@",contents);
+
         return self;
     }
     return nil;
+}
+
+- (NSDictionary*)allObjects
+{
+    return contents;
 }
 
 - (NSString*)version
@@ -68,44 +73,44 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (void)parseData:(NSData*)data
 {
     enum ParserStates state = BEGIN_STATE;
-    
+
     if (data.length < 5) {
         _errorMessage = @"Too short file";
         return;
     }
-    
+
     NSUInteger i = 0;
-    
+
     while (i < data.length && _errorMessage == nil) {
         switch (state) {
             case BEGIN_STATE:
                 state = [self handleBeginState:data idx:&i];
                 break;
-                
+
             case FILL_VERSION_STATE:
                 state = [self handleVersionState:data idx:&i];
                 break;
-                
+
             case SEARCH_NEXT_PDF_STRUCTURE_STATE:
                 state = [self handleSearchNextPDFStructureState:data idx:&i];
                 break;
-                
+
             case NEXT_PDF_STRUCTURE_STATE:
                 state = [self handleNextPDFStructureState:data idx:&i];
                 break;
-                
+
             case IN_PDF_COMMENT_STATE:
                 state = [self handleInPDFCommentState:data idx:&i];
                 break;
-                
+
             case IN_PDF_OBJECT_STATE:
                 state = [self handleInPDFObjectState:data idx:&i];
                 break;
-            
+
             case IN_PDF_XREF_STATE:
                 state = [self handleInPDFXrefState:data idx:&i];
                 break;
-                
+
             default:
                 ++i;
                 break;
@@ -116,7 +121,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (enum ParserStates)handleBeginState:(NSData*)data idx:(NSUInteger*)idx
 {
     const char *rawData = (const char *)[data bytes];
-    
+
     NSUInteger i = *idx;
     if(rawData[i] == '%') {
         char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], 0};
@@ -134,17 +139,17 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (enum ParserStates)handleVersionState:(NSData*)data idx:(NSUInteger*)idx
 {
     const char *rawData = (const char *)[data bytes];
-    
+
     NSUInteger i = *idx;
     for (; rawData[i] != '\r' && rawData[i] != '\n'; ++i) {
         char buffer[] = {rawData[i], 0};
         _version = [_version stringByAppendingString:@(buffer)];
-        
-        
+
+
         //NSDictionary *dict = [NSDictionary dictionaryWithObject:_version forKey:@"version"];
         //[_contents addObject:dict];
     }
-    
+
     *idx = i;
     return SEARCH_NEXT_PDF_STRUCTURE_STATE;
 }
@@ -152,7 +157,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (enum ParserStates)handleSearchNextPDFStructureState:(NSData*)data idx:(NSUInteger*)idx
 {
     const char *rawData = (const char *)[data bytes];
-    
+
     NSUInteger i = *idx;
     for (; isBlank(rawData[i]); ++i) {
     }
@@ -164,20 +169,20 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (enum ParserStates)handleNextPDFStructureState:(NSData*)data idx:(NSUInteger*)idx
 {
     const char *rawData = (const char *)[data bytes];
-    
+
     NSUInteger i = *idx;
     enum ParserStates state = ERROR_STATE;
-    
+
     switch (rawData[i]) {
         case '%':
             state = IN_PDF_COMMENT_STATE;
             ++i;
             break;
-            
+
         case 'x':
             state = IN_PDF_XREF_STATE;
             break;
-            
+
         case '0':
         case '1':
         case '2':
@@ -190,7 +195,7 @@ const char* strblock(const char* p, int(^func)(char ch))
         case '9':
             state = IN_PDF_OBJECT_STATE;
             break;
-            
+
         default:
             state = DEFAULT_STATE;
             break;
@@ -203,7 +208,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 {
     const char *rawData = (const char*)[data bytes];
     NSUInteger i = *idx;
-    
+
     NSUInteger endOfCommentIdx = i;
     while (rawData[endOfCommentIdx] != '\r' && rawData[endOfCommentIdx] != '\n') {
         ++endOfCommentIdx;
@@ -214,10 +219,10 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
     NSLog(@"%@", comment);
     i = endOfCommentIdx;
-    
+
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
     //[_contents addObject:dict];
-    
+
     *idx = i;
     return SEARCH_NEXT_PDF_STRUCTURE_STATE;
 }
@@ -226,11 +231,11 @@ const char* strblock(const char* p, int(^func)(char ch))
 {
     const char *rawData = (const char*)[data bytes];
     NSUInteger dataLength = data.length;
-    
+
     NSUInteger i = *idx;
     NSString *firstObjNum = @"";
     NSString *secondObjNum = @"";
-    
+
     for(; i < dataLength; ++i) {
         if(isNum(rawData[i])) {
             char buffer[] = {rawData[i], 0};
@@ -239,12 +244,12 @@ const char* strblock(const char* p, int(^func)(char ch))
             break;
         }
     }
-    
+
     if (!isBlank(rawData[i])) {
         _errorMessage = @"Unknown object syntax";
         return ERROR_STATE;
     }
-    
+
     for (; i+3 < dataLength; ++i) {
         if (rawData[i] == ' ' && rawData[i+1] == 'o' && rawData[i+2] == 'b' && rawData[i+3] == 'j') {
             i += 4;
@@ -253,15 +258,15 @@ const char* strblock(const char* p, int(^func)(char ch))
         char buffer[] = {rawData[i], 0};
         secondObjNum = [secondObjNum stringByAppendingString:@(buffer)];
     }
-    
+
     NSInteger first = [firstObjNum integerValue];
     NSInteger second = [secondObjNum integerValue];
-    
+
     skipBlankSymbols(rawData, &i);
-    
+
     const char* objBodyBegin = &rawData[i];
     const char* objBodyEnd;
-    
+
     for (; i+6 < dataLength; ++i) {
         if (rawData[i-1] != '\\' && rawData[i] == 'e' && rawData[i+1] == 'n' && rawData[i+2] == 'd' && rawData[i+3] == 'o' && rawData[i+4] == 'b' && rawData[i+5] == 'j') {
             objBodyEnd = &rawData[i-1];
@@ -269,10 +274,10 @@ const char* strblock(const char* p, int(^func)(char ch))
             break;
         }
     }
-    
+
     skipBlankSymbols(rawData, &i);
     NSData *objectData = NULL;
-    
+
     if(objBodyEnd - objBodyBegin > 0) {
         objectData = [NSData dataWithBytes:objBodyBegin length:objBodyEnd - objBodyBegin];
     }
@@ -280,12 +285,12 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSString * objBodyStr = [[NSString alloc] initWithData:objectData encoding:NSASCIIStringEncoding];
     if ([objBodyStr rangeOfString:@"FlateDecode"].location == NSNotFound) {
     } else {
-        
+
         //NSLog(@"\n\nB--------\n\n");
         //dumpCharArray(objectData.bytes, objectData.length);
         //printf("\n\nE--------\n\n");
     }
-    
+
     PDFObject *p = [[PDFObject alloc] initWithData:objectData first:&first second:&second];
     [contents setObject:p forKey:[p getObjectNumber]];
 
@@ -298,16 +303,16 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSUInteger i = *idx;
     const char *rawData = (const char*)[data bytes];
     NSUInteger dataLength = data.length;
-    
+
     if(!(i+3 < dataLength && rawData[i] == 'x' && rawData[i+1] == 'r' && rawData[i+2] == 'e' && rawData[i+3] == 'f')) {
         _errorMessage = @"Xref unknown syntax";
         return ERROR_STATE;
     }
-    
+
     i += 4;
     const char* xrefBegin = &rawData[i];
     const char* xrefEnd = NULL;
-    
+
     for (; i+9 < dataLength; ++i) {
         if (rawData[i] == 't') {
             char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5], rawData[i+6], 0};
@@ -320,13 +325,13 @@ const char* strblock(const char* p, int(^func)(char ch))
             break;
         }
     }
-    
+
     NSData *xrefData = [NSData dataWithBytes:xrefBegin length:xrefEnd - xrefBegin];
-    
+
     skipBlankSymbols(rawData, &i);
     const char* trailerBegin = &rawData[i];
     const char* trailerEnd = NULL;
-    
+
     for (; i+9 < dataLength; ++i) {
         if (rawData[i] == 's') {
             xrefEnd = &rawData[i];
@@ -340,13 +345,13 @@ const char* strblock(const char* p, int(^func)(char ch))
             break;
         }
     }
-    
+
     NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
-    
+
     //NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
-    
+
     skipBlankSymbols(rawData, &i);
-    
+
     NSString *someNum = @"";
     while (i < dataLength && isNum(rawData[i])) {
         char buffer[] = {rawData[i], 0};

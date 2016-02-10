@@ -30,6 +30,7 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 
 ### Milestone 1
 
+- [ ] cleanup inflate function
 - [ ] Make podspec
 - [ ] Return all document objects
 - [ ] Return all document pages

@@ -17,7 +17,7 @@
 #import "PDFObjectReference.h"
 #import "PDFStreamDecoder.h"
 #import "Utils.h"
-#include "pdf.h"
+
 
 
 @implementation PDFObject
@@ -26,29 +26,35 @@
     NSUInteger dataLength;
     NSUInteger * index;
     NSMutableArray * contents;
-   // NSMutableDictionary * pdfContents;
+    NSMutableDictionary * pdfContents;
 }
 
-@synthesize value, firstNumber, secondNumber, references;
+@synthesize value, firstNumber, secondNumber, references, stream;
 
 - (id)initWithData :(NSData*)d first:(NSInteger*)first second:(NSInteger*)second 
 {
     if (self = [super init]) {
-       
+        
         rawData = (const char *)[d bytes];
         dataLength = d.length;
+        
         //pdfContents = documentContents;
         [self run];
+        
         firstNumber = *first;
         secondNumber = *second;
+        
         //references = [[NSMutableArray alloc] init];
+        
         if([contents count] != 0) {
             value = [contents objectAtIndex:0];
         } else {
             NSLog(@"EMPTY OBJ %ld %ld",(long)firstNumber,(long)secondNumber);
         }
+        
         return self;
     }
+    
     NSLog(@"init with nil");
     return nil;
 }
@@ -96,18 +102,19 @@
     } else if (rawData[i] == 't' || rawData[i] == 'f') {
         structure = [self checkBool:&i];
     } else if (rawData[i] == 's') {
-        structure = [self checkStream:&i];
-        if(structure) {
-            //stream = (NSData *)structure;
-//            PDFStreamDecoder *decrypt = [[PDFStreamDecoder alloc] initWithData:stream];
-//            stream = [decrypt getDecrypted];
-        }
+
+        stream = [self checkStream:&i];
+        
+        
     } else if (isBlank(rawData[i])) {
         skipBlankSymbols(rawData, &i);
+
         [self checkNextStruct:&i];
+        
     }
     
     *idx = i;
+
     return structure;
 }
 
@@ -136,7 +143,7 @@
         }
         
         skipBlankSymbols(rawData, &i);
-        
+
         obj = [self checkNextStruct:&i];
         
         if(key && obj) {
@@ -146,6 +153,7 @@
     
     *idx = i;
     pdfDict = (PDFDictionary *)dict;
+
     return pdfDict;
 }
 
@@ -165,6 +173,8 @@
         }
         
         obj = [self checkNextStruct:&i];
+        //NSLog(@"fstructure: %@", obj);
+
         if(obj) {
             [array addObject:obj];
         }
@@ -324,7 +334,7 @@
 }
 
 
-- (NSData *)checkStream:(NSUInteger *)idx
+- (PDFStream *)checkStream:(NSUInteger *)idx
 {
     NSUInteger i = *idx;
     
@@ -342,6 +352,13 @@
     for(; i < dataLength; ++i) {
         if (rawData[i] == 'e' && rawData[i-1] != '/' && i+8 < dataLength) {
             char buffer[] = {rawData[i], rawData[i+1], rawData[i+2], rawData[i+3], rawData[i+4], rawData[i+5], rawData[i+6], rawData[i+7], rawData[i+8], 0};
+           
+            /* This check must be activated
+             if (![@(buffer)isEqualToString:@"endstream"]){
+                return nil; //error
+            }
+            */
+
             if ([@(buffer)isEqualToString:@"endstream"]){
                 e = &rawData[i-1];
                 break;
@@ -349,18 +366,33 @@
         }
     }
     
-    NSMutableData *data = [NSData dataWithBytes:b length:e - b];
-    printf("\n\nB--------\n");
+    //NSData *data = [NSData dataWithBytes:b length:e - b];
+    PDFStream * returnStream = [[PDFStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
+   
+    //printf("\n\nB--------\n");
     
     //dumpCharArray(data.bytes, data.length);
-    NSString * found = convertStream(data);
+    //NSString * found = convertStream(data);
     //printf(@"string: %s",found);
-    printf("\nE--------\n\n");
+    //printf("\nE--------\n\n");
 
     i += 8;
     *idx = i;
-    
-    return data;
+ //   NSLog(@"Data:%@",data);
+ //    return data;
+    return returnStream;
+}
+
+/// METHODS AVAILABLE AFTER PARSING
+/// -------------------------------
+
+- (PDFStream *)getStreamObject {
+    return stream;
+}
+
+
+- (NSArray*)getContents {
+    return contents;
 }
 
 - (NSString *)getObjectNumber
