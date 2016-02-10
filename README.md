@@ -32,7 +32,9 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 
 - [x] Return all document objects
 - [x] Deflate content object stream
-- [ ] cleanup inflate function
+- [x] cleanup deflate function
+- [ ] cleanup file reader
+- [ ] add inflate function
 - [ ] Make podspec
 - [ ] Return all document pages
 - [ ] Return all page objects
@@ -43,6 +45,7 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [ ] Tests
 
 ### Backlog
+- [ ] Exact Text (ProcessOutput)
 
 
 ## Credits

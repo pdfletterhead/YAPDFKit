@@ -227,10 +227,10 @@ NSString* deflateData(NSData * data)
         if (rst2 >= 0)
         {
             //Ok, got something, extract the text:
-            //size_t totout = zstrm.total_out;
+            size_t totout = zstrm.total_out;
             //printf("raw: %s",output);
             //ProcessOutput(output, totout);
-            
+            //NSLog(@"text %@",result);
             NSString *decompr = [NSString stringWithCString:output encoding:NSUTF8StringEncoding];           
             free(output);
             return decompr;

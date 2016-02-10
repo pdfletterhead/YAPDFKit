@@ -48,8 +48,6 @@ const char* strblock(const char* p, int(^func)(char ch))
         [self parseData:dataWithNull];
         [self linkObjectsWithContents];
 
-        //NSLog(@"%@",contents);
-
         return self;
     }
     return nil;
@@ -280,15 +278,6 @@ const char* strblock(const char* p, int(^func)(char ch))
 
     if(objBodyEnd - objBodyBegin > 0) {
         objectData = [NSData dataWithBytes:objBodyBegin length:objBodyEnd - objBodyBegin];
-    }
-
-    NSString * objBodyStr = [[NSString alloc] initWithData:objectData encoding:NSASCIIStringEncoding];
-    if ([objBodyStr rangeOfString:@"FlateDecode"].location == NSNotFound) {
-    } else {
-
-        //NSLog(@"\n\nB--------\n\n");
-        //dumpCharArray(objectData.bytes, objectData.length);
-        //printf("\n\nE--------\n\n");
     }
 
     PDFObject *p = [[PDFObject alloc] initWithData:objectData first:&first second:&second];

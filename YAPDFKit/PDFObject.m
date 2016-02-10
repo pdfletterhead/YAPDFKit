@@ -71,7 +71,6 @@
         }
     }
     index = &i;
-    //NSLog(@"%@",contents);
 }
 
 - (NSObject *)checkNextStruct:(NSUInteger *)idx
@@ -365,20 +364,10 @@
         }
     }
     
-    //NSData *data = [NSData dataWithBytes:b length:e - b];
     PDFObjectStream * returnStream = [[PDFObjectStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
-   
-    //printf("\n\nB--------\n");
-    
-    //dumpCharArray(data.bytes, data.length);
-    //NSString * found = convertStream(data);
-    //printf(@"string: %s",found);
-    //printf("\nE--------\n\n");
 
     i += 8;
     *idx = i;
- //   NSLog(@"Data:%@",data);
- //    return data;
     return returnStream;
 }
 
