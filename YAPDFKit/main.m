@@ -11,7 +11,6 @@
 
 #import "PDFDocument.h"
 #import "PDFObject.h"
-#import "PDFStreamDecoder.h"
 #import "PDFPages.h"
 
 enum ParserStates {
@@ -26,7 +25,7 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
 
-        NSString *file = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-export-naar-pdf.pdf";
+//        NSString *file = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-export-naar-pdf.pdf";
         NSString *file2 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-multi-export-naar-pdf.pdf";
 
         //Open the PDF source file:

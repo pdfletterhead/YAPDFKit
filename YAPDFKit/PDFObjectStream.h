@@ -1,16 +1,16 @@
 //
-//  PDFStream.h
+//  PDFStream.m
 //  YAPDFKit
 //
 //  Created by Pim Snel on 10-02-16.
-//  Copyright © 2016 Ptenster. All rights reserved.
+//  Copyright © 2016 Lingewoud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#include "pdf.h"
+#include "pdfzlib.h"
 
 // Stream contents in PDFObject
-@interface PDFStream : NSObject
+@interface PDFObjectStream : NSObject
 
 @property NSData* rawData;
 

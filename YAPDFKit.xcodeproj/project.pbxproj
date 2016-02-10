@@ -39,9 +39,9 @@
 		19C2C53D194CC0DF00F6D35D /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
 		19D8FF471933FB79003D557C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
 		3E02FE181C6B75810093CEEF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE171C6B75810093CEEF /* README.md */; };
-		3E02FE1B1C6B88BD0093CEEF /* PDFStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFStream.m */; };
-		3E02FE1C1C6B88BD0093CEEF /* PDFStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFStream.m */; };
-		3EC10EA61C62CA140079C21C /* pdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdf.m */; };
+		3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
+		3E02FE1C1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
+		3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,10 +105,10 @@
 		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFNumber.h; sourceTree = "<group>"; };
 		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFNumber.m; sourceTree = "<group>"; };
 		3E02FE171C6B75810093CEEF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3E02FE191C6B88BC0093CEEF /* PDFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFStream.h; sourceTree = "<group>"; };
-		3E02FE1A1C6B88BD0093CEEF /* PDFStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFStream.m; sourceTree = "<group>"; };
-		3EC10EA41C62CA140079C21C /* pdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdf.h; sourceTree = "<group>"; };
-		3EC10EA51C62CA140079C21C /* pdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdf.m; sourceTree = "<group>"; };
+		3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectStream.h; sourceTree = "<group>"; };
+		3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectStream.m; sourceTree = "<group>"; };
+		3EC10EA41C62CA140079C21C /* pdfzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfzlib.h; sourceTree = "<group>"; };
+		3EC10EA51C62CA140079C21C /* pdfzlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdfzlib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +193,8 @@
 				19D8FF461933FB79003D557C /* PDFNumber.m */,
 				198807641929F2F300D2770D /* PDFObject.h */,
 				198807651929F2F300D2770D /* PDFObject.m */,
-				3E02FE191C6B88BC0093CEEF /* PDFStream.h */,
-				3E02FE1A1C6B88BD0093CEEF /* PDFStream.m */,
+				3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */,
+				3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */,
 				192F1D25191E483800D98CB6 /* PDFDocument.h */,
 				192F1D26191E483800D98CB6 /* PDFDocument.m */,
 				19958FC21935C3880018467C /* PDFPages.h */,
@@ -218,8 +218,8 @@
 		3EC10EA71C64DCF90079C21C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3EC10EA41C62CA140079C21C /* pdf.h */,
-				3EC10EA51C62CA140079C21C /* pdf.m */,
+				3EC10EA41C62CA140079C21C /* pdfzlib.h */,
+				3EC10EA51C62CA140079C21C /* pdfzlib.m */,
 				1991B7BE192D4A1B009C06FC /* Utils.h */,
 				1991B7BF192D4A4C009C06FC /* Utils.c */,
 			);
@@ -345,7 +345,7 @@
 				198A6A51194C8E510085588C /* PDFStreamDecoder.m in Sources */,
 				19C2C53D194CC0DF00F6D35D /* PDFHexString.m in Sources */,
 				19C2C53C194CC0D800F6D35D /* PDFArray.m in Sources */,
-				3E02FE1C1C6B88BD0093CEEF /* PDFStream.m in Sources */,
+				3E02FE1C1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */,
 				198A6A4F194C8E3C0085588C /* PDFNumber.m in Sources */,
 				198A6A46194C885E0085588C /* YAPDFKit_Tests.m in Sources */,
 				198A6A50194C8E3C0085588C /* PDFDictionary.m in Sources */,
@@ -363,14 +363,14 @@
 				198DDE8F191E279B00B11929 /* main.m in Sources */,
 				198712FE192FF5A60022A279 /* PDFStreamDecoder.m in Sources */,
 				198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */,
-				3EC10EA61C62CA140079C21C /* pdf.m in Sources */,
+				3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */,
 				19958FC41935C3880018467C /* PDFPages.m in Sources */,
 				1991B7C0192D4A4C009C06FC /* Utils.c in Sources */,
 				3E02FE181C6B75810093CEEF /* README.md in Sources */,
 				198807661929F2F300D2770D /* PDFObject.m in Sources */,
 				198E6248193342AF00D8C4D7 /* PDFString.m in Sources */,
 				192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */,
-				3E02FE1B1C6B88BD0093CEEF /* PDFStream.m in Sources */,
+				3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */,
 				198E62511933563100D8C4D7 /* PDFName.m in Sources */,
 				19871301192FFB290022A279 /* PDFObjectReference.m in Sources */,
 				198E624B193342C900D8C4D7 /* PDFHexString.m in Sources */,

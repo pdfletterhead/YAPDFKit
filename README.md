@@ -30,19 +30,20 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 
 ### Milestone 1
 
+- [x] Return all document objects
+- [x] Deflate content object stream
 - [ ] cleanup inflate function
 - [ ] Make podspec
-- [ ] Return all document objects
 - [ ] Return all document pages
 - [ ] Return all page objects
 - [ ] Return page content object
 - [ ] Replace content object stream
 - [ ] Update content object lenth value in references object
-- [ ] Deflate content object stream
+- [ ] Rename all object attributes classes with a name including object
+- [ ] Tests
 
 ### Backlog
 
-- [ ] Tests
 
 ## Credits
 

@@ -15,7 +15,6 @@
 #import "PDFNumber.h"
 #import "PDFString.h"
 #import "PDFObjectReference.h"
-#import "PDFStreamDecoder.h"
 #import "Utils.h"
 
 
@@ -334,7 +333,7 @@
 }
 
 
-- (PDFStream *)checkStream:(NSUInteger *)idx
+- (PDFObjectStream *)checkStream:(NSUInteger *)idx
 {
     NSUInteger i = *idx;
     
@@ -367,7 +366,7 @@
     }
     
     //NSData *data = [NSData dataWithBytes:b length:e - b];
-    PDFStream * returnStream = [[PDFStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
+    PDFObjectStream * returnStream = [[PDFObjectStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
    
     //printf("\n\nB--------\n");
     
@@ -386,7 +385,7 @@
 /// METHODS AVAILABLE AFTER PARSING
 /// -------------------------------
 
-- (PDFStream *)getStreamObject {
+- (PDFObjectStream *)getStreamObject {
     return stream;
 }
 

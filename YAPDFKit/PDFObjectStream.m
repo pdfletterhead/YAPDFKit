@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lingewoud. All rights reserved.
 //
 
-#import "PDFStream.h"
+#import "PDFObjectStream.h"
 
-@implementation PDFStream
+@implementation PDFObjectStream
 
 - (id)initWithData :(NSData*)data
 {
@@ -27,17 +27,8 @@
 
 - (NSString *)getDecompressedDataAsString
 {
-    
-    //printf("\n\nB--------\n");
-    
-    //dumpCharArray(data.bytes, data.length);
-    NSString * decompressedString = convertStream(_rawData);
-//    NSLog(@"string: %@", decompressedString);
-    //printf("\nE--------\n\n");
+    NSString * decompressedString = deflateData(_rawData);
     return decompressedString;
 }
-
-
-
 
 @end
