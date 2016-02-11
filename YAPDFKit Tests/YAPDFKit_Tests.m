@@ -16,11 +16,12 @@
 #import "PDFString.h"
 #import "PDFObjectReference.h"
 
-@interface Parser_Tests : XCTestCase
+
+@interface YAPDFKit_Tests : XCTestCase
 
 @end
 
-@implementation Parser_Tests
+@implementation YAPDFKit_Tests
 
 - (void)setUp
 {
@@ -40,6 +41,7 @@
 - (void)testObjectReferenceParsing
 {
     char example[] = "325 0 R";
+    NSLog(@"Hallo?");
     NSData *exampleData = [NSData dataWithBytes:example length:sizeof(example)];
     NSInteger first, second;
     PDFObject *obj = [[PDFObject alloc] initWithData:exampleData first:&first second:&second];

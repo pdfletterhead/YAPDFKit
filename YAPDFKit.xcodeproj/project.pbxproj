@@ -11,7 +11,6 @@
 		198712FE192FF5A60022A279 /* PDFStreamDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 198712FD192FF5A60022A279 /* PDFStreamDecoder.m */; };
 		19871301192FFB290022A279 /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
 		198807661929F2F300D2770D /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
-		198868F81931FE0200A43AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 198868F71931FE0200A43AF3 /* libz.dylib */; };
 		198A6A3E194C885E0085588C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198A6A3D194C885E0085588C /* XCTest.framework */; };
 		198A6A44194C885E0085588C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A6A42194C885E0085588C /* InfoPlist.strings */; };
 		198A6A46194C885E0085588C /* YAPDFKit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198A6A45194C885E0085588C /* YAPDFKit_Tests.m */; };
@@ -21,7 +20,6 @@
 		198A6A50194C8E3C0085588C /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
 		198A6A51194C8E510085588C /* PDFStreamDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 198712FD192FF5A60022A279 /* PDFStreamDecoder.m */; };
 		198A6A52194C8E510085588C /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
-		198A6A53194C8E980085588C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 198868F71931FE0200A43AF3 /* libz.dylib */; };
 		198DDE8C191E279B00B11929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		198DDE8F191E279B00B11929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198DDE8E191E279B00B11929 /* main.m */; };
 		198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
@@ -41,6 +39,43 @@
 		3E02FE181C6B75810093CEEF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE171C6B75810093CEEF /* README.md */; };
 		3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
 		3E02FE1C1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
+		3E5BFA541C6D3B910087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
+		3E5BFA551C6D3C050087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
+		3E5BFA561C6D3C9B0087630B /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
+		3E5BFA581C6D3D410087630B /* pages-multi-export-naar-pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA571C6D3D410087630B /* pages-multi-export-naar-pdf.pdf */; };
+		3E5BFA5A1C6D3D600087630B /* pages-geprint-naar-pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA591C6D3D600087630B /* pages-geprint-naar-pdf.pdf */; };
+		3E5BFA5C1C6D40770087630B /* YAPDFKit File Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BFA5B1C6D40770087630B /* YAPDFKit File Tests.m */; };
+		3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */; };
+		3E5BFA691C6D428B0087630B /* PDFHexString.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E6249193342C900D8C4D7 /* PDFHexString.h */; };
+		3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
+		3E5BFA6B1C6D428B0087630B /* PDFDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E62401933420700D8C4D7 /* PDFDictionary.h */; };
+		3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
+		3E5BFA6D1C6D428B0087630B /* PDFArray.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E62431933422400D8C4D7 /* PDFArray.h */; };
+		3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
+		3E5BFA6F1C6D428B0087630B /* PDFBool.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E624C19334C8200D8C4D7 /* PDFBool.h */; };
+		3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* PDFBool.m */; };
+		3E5BFA711C6D428B0087630B /* PDFName.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E624F1933563100D8C4D7 /* PDFName.h */; };
+		3E5BFA721C6D428B0087630B /* PDFName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* PDFName.m */; };
+		3E5BFA731C6D428B0087630B /* PDFString.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E6246193342AF00D8C4D7 /* PDFString.h */; };
+		3E5BFA741C6D428B0087630B /* PDFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* PDFString.m */; };
+		3E5BFA751C6D428B0087630B /* pdfzlib.h in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA41C62CA140079C21C /* pdfzlib.h */; };
+		3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
+		3E5BFA771C6D428B0087630B /* Utils.h in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BE192D4A1B009C06FC /* Utils.h */; };
+		3E5BFA781C6D428B0087630B /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
+		3E5BFA791C6D428B0087630B /* PDFNumber.h in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF451933FB79003D557C /* PDFNumber.h */; };
+		3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
+		3E5BFA7B1C6D428B0087630B /* PDFObject.h in Sources */ = {isa = PBXBuildFile; fileRef = 198807641929F2F300D2770D /* PDFObject.h */; };
+		3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
+		3E5BFA7D1C6D428B0087630B /* PDFObjectStream.h in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */; };
+		3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
+		3E5BFA7F1C6D428B0087630B /* PDFDocument.h in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D25191E483800D98CB6 /* PDFDocument.h */; };
+		3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* PDFDocument.m */; };
+		3E5BFA811C6D428B0087630B /* PDFPages.h in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC21935C3880018467C /* PDFPages.h */; };
+		3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* PDFPages.m */; };
+		3E5BFA831C6D428B0087630B /* PDFObjectReference.h in Sources */ = {isa = PBXBuildFile; fileRef = 198712FF192FFB290022A279 /* PDFObjectReference.h */; };
+		3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
+		3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
+		3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
 		3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 /* End PBXBuildFile section */
 
@@ -75,17 +110,16 @@
 		19871300192FFB290022A279 /* PDFObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectReference.m; sourceTree = "<group>"; };
 		198807641929F2F300D2770D /* PDFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObject.h; sourceTree = "<group>"; };
 		198807651929F2F300D2770D /* PDFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObject.m; sourceTree = "<group>"; };
-		198868F71931FE0200A43AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		198A6A3C194C885E0085588C /* YAPDFKit.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAPDFKit.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198A6A3D194C885E0085588C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		198A6A41194C885E0085588C /* YAPDFKit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YAPDFKit Tests-Info.plist"; sourceTree = "<group>"; };
 		198A6A43194C885E0085588C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		198A6A45194C885E0085588C /* YAPDFKit_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YAPDFKit_Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198A6A47194C885E0085588C /* Parser Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parser Tests-Prefix.pch"; sourceTree = "<group>"; };
+		198A6A47194C885E0085588C /* YAPDFKit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YAPDFKit Tests-Prefix.pch"; sourceTree = "<group>"; };
 		198DDE88191E279B00B11929 /* YAPDFKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = YAPDFKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = YAPDFKit/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YAPDFKit-Prefix.pch"; path = "YAPDFKit/YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
+		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
 		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFArray.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -107,6 +141,13 @@
 		3E02FE171C6B75810093CEEF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectStream.h; sourceTree = "<group>"; };
 		3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectStream.m; sourceTree = "<group>"; };
+		3E5BFA531C6D3B910087630B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		3E5BFA571C6D3D410087630B /* pages-multi-export-naar-pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "pages-multi-export-naar-pdf.pdf"; sourceTree = "<group>"; };
+		3E5BFA591C6D3D600087630B /* pages-geprint-naar-pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "pages-geprint-naar-pdf.pdf"; sourceTree = "<group>"; };
+		3E5BFA5B1C6D40770087630B /* YAPDFKit File Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YAPDFKit File Tests.m"; sourceTree = "<group>"; };
+		3E5BFA611C6D41930087630B /* YAPDFKit-TestSuite.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YAPDFKit-TestSuite.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPDFKit_TestSuite.m; sourceTree = "<group>"; };
+		3E5BFA651C6D41930087630B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC10EA41C62CA140079C21C /* pdfzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfzlib.h; sourceTree = "<group>"; };
 		3EC10EA51C62CA140079C21C /* pdfzlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdfzlib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				198A6A53194C8E980085588C /* libz.dylib in Frameworks */,
+				3E5BFA541C6D3B910087630B /* libz.1.dylib in Frameworks */,
 				198A6A3E194C885E0085588C /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,8 +166,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				198868F81931FE0200A43AF3 /* libz.dylib in Frameworks */,
+				3E5BFA551C6D3C050087630B /* libz.1.dylib in Frameworks */,
 				198DDE8C191E279B00B11929 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E5BFA5E1C6D41930087630B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */,
+				3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +186,13 @@
 		198A6A3F194C885E0085588C /* YAPDFKit Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3E5BFA5B1C6D40770087630B /* YAPDFKit File Tests.m */,
 				198A6A45194C885E0085588C /* YAPDFKit_Tests.m */,
+				3E5BFA591C6D3D600087630B /* pages-geprint-naar-pdf.pdf */,
+				3E5BFA571C6D3D410087630B /* pages-multi-export-naar-pdf.pdf */,
 				198A6A40194C885E0085588C /* Supporting Files */,
 			);
-			name = "YAPDFKit Tests";
-			path = "Parser Tests";
+			path = "YAPDFKit Tests";
 			sourceTree = "<group>";
 		};
 		198A6A40194C885E0085588C /* Supporting Files */ = {
@@ -148,7 +200,7 @@
 			children = (
 				198A6A41194C885E0085588C /* YAPDFKit Tests-Info.plist */,
 				198A6A42194C885E0085588C /* InfoPlist.strings */,
-				198A6A47194C885E0085588C /* Parser Tests-Prefix.pch */,
+				198A6A47194C885E0085588C /* YAPDFKit Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,6 +211,7 @@
 				3E02FE171C6B75810093CEEF /* README.md */,
 				198DDE8D191E279B00B11929 /* YAPDFKit */,
 				198A6A3F194C885E0085588C /* YAPDFKit Tests */,
+				3E5BFA621C6D41930087630B /* YAPDFKit-TestSuite */,
 				198DDE8A191E279B00B11929 /* Frameworks */,
 				198DDE89191E279B00B11929 /* Products */,
 			);
@@ -169,6 +222,7 @@
 			children = (
 				198DDE88191E279B00B11929 /* YAPDFKit */,
 				198A6A3C194C885E0085588C /* YAPDFKit.xctest */,
+				3E5BFA611C6D41930087630B /* YAPDFKit-TestSuite.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +230,7 @@
 		198DDE8A191E279B00B11929 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				198868F71931FE0200A43AF3 /* libz.dylib */,
+				3E5BFA531C6D3B910087630B /* libz.1.dylib */,
 				198DDE8B191E279B00B11929 /* Foundation.framework */,
 				198A6A3D194C885E0085588C /* XCTest.framework */,
 			);
@@ -213,6 +267,15 @@
 				198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E5BFA621C6D41930087630B /* YAPDFKit-TestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */,
+				3E5BFA651C6D41930087630B /* Info.plist */,
+			);
+			path = "YAPDFKit-TestSuite";
 			sourceTree = "<group>";
 		};
 		3EC10EA71C64DCF90079C21C /* Utils */ = {
@@ -292,17 +355,38 @@
 			productReference = 198DDE88191E279B00B11929 /* YAPDFKit */;
 			productType = "com.apple.product-type.tool";
 		};
+		3E5BFA601C6D41930087630B /* YAPDFKit-TestSuite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E5BFA661C6D41930087630B /* Build configuration list for PBXNativeTarget "YAPDFKit-TestSuite" */;
+			buildPhases = (
+				3E5BFA5D1C6D41930087630B /* Sources */,
+				3E5BFA5E1C6D41930087630B /* Frameworks */,
+				3E5BFA5F1C6D41930087630B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "YAPDFKit-TestSuite";
+			productName = "YAPDFKit-TestSuite";
+			productReference = 3E5BFA611C6D41930087630B /* YAPDFKit-TestSuite.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		198DDE80191E279B00B11929 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Ptenster;
+				ORGANIZATIONNAME = Lingewoud;
 				TargetAttributes = {
 					198A6A3B194C885E0085588C = {
 						TestTargetID = 198DDE87191E279B00B11929;
+					};
+					3E5BFA601C6D41930087630B = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
@@ -320,6 +404,7 @@
 			targets = (
 				198DDE87191E279B00B11929 /* YAPDFKit */,
 				198A6A3B194C885E0085588C /* YAPDFKit Tests */,
+				3E5BFA601C6D41930087630B /* YAPDFKit-TestSuite */,
 			);
 		};
 /* End PBXProject section */
@@ -329,7 +414,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5BFA581C6D3D410087630B /* pages-multi-export-naar-pdf.pdf in Resources */,
 				198A6A44194C885E0085588C /* InfoPlist.strings in Resources */,
+				3E5BFA5A1C6D3D600087630B /* pages-geprint-naar-pdf.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E5BFA5F1C6D41930087630B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5BFA561C6D3C9B0087630B /* pdfzlib.m in Sources */,
 				198A6A4E194C8B300085588C /* PDFObject.m in Sources */,
 				19C2C53A194CA54000F6D35D /* PDFBool.m in Sources */,
 				198A6A51194C8E510085588C /* PDFStreamDecoder.m in Sources */,
@@ -353,6 +448,7 @@
 				198A6A52194C8E510085588C /* PDFObjectReference.m in Sources */,
 				19C2C539194C981500F6D35D /* PDFName.m in Sources */,
 				19C2C53B194CA78900F6D35D /* PDFString.m in Sources */,
+				3E5BFA5C1C6D40770087630B /* YAPDFKit File Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +473,42 @@
 				198E62451933422400D8C4D7 /* PDFArray.m in Sources */,
 				198E624E19334C8200D8C4D7 /* PDFBool.m in Sources */,
 				19D8FF471933FB79003D557C /* PDFNumber.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E5BFA5D1C6D41930087630B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5BFA691C6D428B0087630B /* PDFHexString.h in Sources */,
+				3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */,
+				3E5BFA6B1C6D428B0087630B /* PDFDictionary.h in Sources */,
+				3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */,
+				3E5BFA6D1C6D428B0087630B /* PDFArray.h in Sources */,
+				3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */,
+				3E5BFA6F1C6D428B0087630B /* PDFBool.h in Sources */,
+				3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */,
+				3E5BFA711C6D428B0087630B /* PDFName.h in Sources */,
+				3E5BFA721C6D428B0087630B /* PDFName.m in Sources */,
+				3E5BFA731C6D428B0087630B /* PDFString.h in Sources */,
+				3E5BFA741C6D428B0087630B /* PDFString.m in Sources */,
+				3E5BFA751C6D428B0087630B /* pdfzlib.h in Sources */,
+				3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */,
+				3E5BFA771C6D428B0087630B /* Utils.h in Sources */,
+				3E5BFA781C6D428B0087630B /* Utils.c in Sources */,
+				3E5BFA791C6D428B0087630B /* PDFNumber.h in Sources */,
+				3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */,
+				3E5BFA7B1C6D428B0087630B /* PDFObject.h in Sources */,
+				3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */,
+				3E5BFA7D1C6D428B0087630B /* PDFObjectStream.h in Sources */,
+				3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */,
+				3E5BFA7F1C6D428B0087630B /* PDFDocument.h in Sources */,
+				3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */,
+				3E5BFA811C6D428B0087630B /* PDFPages.h in Sources */,
+				3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */,
+				3E5BFA831C6D428B0087630B /* PDFObjectReference.h in Sources */,
+				3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */,
+				3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,12 +542,12 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parser/YAPDFKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Parser Tests/YAPDFKit Tests-Info.plist";
+				INFOPLIST_FILE = "YAPDFKit Tests/YAPDFKit Tests-Info.plist";
 				PRODUCT_NAME = YAPDFKit;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -429,8 +561,8 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parser/YAPDFKit-Prefix.pch";
-				INFOPLIST_FILE = "Parser Tests/YAPDFKit Tests-Info.plist";
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
+				INFOPLIST_FILE = "YAPDFKit Tests/YAPDFKit Tests-Info.plist";
 				PRODUCT_NAME = YAPDFKit;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -524,6 +656,47 @@
 			};
 			name = Release;
 		};
+		3E5BFA671C6D41930087630B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
+				INFOPLIST_FILE = "YAPDFKit-TestSuite/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lingewoud.YAPDFKit-TestSuite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3E5BFA681C6D41930087630B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YAPDFKit/YAPDFKit-Prefix.pch";
+				INFOPLIST_FILE = "YAPDFKit-TestSuite/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lingewoud.YAPDFKit-TestSuite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +726,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3E5BFA661C6D41930087630B /* Build configuration list for PBXNativeTarget "YAPDFKit-TestSuite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E5BFA671C6D41930087630B /* Debug */,
+				3E5BFA681C6D41930087630B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>YAPDFKit Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>YAPDFKit-TestSuite.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>YAPDFKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>198DDE87191E279B00B11929</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3E5BFA601C6D41930087630B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

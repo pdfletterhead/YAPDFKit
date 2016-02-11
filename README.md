@@ -28,29 +28,30 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 
 ## Roadmap
 
-### Milestone 1
+### Milestone 1: update page contents object
 
 - [x] Return all document objects
 - [x] Deflate content object stream
 - [x] cleanup deflate function
-- [ ] cleanup file reader
-- [ ] add inflate function
-- [ ] Make podspec
+- [ ] Tests
 - [ ] Return all document pages
 - [ ] Return all page objects
 - [ ] Return page content object
-- [ ] Replace content object stream
-- [ ] Update content object lenth value in references object
-- [ ] Rename all object attributes classes with a name including object
-- [ ] Tests
+- [ ] Add new object at file bottom
+- [ ] calculate file and object length
+- [ ] Add new xref table at file bottom
+- [ ] Add new trailer
 
 ### Backlog
+- [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
+- [ ] Make podspec
 
+- [ ] Rename all object attributes classes with a name including object
+- [ ] cleanup file reader
 
 ## Credits
 
-YAPDFKit is a fork of [PDFCoolParser](https://github.com/kozliappi/PDFCoolParser) by @kozliappi.
-
-YAPDFKit is sponsored by [Lingewoud](http://lingewoud.com) and [MunsterMade](http://munstermade.com).
+- YAPDFKit is a fork of [PDFCoolParser](https://github.com/kozliappi/PDFCoolParser) by @kozliappi.
+- YAPDFKit is sponsored by [Lingewoud](http://lingewoud.com) and [MunsterMade](http://munstermade.com).
 
