@@ -36,7 +36,9 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] Return all document objects
 - [x] Deflate content object stream
 - [x] cleanup deflate function
-- [ ] Tests
+- [x] Enable Existing Tests
+- [ ] Add some intergration tests
+- [ ] Enable travis
 - [ ] Return all document pages
 - [ ] Return all page objects
 - [ ] Return page content object
