@@ -1,5 +1,8 @@
 #  YAPDFKit
 
+[![Build
+Status](https://travis-ci.org/mipmip/YAPDFKit.svg?branch=master)](https://travis-ci.org/mipmip/YAPDFKit)
+
 Yet another PDF Kit is a independent PDF Kit written in objective-c for
 parsing and manipulating PDF's.
 
