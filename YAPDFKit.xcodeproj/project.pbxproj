@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* PDFDocument.m */; };
-		198712FE192FF5A60022A279 /* PDFStreamDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 198712FD192FF5A60022A279 /* PDFStreamDecoder.m */; };
 		19871301192FFB290022A279 /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
 		198807661929F2F300D2770D /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
 		198DDE8C191E279B00B11929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
@@ -74,8 +73,6 @@
 /* Begin PBXFileReference section */
 		192F1D25191E483800D98CB6 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDocument.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		192F1D26191E483800D98CB6 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198712FC192FF5A60022A279 /* PDFStreamDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFStreamDecoder.h; sourceTree = "<group>"; };
-		198712FD192FF5A60022A279 /* PDFStreamDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFStreamDecoder.m; sourceTree = "<group>"; };
 		198712FF192FFB290022A279 /* PDFObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectReference.h; sourceTree = "<group>"; };
 		19871300192FFB290022A279 /* PDFObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectReference.m; sourceTree = "<group>"; };
 		198807641929F2F300D2770D /* PDFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObject.h; sourceTree = "<group>"; };
@@ -169,7 +166,6 @@
 		198DDE8D191E279B00B11929 /* YAPDFKit */ = {
 			isa = PBXGroup;
 			children = (
-				3EC10EA91C64DDE50079C21C /* ToBeRemoved */,
 				3EC10EA81C64DD2D0079C21C /* Empty */,
 				3EC10EA71C64DCF90079C21C /* Utils */,
 				19D8FF451933FB79003D557C /* PDFNumber.h */,
@@ -235,15 +231,6 @@
 				198E6247193342AF00D8C4D7 /* PDFString.m */,
 			);
 			name = Empty;
-			sourceTree = "<group>";
-		};
-		3EC10EA91C64DDE50079C21C /* ToBeRemoved */ = {
-			isa = PBXGroup;
-			children = (
-				198712FC192FF5A60022A279 /* PDFStreamDecoder.h */,
-				198712FD192FF5A60022A279 /* PDFStreamDecoder.m */,
-			);
-			name = ToBeRemoved;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				198DDE8F191E279B00B11929 /* main.m in Sources */,
-				198712FE192FF5A60022A279 /* PDFStreamDecoder.m in Sources */,
 				198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */,
 				3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */,
 				19958FC41935C3880018467C /* PDFPages.m in Sources */,
