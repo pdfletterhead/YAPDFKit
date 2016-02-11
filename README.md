@@ -37,8 +37,8 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] Deflate content object stream
 - [x] cleanup deflate function
 - [x] Enable Existing Tests
-- [ ] Add some intergration tests
-- [ ] Enable travis
+- [x] Enable travis
+- [ ] Add some file intergration tests
 - [ ] Return all document pages
 - [ ] Return all page objects
 - [ ] Return page content object
@@ -51,7 +51,7 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
 - [ ] Make podspec
-
+- [ ] Code Coverage
 - [ ] Rename all object attributes classes with a name including object
 - [ ] cleanup file reader
 
