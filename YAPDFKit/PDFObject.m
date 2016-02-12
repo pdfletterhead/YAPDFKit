@@ -17,8 +17,6 @@
 #import "PDFObjectReference.h"
 #import "Utils.h"
 
-
-
 @implementation PDFObject
 {
     const char * rawData;

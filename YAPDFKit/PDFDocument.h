@@ -14,11 +14,19 @@
     NSString *_version;
     NSMutableDictionary *_contents;
 }
+
 @property NSMutableDictionary* contents;
+@property NSInteger docSize;
+@property NSMutableArray* comments;
 
 - (id)initWithData:(NSData*)data;
+
 - (NSString*)version;
 - (NSString*)errorMessage;
+- (NSString*)getPDFInfo;
+- (NSString*)getPDFMetaData;
+- (NSDictionary*)getObjectWithStreams;
+- (BOOL)isBinary;
 
 - (id) getInfoForKey:(NSString *)key;
 - (id) getInfoForKey:(NSString *)key inObject:(NSString *)objectNumber;

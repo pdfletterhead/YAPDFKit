@@ -32,6 +32,8 @@ const char* strblock(const char* p, int(^func)(char ch))
 @implementation PDFDocument
 
 @synthesize contents;
+@synthesize comments;
+@synthesize docSize;
 
 - (id)initWithData:(NSData*)data
 {
@@ -39,6 +41,9 @@ const char* strblock(const char* p, int(^func)(char ch))
 
         _version = @"";
         contents = [[NSMutableDictionary alloc] init];
+        comments = [[NSMutableArray alloc] init];
+        docSize = [data length];
+
         char *buffer = malloc(data.length + 1);
         memcpy(buffer, data.bytes, data.length);
         buffer[data.length] = 0;
@@ -47,6 +52,11 @@ const char* strblock(const char* p, int(^func)(char ch))
 
         [self parseData:dataWithNull];
         [self linkObjectsWithContents];
+        NSLog(@"version string: %@", _version);
+        NSLog(@"contents dict: %@", contents);
+        NSLog(@"comments array: %@", comments);
+        NSLog(@"comments first: %@", comments[0]);
+        
 
         return self;
     }
@@ -219,7 +229,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     i = endOfCommentIdx;
 
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
-    //[_contents addObject:dict];
+    [comments addObject:comment];
 
     *idx = i;
     return SEARCH_NEXT_PDF_STRUCTURE_STATE;
@@ -410,6 +420,67 @@ const char* strblock(const char* p, int(^func)(char ch))
         }
     }
     return num;
+}
+
+
+- (BOOL)isBinary
+{
+    if([comments[0] canBeConvertedToEncoding:NSASCIIStringEncoding])
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+    
+
+    return false;
+}
+
+- (NSDictionary*)getObjectWithStreams
+{
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+    
+    for(id key in contents) {
+        id pdfObject = [contents objectForKey:key];
+        
+        id stream = [pdfObject getStreamObject];
+        
+        if(stream)
+        {
+            [dict setObject:stream forKey:key];
+        }
+    }
+    
+    return (NSDictionary*)dict;
+}
+
+
+- (NSString*)getPDFInfo
+{
+    NSMutableString* infoString = (NSMutableString*)@"";
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Size: %ld bytes\n",(long)docSize];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Version: %@\n",_version];
+    
+    if([self isBinary])
+    {
+        infoString = (NSMutableString*)[infoString stringByAppendingString:@"Binary: True\n"];
+    }
+    else
+    {
+        infoString = (NSMutableString*)[infoString stringByAppendingString:@"Binary: False\n"];
+    }
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",[contents count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",[[self getObjectWithStreams] count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Comments: %ld\n",[comments count]];
+    
+    return (NSString*)infoString;
+}
+
+- (NSString*)getPDFMetaData
+{
+    return nil;
 }
 
 @end

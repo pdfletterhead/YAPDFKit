@@ -55,6 +55,7 @@
 		3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
 		3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
+		3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */; };
 		3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		3E5BFA611C6D41930087630B /* YAPDFKit-TestSuite.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YAPDFKit-TestSuite.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPDFKit_TestSuite.m; sourceTree = "<group>"; };
 		3E5BFA651C6D41930087630B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "2-page-pages-export.pdf"; sourceTree = "<group>"; };
 		3EC10EA41C62CA140079C21C /* pdfzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfzlib.h; sourceTree = "<group>"; };
 		3EC10EA51C62CA140079C21C /* pdfzlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdfzlib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 		198DDE90191E279B00B11929 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */,
 				198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -308,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

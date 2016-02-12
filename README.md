@@ -38,9 +38,9 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] cleanup deflate function
 - [x] Enable Existing Tests
 - [x] Enable travis
-- [ ] Add some file intergration tests
+- [x] Add some file intergration tests
 - [ ] Return all document pages
-- [ ] Return all page objects
+- [ ] Return all page objects / per page
 - [ ] Return page content object
 - [ ] Add new object at file bottom
 - [ ] calculate file and object length

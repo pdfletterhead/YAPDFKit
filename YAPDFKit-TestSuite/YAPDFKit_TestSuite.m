@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import <Foundation/Foundation.h>
+#import "PDFDocument.h"
+#import "PDFPages.h"
 #import "PDFObject.h"
 #import "PDFArray.h"
 #import "PDFBool.h"
@@ -18,6 +20,8 @@
 #import "PDFObjectReference.h"
 
 @interface YAPDFKit_TestSuite : XCTestCase
+@property PDFDocument* document;
+//- (void) setupDocumentCMethod:(NSString*)fileName;
 
 @end
 
@@ -33,13 +37,62 @@
     [super tearDown];
 }
 
-- (void)xtestExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (PDFDocument *) setupDocumentCMethod:(NSString*)fileName {
+    // open pdf in memory
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *pdfPath = [bundle pathForResource:fileName ofType:@"pdf"];
+    
+    if (pdfPath != nil) {
+        
+        //NSLog(@"pdf: %@", pdfPath);
+        //Open the PDF source file:
+        FILE* filei = fopen([pdfPath UTF8String], "rb");
+        
+        //Get the file length:
+        int fseekres = fseek(filei,0, SEEK_END);   //fseek==0 if ok
+        long filelen = ftell(filei);
+        fseekres = fseek(filei,0, SEEK_SET);
+        
+        //Read the entire file into memory (!):
+        char *buffer = malloc(filelen*sizeof(char)); //Allocates the buffer
+        ZeroMemory(buffer, filelen);
+        
+        if (!fread(buffer, filelen, 1 ,filei)) {
+            NSLog(@"Error, reading file!");
+        }
+        
+        NSData* fileData = [NSData dataWithBytes:(const void *)buffer length:filelen];
+        
+        //        NSLog(@"data: %@",fileData);
+        return [[PDFDocument alloc] initWithData:fileData];
+        
+    } else {
+        NSLog(@"Error, file not found!");
+    }
+    return nil;
+}
+- (PDFDocument *) setupDocumentObCMethod:(NSString*)fileName {
+    // open pdf in memory
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *pdfPath = [bundle pathForResource:fileName ofType:@"pdf"];
+    
+    if (pdfPath != nil) {
+        
+        NSData *fileData = [NSData dataWithContentsOfFile:pdfPath];
+        //        NSLog(@"data: %@",fileData);
+        return [[PDFDocument alloc] initWithData:fileData];
+        
+    } else {
+        NSLog(@"Error, file not found!");
+    }
+    return nil;
 }
 
+
+
 /*
- * Тест для ссылок на объекты
+ * Тест для ссылок на объект
+ * Test object references
  */
 - (void)testObjectReferenceParsing
 {
@@ -284,4 +337,104 @@
     }];
 }
 
+
+- (void)testDocumentPDFInfo
+{
+    PDFDocument * document = [self setupDocumentCMethod:@"2-page-pages-export"];
+    XCTAssert([document isKindOfClass:[PDFDocument class]], @"Failed to setup document ");
+    
+    NSString * testString = @"Size: 21059 bytes\n\
+Version: 1.3\n\
+Binary: True\n\
+Objects: 35\n\
+Streams: 7\n\
+Comments: 2\n";
+    
+    NSLog(@"doc info %@",[document getPDFInfo]);
+    NSLog(@"doc info %@",testString);
+    XCTAssert([[document getPDFInfo] isEqualToString:testString], @"Wrong Document info");
+
+}
+
+- (void)testDocumentMetaData
+{
+    PDFDocument * document = [self setupDocumentCMethod:@"2-page-pages-export"];
+    
+    NSString * testString = @"File: fcexploit.pdf\n \
+    Size: 25169 bytes\n \
+    Version: 1.3\n \
+    Binary: True\n \
+    Objects: 35\n \
+    Streams: 7\n \
+    Comments: 0";
+    
+    NSLog(@"doc info %@",[document getPDFMetaData]);
+    XCTAssert([[document getPDFMetaData] isEqualToString:testString], @"Wrong Document info");
+}
+
+- (void)testDocumentAllPages
+{
+    
+    PDFDocument * document = [self setupDocumentCMethod:@"2-page-pages-export"];
+
+    PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+    [pg getPageCount];
+    [pg getPagesTree];
+}
+
+- (void)testDocumentContentsPages
+{
+    
+}
+
+- (void)testPDFObjects
+{
+    PDFDocument * document = [self setupDocumentObCMethod:@"2-page-pages-export"];
+    XCTAssert([document isKindOfClass:[PDFDocument class]], @"Failed to setup document ");
+    
+    //[document getInfoForKey:@"Type"];
+    
+    //SOME FEATURES
+    NSLog(@"dict: %lu", (unsigned long)[[document allObjects] count]);
+    
+    NSDictionary *pdfObjs = [document allObjects];
+    
+    XCTAssert([pdfObjs count] == 35, @"Their should be 35 objects");
+    
+    for(id key in pdfObjs) {
+        id pdfObject = [pdfObjs objectForKey:key];
+        XCTAssert([key isKindOfClass:[NSString class]], @"Wrong key type in object iteration ");
+        
+        //NSLog(@"Objectnumber: %@",[pdfObject getObjectNumber]);
+        //NSLog(@"contents: %@",[pdfObject getContents]);
+        
+        if([pdfObject getStreamObject])
+        {
+            NSLog(@"Objectnumber: %@",[pdfObject getObjectNumber]);
+            //NSLog(@"stream object: %@",[pdfObject getStreamObject]);
+            //NSLog(@"stream unenc: %@",[[pdfObject getStreamObject] getDecompressedDataAsString]);
+        }
+    }
+    
+    id pdfObject = [pdfObjs objectForKey:@"21 0"];
+    NSLog(@"class %@", [[pdfObject getContents] class]);
+
+    XCTAssert([[[pdfObjs[@"21 0"] getContents] firstObject] isKindOfClass:[NSDictionary class]], @"Wrong content type");
+    
+    //PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+    //[pg getPageCount];
+    //[pg getPagesTree];
+    
+    /*
+     if ([document errorMessage]) {
+     NSLog(@"%@", [document errorMessage]);
+     }
+     else {
+     NSLog(@"%@", [document version]);
+     }
+     */
+    
+    
+    //XCTAssert([obj.value isEqualToString:@"abcdef0123456789ABCDEF"], @"Failed to parse hexstring value");
+}
 @end
