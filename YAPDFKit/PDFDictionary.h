@@ -15,6 +15,13 @@
  * содержать тип (Type) и подтип (Subtype или S),
  * значения которых всегда имя (PDF Name).
  */
-@interface PDFDictionary : NSDictionary
+@interface PDFDictionary : NSObject
+
+@property NSMutableDictionary* nsdict;
+
+-(id)initWithDictionary:(NSDictionary*) dict;
+-(void)setObject:(id)anObject forKey:(id)aKey;
+-(void)removeObjectForKey:(id)aKey;
+-(NSString*) stringValue;
 
 @end

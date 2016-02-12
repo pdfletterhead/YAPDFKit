@@ -39,15 +39,16 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] Enable Existing Tests
 - [x] Enable travis
 - [x] Add some file intergration tests
-- [ ] Return all document pages
-- [ ] Return all page objects / per page
-- [ ] Return page content object
+- [x] Return all document pages
+- [x] Return page content object
 - [ ] Add new object at file bottom
-- [ ] calculate file and object length
+- [ ] calculate file length
+- [ ] calc object length
 - [ ] Add new xref table at file bottom
 - [ ] Add new trailer
 
 ### Backlog
+- [ ] Return all page objects / per page
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
 - [ ] Make podspec

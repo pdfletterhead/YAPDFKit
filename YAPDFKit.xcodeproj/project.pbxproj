@@ -168,20 +168,14 @@
 		198DDE8D191E279B00B11929 /* YAPDFKit */ = {
 			isa = PBXGroup;
 			children = (
-				3EC10EA81C64DD2D0079C21C /* Empty */,
+				3EC10EA81C64DD2D0079C21C /* ObjectAttributes */,
 				3EC10EA71C64DCF90079C21C /* Utils */,
-				19D8FF451933FB79003D557C /* PDFNumber.h */,
-				19D8FF461933FB79003D557C /* PDFNumber.m */,
 				198807641929F2F300D2770D /* PDFObject.h */,
 				198807651929F2F300D2770D /* PDFObject.m */,
-				3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */,
-				3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */,
 				192F1D25191E483800D98CB6 /* PDFDocument.h */,
 				192F1D26191E483800D98CB6 /* PDFDocument.m */,
 				19958FC21935C3880018467C /* PDFPages.h */,
 				19958FC31935C3880018467C /* PDFPages.m */,
-				198712FF192FFB290022A279 /* PDFObjectReference.h */,
-				19871300192FFB290022A279 /* PDFObjectReference.m */,
 				198DDE8E191E279B00B11929 /* main.m */,
 				198DDE90191E279B00B11929 /* Supporting Files */,
 			);
@@ -217,13 +211,19 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		3EC10EA81C64DD2D0079C21C /* Empty */ = {
+		3EC10EA81C64DD2D0079C21C /* ObjectAttributes */ = {
 			isa = PBXGroup;
 			children = (
-				198E6249193342C900D8C4D7 /* PDFHexString.h */,
-				198E624A193342C900D8C4D7 /* PDFHexString.m */,
+				19D8FF451933FB79003D557C /* PDFNumber.h */,
+				19D8FF461933FB79003D557C /* PDFNumber.m */,
+				198712FF192FFB290022A279 /* PDFObjectReference.h */,
+				19871300192FFB290022A279 /* PDFObjectReference.m */,
+				3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */,
+				3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */,
 				198E62401933420700D8C4D7 /* PDFDictionary.h */,
 				198E62411933420700D8C4D7 /* PDFDictionary.m */,
+				198E6249193342C900D8C4D7 /* PDFHexString.h */,
+				198E624A193342C900D8C4D7 /* PDFHexString.m */,
 				198E62431933422400D8C4D7 /* PDFArray.h */,
 				198E62441933422400D8C4D7 /* PDFArray.m */,
 				198E624C19334C8200D8C4D7 /* PDFBool.h */,
@@ -233,7 +233,7 @@
 				198E6246193342AF00D8C4D7 /* PDFString.h */,
 				198E6247193342AF00D8C4D7 /* PDFString.m */,
 			);
-			name = Empty;
+			name = ObjectAttributes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +537,7 @@
 				3E5BFA681C6D41930087630B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

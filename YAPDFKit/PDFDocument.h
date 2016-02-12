@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class PDFObject;
 
 @interface PDFDocument : NSObject
 {
     NSString *_errorMessage;
     NSString *_version;
-//    NSMutableDictionary *_contents;
+    //    NSMutableDictionary *_contents;
 }
 
 @property NSMutableDictionary* objects;
@@ -26,9 +27,10 @@
 - (NSString*)getPDFInfo;
 - (NSString *)getDocumentCatalog;
 - (NSString*)getPDFMetaData;
-- (NSDictionary*)getObjectWithStreams;
+- (NSDictionary*)getObjectsWithStreams;
 - (NSArray*) getAllObjectsWithKey:(NSString *)key;
-- (NSArray *)getAllObjectsWithKey:(NSString *)key value:(NSString *)value;
+- (NSArray*)getAllObjectsWithKey:(NSString *)key value:(NSString *)value;
+- (PDFObject*) getObjectByNumber:(NSString*)number;
 
 - (BOOL)isBinary;
 

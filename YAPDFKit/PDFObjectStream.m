@@ -25,10 +25,44 @@
     return nil;
 }
 
-- (NSString *)getDecompressedDataAsString
+- (id)initWithString:(NSString*)string andFilter:(NSString*)filter
 {
-    NSString * decompressedString = deflateData(_rawData);
-    return decompressedString;
+    if (self = [super init]) {
+        
+        if([filter isEqualToString:@"FlateDecode"])
+        {
+            _rawData = inflateStringToData(string);
+        }
+        else if([filter isEqualToString:@"None"])
+        {
+            _rawData = [string dataUsingEncoding:NSUTF8StringEncoding];
+        }
+        
+        return self;
+    }
+    
+    return nil;
+}
+
+- (unsigned long) length
+{
+    return [_rawData length];
+}
+
+- (NSString *)getDecompressedDataAsString:(NSString*)filter
+{
+    if([filter isEqualToString:@"FlateDecode"])
+    {
+        return deflateData(_rawData);
+    }
+    else if([filter isEqualToString:@"None"])
+    {
+        NSString* plain = [[NSString alloc] initWithData:_rawData encoding:NSUTF8StringEncoding];
+        
+        return plain;
+    }
+    
+    return nil;
 }
 
 @end

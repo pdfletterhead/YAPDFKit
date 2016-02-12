@@ -192,6 +192,11 @@ void ProcessOutput(char* output, size_t len)
 	}
 }
 
+NSData* inflateStringToData(NSString* string)
+{
+    return nil;
+}
+
 NSString* deflateData(NSData * data)
 {
     

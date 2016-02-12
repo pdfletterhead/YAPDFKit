@@ -15,6 +15,7 @@
 @property NSData* rawData;
 
 - (id)initWithData :(NSData*)data;
-- (NSString *)getDecompressedDataAsString;
-
+- (id)initWithString:(NSString*)string andFilter:(NSString*)filter;
+- (NSString *)getDecompressedDataAsString:(NSString*)filter;
+- (unsigned long) length;
 @end

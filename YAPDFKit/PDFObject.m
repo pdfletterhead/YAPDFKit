@@ -26,7 +26,7 @@
     NSMutableDictionary * pdfContents;
 }
 
-@synthesize value, firstNumber, secondNumber, references, stream;
+@synthesize value, firstNumber, secondNumber, references, stream, dictionary;
 
 - (id)initWithData :(NSData*)d first:(NSInteger*)first second:(NSInteger*)second 
 {
@@ -117,6 +117,7 @@
 - (NSDictionary *)checkDict:(NSUInteger *)idx
 {
     PDFDictionary *pdfDict = [[PDFDictionary alloc] init];
+    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSUInteger i = *idx;
     i += 2;
@@ -150,6 +151,9 @@
     *idx = i;
     pdfDict = (PDFDictionary *)dict;
 
+    //dictionary = (PDFDictionary *)dict; //will be the prefered
+    dictionary = [[PDFDictionary alloc] initWithDictionary:(NSDictionary*)dict];
+    
     return pdfDict;
 }
 
@@ -362,6 +366,7 @@
         }
     }
     
+    //NSLog(@"stream dict: %@",value);
     PDFObjectStream * returnStream = [[PDFObjectStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
 
     i += 8;
@@ -379,6 +384,16 @@
 
 - (NSArray*)getContents {
     return contents;
+}
+
+- (id)getObjectForKeyInDict:(NSString*)key
+{
+    id info = nil;
+    id objectValue = [self value];
+    if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
+        info = [objectValue objectForKey:key];
+    }
+    return info;
 }
 
 - (NSString *)getObjectNumber
@@ -402,4 +417,55 @@
     }
     return obj;
 }
+
+- (NSString*)getUncompressedStreamContents
+{
+    if(stream)
+    {
+        NSString *filter = [self getObjectForKeyInDict:@"Filter"];
+        return [[self stream] getDecompressedDataAsString:filter];
+    }
+    
+    return nil;
+    
+}
+
+// returns lenght if success
+- (void)setStreamContentsWithString:(NSString*)string
+{
+    stream = [[PDFObjectStream alloc] initWithString:string andFilter:@"None"];
+}
+
+- (NSString*) createObjectBlock
+{
+    NSMutableString* blockString = (NSMutableString*)@"";
+    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@ obj\n",[self getObjectNumber]];
+    //if([[value firstObject] isKindOfClass:[NSDictionary class]])
+    if(dictionary)
+    {
+        //if stream set of replace length
+        if(stream)
+        {
+            [dictionary setObject:[NSNumber numberWithInt:(int)[stream length]] forKey:@"Length"];
+            
+            // For now we do not support Filters for created blocks, so we'll remove the key
+            [dictionary removeObjectForKey:@"Filter"];
+        }
+            
+        //blockString = (NSMutableString*)[blockString stringByAppendingString:@"<< "];
+        blockString = (NSMutableString*)[blockString stringByAppendingString:[dictionary stringValue]];
+        //blockString = (NSMutableString*)[blockString stringByAppendingString:@" >>\n"];
+        
+        if(stream)
+        {
+            blockString = (NSMutableString*)[blockString stringByAppendingString:@"stream\n"];
+            blockString = (NSMutableString*)[blockString stringByAppendingString:[self getUncompressedStreamContents]];
+            blockString = (NSMutableString*)[blockString stringByAppendingString:@"\nendstream\n"];
+        }
+    }
+    
+    blockString = (NSMutableString*)[blockString stringByAppendingString:@"endobj\n"];
+    return (NSString*)blockString;
+}
+
 @end

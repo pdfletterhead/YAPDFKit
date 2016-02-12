@@ -426,7 +426,6 @@ const char* strblock(const char* p, int(^func)(char ch))
     id objectValue = [object value];
     if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
         info = [objectValue objectForKey:key];
-        //NSLog(@"getInfoForKey %@ : %@",key,info);
     }
     return info;
 }
@@ -464,7 +463,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     return false;
 }
 
-- (NSDictionary*)getObjectWithStreams
+- (NSDictionary*)getObjectsWithStreams
 {
     NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
     
@@ -498,7 +497,7 @@ const char* strblock(const char* p, int(^func)(char ch))
         infoString = (NSMutableString*)[infoString stringByAppendingString:@"Binary: False\n"];
     }
     infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",[objects count]];
-    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",[[self getObjectWithStreams] count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",[[self getObjectsWithStreams] count]];
     infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Comments: %ld\n",[comments count]];
     
     return (NSString*)infoString;
@@ -512,7 +511,15 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (NSString *)getDocumentCatalog
 {
     NSString *catalogNum = [self getObjectNumberForKey:@"Type":@"Catalog"];
+    
     return catalogNum;
 }
+
+- (PDFObject*) getObjectByNumber:(NSString*)number
+{
+    PDFObject* object = [objects objectForKey:number];
+    return object;
+}
+
 
 @end

@@ -12,6 +12,7 @@
 #import "PDFDocument.h"
 #import "PDFObject.h"
 #import "PDFPages.h"
+#import "PDFObjectReference.h"
 
 enum ParserStates {
     BEGIN_STATE = 0,
@@ -22,19 +23,12 @@ enum ParserStates {
 
 int main(int argc, const char * argv[])
 {
-
     @autoreleasepool {
 
         NSString *file2 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-multi-export-naar-pdf.pdf";
         NSData *fileData = [NSData dataWithContentsOfFile:file2];
 
         PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
-        
-        NSLog(@"info:\n%@",[document getPDFInfo]);
-        
-        //NSLog(@"getInfoForKey:Type :\n%@",[document getInfoForKey:@"Type"]);
-        //NSLog(@"getInfoForKey:Type inObject: 19 0 :\n%@",[document getInfoForKey:@"Type" inObject:@"19 0"]);
-        //NSLog(@"getObjectNumberForKey:type value:catalog :\n%@",[document getObjectNumberForKey:@"Type":@"Catalog"]);
         
         PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
         NSLog(@"page count: %d", [pg getPageCount]);
@@ -44,18 +38,12 @@ int main(int argc, const char * argv[])
         NSLog(@"all: %@ ", allPages);
         
         for (PDFObject* page in allPages) {
-            NSLog(@"here is the contents: %@ ",[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]]);
-        }
+            
+            NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
+            PDFObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
 
-        /*
-        if ([document errorMessage]) {
-            NSLog(@"%@", [document errorMessage]);
+            NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
         }
-        else {
-            NSLog(@"%@", [document version]);
-        }
-        */
-
      }
     return 0;
 }

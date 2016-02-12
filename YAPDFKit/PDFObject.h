@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PDFObjectStream.h"
+#import "PDFDictionary.h"
 
 @class PDFDocument;
 
@@ -15,8 +16,13 @@
 
 @property NSInteger firstNumber;
 @property NSInteger secondNumber;
+
+
 @property PDFObjectStream *stream;
+@property PDFDictionary *dictionary;
+
 @property id value;
+
 @property NSMutableDictionary *references;
 
 - (id)initWithData :(NSData*)d first:(NSInteger*)first second:(NSInteger*)second;
@@ -24,6 +30,8 @@
 - (id)getValueByName:(NSString *)n;
 - (NSArray*)getContents;
 - (PDFObjectStream *)getStreamObject;
+- (id)getObjectForKeyInDict:(NSString*)key;
+- (NSString*) createObjectBlock;
 
 
 @end
