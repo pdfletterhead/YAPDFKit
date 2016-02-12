@@ -350,8 +350,8 @@ Objects: 35\n\
 Streams: 7\n\
 Comments: 2\n";
     
-    NSLog(@"doc info %@",[document getPDFInfo]);
-    NSLog(@"doc info %@",testString);
+//    NSLog(@"doc info %@",[document getPDFInfo]);
+//    NSLog(@"doc info %@",testString);
     XCTAssert([[document getPDFInfo] isEqualToString:testString], @"Wrong Document info");
 
 }
@@ -368,7 +368,7 @@ Comments: 2\n";
     Streams: 7\n \
     Comments: 0";
     
-    NSLog(@"doc info %@",[document getPDFMetaData]);
+ //   NSLog(@"doc info %@",[document getPDFMetaData]);
     XCTAssert([[document getPDFMetaData] isEqualToString:testString], @"Wrong Document info");
 }
 
@@ -395,7 +395,7 @@ Comments: 2\n";
     //[document getInfoForKey:@"Type"];
     
     //SOME FEATURES
-    NSLog(@"dict: %lu", (unsigned long)[[document allObjects] count]);
+    //NSLog(@"dict: %lu", (unsigned long)[[document allObjects] count]);
     
     NSDictionary *pdfObjs = [document allObjects];
     
@@ -410,14 +410,14 @@ Comments: 2\n";
         
         if([pdfObject getStreamObject])
         {
-            NSLog(@"Objectnumber: %@",[pdfObject getObjectNumber]);
+            //NSLog(@"Objectnumber: %@",[pdfObject getObjectNumber]);
             //NSLog(@"stream object: %@",[pdfObject getStreamObject]);
             //NSLog(@"stream unenc: %@",[[pdfObject getStreamObject] getDecompressedDataAsString]);
         }
     }
     
     id pdfObject = [pdfObjs objectForKey:@"21 0"];
-    NSLog(@"class %@", [[pdfObject getContents] class]);
+    //NSLog(@"class %@", [[pdfObject getContents] class]);
 
     XCTAssert([[[pdfObjs[@"21 0"] getContents] firstObject] isKindOfClass:[NSDictionary class]], @"Wrong content type");
     

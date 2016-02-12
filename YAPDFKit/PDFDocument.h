@@ -12,10 +12,10 @@
 {
     NSString *_errorMessage;
     NSString *_version;
-    NSMutableDictionary *_contents;
+//    NSMutableDictionary *_contents;
 }
 
-@property NSMutableDictionary* contents;
+@property NSMutableDictionary* objects;
 @property NSInteger docSize;
 @property NSMutableArray* comments;
 
@@ -24,13 +24,17 @@
 - (NSString*)version;
 - (NSString*)errorMessage;
 - (NSString*)getPDFInfo;
+- (NSString *)getDocumentCatalog;
 - (NSString*)getPDFMetaData;
 - (NSDictionary*)getObjectWithStreams;
+- (NSArray*) getAllObjectsWithKey:(NSString *)key;
+- (NSArray *)getAllObjectsWithKey:(NSString *)key value:(NSString *)value;
+
 - (BOOL)isBinary;
 
 - (id) getInfoForKey:(NSString *)key;
 - (id) getInfoForKey:(NSString *)key inObject:(NSString *)objectNumber;
-- (NSString *)getObjectNumberForKey:(NSString *)key :(NSString*)value;
+- (NSString *)getObjectNumberForKey:(NSString *)key value:(NSString*)value;
 
 - (NSDictionary*)allObjects;
 

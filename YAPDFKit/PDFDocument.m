@@ -31,7 +31,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 @implementation PDFDocument
 
-@synthesize contents;
+@synthesize objects;
 @synthesize comments;
 @synthesize docSize;
 
@@ -40,7 +40,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     if (self = [super init]) {
 
         _version = @"";
-        contents = [[NSMutableDictionary alloc] init];
+        objects = [[NSMutableDictionary alloc] init];
         comments = [[NSMutableArray alloc] init];
         docSize = [data length];
 
@@ -52,11 +52,6 @@ const char* strblock(const char* p, int(^func)(char ch))
 
         [self parseData:dataWithNull];
         [self linkObjectsWithContents];
-        NSLog(@"version string: %@", _version);
-        NSLog(@"contents dict: %@", contents);
-        NSLog(@"comments array: %@", comments);
-        NSLog(@"comments first: %@", comments[0]);
-        
 
         return self;
     }
@@ -65,7 +60,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 - (NSDictionary*)allObjects
 {
-    return contents;
+    return objects;
 }
 
 - (NSString*)version
@@ -155,7 +150,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 
         //NSDictionary *dict = [NSDictionary dictionaryWithObject:_version forKey:@"version"];
-        //[_contents addObject:dict];
+        //[_objects addObject:dict];
     }
 
     *idx = i;
@@ -225,7 +220,8 @@ const char* strblock(const char* p, int(^func)(char ch))
     memcpy(buffer, &rawData[i], (endOfCommentIdx - i) + 1);
     buffer[endOfCommentIdx - i] = 0;
     NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
-    NSLog(@"%@", comment);
+//    NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
+//    NSLog(@"%@", comment);
     i = endOfCommentIdx;
 
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
@@ -291,7 +287,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     }
 
     PDFObject *p = [[PDFObject alloc] initWithData:objectData first:&first second:&second];
-    [contents setObject:p forKey:[p getObjectNumber]];
+    [objects setObject:p forKey:[p getObjectNumber]];
 
     *idx = i;
     return SEARCH_NEXT_PDF_STRUCTURE_STATE;
@@ -364,13 +360,13 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 - (void) linkObjectsWithContents
 {
-    for (NSString *key in contents) {
-        PDFObject* object = [contents objectForKey:key];
+    for (NSString *key in objects) {
+        PDFObject* object = [objects objectForKey:key];
         if (object.references) {
             NSMutableDictionary *cpReference = [[NSMutableDictionary alloc] init];
             for(NSString *reference in object.references) {
-                if ([contents objectForKey:reference]) {
-                    PDFObject *referenceTo = [contents objectForKey:reference];
+                if ([objects objectForKey:reference]) {
+                    PDFObject *referenceTo = [objects objectForKey:reference];
                     [cpReference setObject:referenceTo forKey:reference];
                 }
             }
@@ -379,15 +375,45 @@ const char* strblock(const char* p, int(^func)(char ch))
     }
 }
 
+- (NSArray*) getAllObjectsWithKey:(NSString *)key{
+    NSMutableArray * infoArray = [[NSMutableArray alloc] init];
+    for (NSString* obj in objects) {
+        PDFObject *current = [objects objectForKey:obj];
+        id currentValue = [current value];
+        if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
+//            info = [currentValue objectForKey:key];
+            [infoArray addObject:current];
+            //NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
+        }
+    }
+    return (NSArray*)infoArray;
+}
+
+- (NSArray *)getAllObjectsWithKey:(NSString *)key value:(NSString *)value
+{
+    NSMutableArray * infoArray = [[NSMutableArray alloc] init];
+    NSArray* objWithKeyType = [self getAllObjectsWithKey:@"Type"];
+    
+    for (PDFObject* obj in objWithKeyType) {
+        NSString * valForKey = [self getInfoForKey:key inObject:[obj getObjectNumber]];
+        if ([valForKey isEqualToString:value])
+        {
+            [infoArray addObject:obj];
+        }
+    }
+    
+    return (NSArray*)infoArray;
+}
+
 - (id) getInfoForKey:(NSString *)key
 {
     id info = nil;
-    for (NSString* obj in contents) {
-        PDFObject *current = [contents objectForKey:obj];
+    for (NSString* obj in objects) {
+        PDFObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             info = [currentValue objectForKey:key];
-            NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
+            //NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
         }
     }
     return info;
@@ -396,11 +422,11 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (id) getInfoForKey:(NSString *)key inObject:(NSString *)objectNumber
 {
     id info = nil;
-    PDFObject *object = [contents objectForKey:objectNumber];
+    PDFObject *object = [objects objectForKey:objectNumber];
     id objectValue = [object value];
     if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
         info = [objectValue objectForKey:key];
-        NSLog(@"getInfoForKey %@ : %@",key,info);
+        //NSLog(@"getInfoForKey %@ : %@",key,info);
     }
     return info;
 }
@@ -408,15 +434,15 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (NSString *)getObjectNumberForKey:(NSString *)key :(NSString *)value
 {
     NSString *num = @"";
-    for (NSString* obj in contents) {
-        PDFObject *current = [contents objectForKey:obj];
+    for (NSString* obj in objects) {
+        PDFObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             if (value && ![value isEqualToString:[currentValue objectForKey:key] ]) {
                 continue;
             }
             num = [current getObjectNumber];
-            NSLog(@"%@", num);
+            //NSLog(@"%@", num);
         }
     }
     return num;
@@ -442,8 +468,8 @@ const char* strblock(const char* p, int(^func)(char ch))
 {
     NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
     
-    for(id key in contents) {
-        id pdfObject = [contents objectForKey:key];
+    for(id key in objects) {
+        id pdfObject = [objects objectForKey:key];
         
         id stream = [pdfObject getStreamObject];
         
@@ -471,7 +497,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     {
         infoString = (NSMutableString*)[infoString stringByAppendingString:@"Binary: False\n"];
     }
-    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",[contents count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",[objects count]];
     infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",[[self getObjectWithStreams] count]];
     infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Comments: %ld\n",[comments count]];
     
@@ -481,6 +507,12 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (NSString*)getPDFMetaData
 {
     return nil;
+}
+
+- (NSString *)getDocumentCatalog
+{
+    NSString *catalogNum = [self getObjectNumberForKey:@"Type":@"Catalog"];
+    return catalogNum;
 }
 
 @end

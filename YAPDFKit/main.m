@@ -31,12 +31,21 @@ int main(int argc, const char * argv[])
         PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
         
         NSLog(@"info:\n%@",[document getPDFInfo]);
-        //[document getInfoForKey:@"Type"];
         
+        //NSLog(@"getInfoForKey:Type :\n%@",[document getInfoForKey:@"Type"]);
+        //NSLog(@"getInfoForKey:Type inObject: 19 0 :\n%@",[document getInfoForKey:@"Type" inObject:@"19 0"]);
+        //NSLog(@"getObjectNumberForKey:type value:catalog :\n%@",[document getObjectNumberForKey:@"Type":@"Catalog"]);
         
-        //PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
-        //[pg getPageCount];
-        //[pg getPagesTree];
+        PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+        NSLog(@"page count: %d", [pg getPageCount]);
+        
+        //All Pages unsorted
+        NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
+        NSLog(@"all: %@ ", allPages);
+        
+        for (PDFObject* page in allPages) {
+            NSLog(@"here is the contents: %@ ",[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]]);
+        }
 
         /*
         if ([document errorMessage]) {

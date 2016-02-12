@@ -26,15 +26,17 @@
     return self;
 }
 
+/*
 - (NSString *)getDocumentCatalog
 {
     NSString *catalogNum = [document getObjectNumberForKey:@"Type":@"Catalog"];
     return catalogNum;
 }
+*/
 
 - (void)getPageObjectNum
 {
-    NSString *catalogNum = [self getDocumentCatalog];
+    NSString *catalogNum = [document getDocumentCatalog];
     PDFObjectReference *pageObjRef = [document getInfoForKey:@"Pages" inObject:catalogNum];
     pageInfoObjectNum = [pageObjRef getReferenceNumber];
 }
@@ -42,9 +44,9 @@
 - (int)getPageCount
 {
     [self getPageObjectNum];
-    id pageNum = [document getInfoForKey:@"Count" inObject:pageInfoObjectNum];
-    NSLog(@"pages: %@ pages: %@",pageInfoObjectNum, pageNum);
-    return (int)pageNum;
+    NSString* pageCount = [document getInfoForKey:@"Count" inObject:pageInfoObjectNum];
+    //NSLog(@"pages: %@ pages: %@",pageInfoObjectNum, pageCount);
+    return [pageCount intValue];
 }
 
 - (id)getPagesTree
