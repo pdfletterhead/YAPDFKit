@@ -30,6 +30,11 @@
     return nil;
 }
 
+-(id)objectForKey:(id)aKey
+{
+    return nsdict[aKey];
+}
+
 -(void)setObject:(id)anObject forKey:(id)aKey
 {
     nsdict[aKey] = anObject;

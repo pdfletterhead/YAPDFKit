@@ -37,6 +37,10 @@
         {
             _rawData = [string dataUsingEncoding:NSUTF8StringEncoding];
         }
+        else
+        {
+            _rawData = [string dataUsingEncoding:NSUTF8StringEncoding];
+        }
         
         return self;
     }
@@ -53,6 +57,7 @@
 {
     if([filter isEqualToString:@"FlateDecode"])
     {
+        NSLog(@"plain %@",_rawData);
         return deflateData(_rawData);
     }
     else if([filter isEqualToString:@"None"])
@@ -61,7 +66,12 @@
         
         return plain;
     }
-    
+    else
+    {
+        NSString* plain = [[NSString alloc] initWithData:_rawData encoding:NSUTF8StringEncoding];
+        
+        return plain;
+    }
     return nil;
 }
 

@@ -8,6 +8,7 @@
 
 #import "PDFDocument.h"
 #import "PDFObject.h"
+#import "PDFXref.h"
 #import "Utils.h"
 
 enum ParserStates {
@@ -34,6 +35,9 @@ const char* strblock(const char* p, int(^func)(char ch))
 @synthesize objects;
 @synthesize comments;
 @synthesize docSize;
+@synthesize modifiedPDFData;
+@synthesize updateObjectQueue;
+@synthesize lastTrailerOffset;
 
 - (id)initWithData:(NSData*)data
 {
@@ -43,6 +47,9 @@ const char* strblock(const char* p, int(^func)(char ch))
         objects = [[NSMutableDictionary alloc] init];
         comments = [[NSMutableArray alloc] init];
         docSize = [data length];
+        
+        modifiedPDFData = [[NSMutableData alloc] initWithData:data];
+        updateObjectQueue = [[NSMutableArray alloc] init];
 
         char *buffer = malloc(data.length + 1);
         memcpy(buffer, data.bytes, data.length);
@@ -315,6 +322,7 @@ const char* strblock(const char* p, int(^func)(char ch))
                 _errorMessage = @"Xref unknown syntax";
                 return ERROR_STATE;
             }
+            
             xrefEnd = &rawData[i];
             i += 7;
             break;
@@ -336,6 +344,7 @@ const char* strblock(const char* p, int(^func)(char ch))
                 return ERROR_STATE;
             }
             trailerEnd = &rawData[i];
+            lastTrailerOffset = i;
             i += 9;
             break;
         }
@@ -430,7 +439,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     return info;
 }
 
-- (NSString *)getObjectNumberForKey:(NSString *)key :(NSString *)value
+- (NSString *)getObjectNumberForKey:(NSString *)key value:(NSString *)value
 {
     NSString *num = @"";
     for (NSString* obj in objects) {
@@ -508,9 +517,9 @@ const char* strblock(const char* p, int(^func)(char ch))
     return nil;
 }
 
-- (NSString *)getDocumentCatalog
+- (NSString *) getDocumentCatalog
 {
-    NSString *catalogNum = [self getObjectNumberForKey:@"Type":@"Catalog"];
+    NSString *catalogNum = [self getObjectNumberForKey:@"Type" value:@"Catalog"];
     
     return catalogNum;
 }
@@ -521,5 +530,66 @@ const char* strblock(const char* p, int(^func)(char ch))
     return object;
 }
 
+- (void) addObjectToUpdateQueue:(PDFObject *)pdfObject
+{
+    //add to update array
+    [updateObjectQueue addObject:pdfObject];
+    //[pdfObject getUncompressedStreamContents];
+}
+
+- (void) updateDocumentData
+{
+    //previous trailor
+    NSNumber* prevTrailer;
+    
+    NSNumber* offSet; //[NSNumber numberWithInt: (int)[modifiedPDFData length]];
+    PDFXref * xref = [[PDFXref alloc] init];
+    
+    //create object blocks and add to data
+    for (PDFObject * obj in updateObjectQueue) {
+        
+        NSNumber* offset = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
+        [xref addObjectEntry:offset generation:[NSNumber numberWithInt:1] deleted:NO];
+        
+        NSData *data = [[obj createObjectBlock] dataUsingEncoding:NSUTF8StringEncoding];
+        [modifiedPDFData appendData:data];
+    }
+    
+    //write update xref
+    NSNumber* startXref = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
+    [modifiedPDFData appendData:[[xref stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [modifiedPDFData appendData:[[self createTrailerBlock:startXref previousTrailorOffset:lastTrailerOffset] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //write new trailer
+}
+
+- (NSString*) createTrailerBlock:(NSNumber*)startxref previousTrailorOffset:(NSInteger)prev
+{
+    /*
+    trailer
+    << /Size 36 /Root 19 0 R /Info 1 0 R /ID [ <ede0accd1c1d502ae2a231a489ab03f8>
+                                              <ede0accd1c1d502ae2a231a489ab03f8> ] >>
+    startxref
+    20181
+    %%EOF
+    */
+    
+    NSMutableString* blockString = (NSMutableString*)@"trailer\n";
+    blockString = (NSMutableString*)[blockString stringByAppendingString:@"<< "];
+    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"/Size %lu ",(unsigned long)[objects count]];
+    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"/Root %@ R ",[self getDocumentCatalog]];
+    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"/Prev %ld ",(long)prev];
+    blockString = (NSMutableString*)[blockString stringByAppendingString:@">>\n"];
+    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"startxref\n%@\n",startxref];
+    blockString = (NSMutableString*)[blockString stringByAppendingString:@"%%EOF"];
+    
+    return blockString;
+}
+
+- (void) writeToFile
+{
+    
+}
 
 @end

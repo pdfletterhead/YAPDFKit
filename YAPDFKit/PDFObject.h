@@ -21,6 +21,7 @@
 @property PDFObjectStream *stream;
 @property PDFDictionary *dictionary;
 
+
 @property id value;
 
 @property NSMutableDictionary *references;
@@ -32,6 +33,7 @@
 - (PDFObjectStream *)getStreamObject;
 - (id)getObjectForKeyInDict:(NSString*)key;
 - (NSString*) createObjectBlock;
+- (void)setStreamContentsWithString:(NSString*)string;
 
 
 @end

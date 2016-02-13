@@ -422,17 +422,18 @@
 {
     if(stream)
     {
-        NSString *filter = [self getObjectForKeyInDict:@"Filter"];
+        NSString *filter = [dictionary objectForKey:@"Filter"];
         return [[self stream] getDecompressedDataAsString:filter];
     }
     
     return nil;
-    
 }
 
 // returns lenght if success
 - (void)setStreamContentsWithString:(NSString*)string
 {
+    // For now we do not support Filters for created blocks, so we'll remove the key
+    [dictionary removeObjectForKey:@"Filter"];
     stream = [[PDFObjectStream alloc] initWithString:string andFilter:@"None"];
 }
 
@@ -459,8 +460,8 @@
         if(stream)
         {
             blockString = (NSMutableString*)[blockString stringByAppendingString:@"stream\n"];
-            blockString = (NSMutableString*)[blockString stringByAppendingString:[self getUncompressedStreamContents]];
-            blockString = (NSMutableString*)[blockString stringByAppendingString:@"\nendstream\n"];
+            blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@",[self getUncompressedStreamContents]];
+            blockString = (NSMutableString*)[blockString stringByAppendingString:@"endstream\n"];
         }
     }
     

@@ -41,9 +41,14 @@ int main(int argc, const char * argv[])
             
             NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
             PDFObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
-
-            NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
+            [pageContentsObject setStreamContentsWithString:@"BT\ /TT1 1 Tf\ 17 72 Td\ (Hello World!)Tj\n"];
+            [document addObjectToUpdateQueue:pageContentsObject];
+             //NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
         }
+        
+        [document updateDocumentData];
+        [[document modifiedPDFData] writeToFile:@"/Users/pim/Desktop/test.pdf" atomically:YES];
+        
      }
     return 0;
 }

@@ -41,11 +41,12 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] Add some file intergration tests
 - [x] Return all document pages
 - [x] Return page content object
-- [ ] Add new object at file bottom
+- [x] Add new object at file bottom
+- [x] Add new xref table at file bottom
+- [x] Add new trailer
 - [ ] calculate file length
 - [ ] calc object length
-- [ ] Add new xref table at file bottom
-- [ ] Add new trailer
+- [ ] fix and check all offsets;
 
 ### Backlog
 - [ ] Return all page objects / per page

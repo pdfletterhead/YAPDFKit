@@ -20,6 +20,7 @@
 @property NSMutableDictionary* nsdict;
 
 -(id)initWithDictionary:(NSDictionary*) dict;
+-(id)objectForKey:(id)aKey;
 -(void)setObject:(id)anObject forKey:(id)aKey;
 -(void)removeObjectForKey:(id)aKey;
 -(NSString*) stringValue;
