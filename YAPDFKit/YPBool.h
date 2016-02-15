@@ -1,5 +1,5 @@
 //
-//  PDFBool.h
+//  YPBool.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -12,7 +12,7 @@
  * Тип PDF Boolean *
  * Принимает значения true или false.
  */
-@interface PDFBool : NSObject
+@interface YPBool : NSObject
 
 /**
  * Значение: true или false

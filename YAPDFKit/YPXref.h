@@ -1,5 +1,5 @@
 //
-//  PDFXref.h
+//  YPXref.h
 //  YAPDFKit
 //
 //  Created by Pim Snel on 13-02-16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PDFXref : NSObject
+@interface YPXref : NSObject
 
 @property NSMutableArray * objectEntries;
 //@property NSDictionary * objectEntry;

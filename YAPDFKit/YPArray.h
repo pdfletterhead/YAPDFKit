@@ -1,5 +1,5 @@
 //
-//  PDFArray.h
+//  YPArray.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -14,6 +14,6 @@
  * в том числе и массив. Элементы массива отделяются
  * друг от друга пробелами.
  */
-@interface PDFArray : NSArray
+@interface YPArray : NSArray
 
 @end

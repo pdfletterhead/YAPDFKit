@@ -1,5 +1,5 @@
 //
-//  PDFHexString.h
+//  YPHexString.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -13,6 +13,6 @@
  * Бинарная строка, содержит символы [0-9] [A-F] [a-f].
  * Всегда четное количество символов.
  */
-@interface PDFHexString : NSString
+@interface YPHexString : NSString
 
 @end

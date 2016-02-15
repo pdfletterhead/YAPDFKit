@@ -1,18 +1,18 @@
 //
-//  PDFPages.h
+//  YPPages.h
 //  YAPDFKit
 //
 //  Created by Aliona on 28.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFDocument.h"
+#import "YPDocument.h"
 
-@interface PDFPages : NSObject
+@interface YPPages : NSObject
 
 @property id pageInfoObjectNum;
 
-- (id)initWithDocument:(PDFDocument *)d;
+- (id)initWithDocument:(YPDocument *)d;
 - (int)getPageCount;
 - (id)getPagesTree;
 

@@ -1,20 +1,20 @@
 //
-//  PDFObjectReference.h
+//  YPObjectReference.h
 //  YAPDFKit
 //
 //  Created by Aliona on 24.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-@class PDFObject;
+@class YPObject;
 
-@interface PDFObjectReference : NSObject
+@interface YPObjectReference : NSObject
 {
     NSInteger firstNumber;
     NSInteger secondNumber;
 }
 
-@property PDFObject* link;
+@property YPObject* link;
 
 - (id)initWithNum :(NSString *)first :(NSString *)second;
 - (NSString *)getReferenceNumber;

@@ -15,7 +15,7 @@ Use these includes:
 ```objective-c
 
 #import <Foundation/Foundation.h>
-#import "PDFDocument.h"
+#import "YPDocument.h"
 ```
 
 In this example we remove all non-transparent white backgrounds from every page in an 
@@ -24,17 +24,17 @@ PDF file and we save the result in a new PDF file
 ```objective-c
 
 NSData *fileData = [NSData dataWithContentsOfFile:@"/path/to/pdf/PDF-with-non-transparent-background.pdf"];
-PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
+YPDocument *document = [[YPDocument alloc] initWithData:fileData];
 
-PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+YPPages *pg = [[YPPages alloc] initWithDocument:document];
 
 // Get all pages unsorted
 NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
 
-for (PDFObject *page in allPages) {
+for (YPObject *page in allPages) {
 
     NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
-    PDFObject *pageContentsObject = [document getObjectByNumber:docContentNumber];
+    YPObject *pageContentsObject = [document getObjectByNumber:docContentNumber];
 
     NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
 
@@ -83,8 +83,11 @@ for (PDFObject *page in allPages) {
 - [x] calc object length
 - [x] fix and check all offsets;
 
+### Milestone 2: first CocoaPod Release
+- [x] Make podspec
+- [x] Replace PDF prefix with YAPDF everywhere
+
 ### Backlog
-- [ ] Make podspec
 - [ ] Return all page objects / per page
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)

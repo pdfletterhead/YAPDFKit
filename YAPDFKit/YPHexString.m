@@ -1,13 +1,13 @@
 //
-//  PDFArray.m
+//  YPHexString.m
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFArray.h"
+#import "YPHexString.h"
 
-@implementation PDFArray
+@implementation YPHexString
 
 @end

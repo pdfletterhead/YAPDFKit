@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lingewoud. All rights reserved.
 //
 
-#import "PDFObjectStream.h"
+#import "YPObjectStream.h"
 
-@implementation PDFObjectStream
+@implementation YPObjectStream
 
 - (id)initWithData :(NSData*)data
 {

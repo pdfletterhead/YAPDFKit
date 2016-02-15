@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PDFDocument.h"
+#import "YPDocument.h"
 
 enum ParserStates {
     BEGIN_STATE = 0,
@@ -23,19 +23,19 @@ int main(int argc, const char * argv[])
         NSString *file2 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-multi-export-naar-pdf.pdf";
         NSData *fileData = [NSData dataWithContentsOfFile:file2];
 
-        PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
+        YPDocument *document = [[YPDocument alloc] initWithData:fileData];
         
-        PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+        YPPages *pg = [[YPPages alloc] initWithDocument:document];
         NSLog(@"page count: %d", [pg getPageCount]);
         
         //All Pages unsorted
         NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
         NSLog(@"all: %@ ", allPages);
         
-        for (PDFObject* page in allPages) {
+        for (YPObject* page in allPages) {
             
             NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
-            PDFObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
+            YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
             
             NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
             

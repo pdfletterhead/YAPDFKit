@@ -1,15 +1,15 @@
 //
-//  PDFDictionary.m
+//  YPDictionary.m
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFDictionary.h"
-#import "PDFObjectReference.h"
+#import "YPDictionary.h"
+#import "YPObjectReference.h"
 
-@implementation PDFDictionary
+@implementation YPDictionary
 
 @synthesize nsdict;
 
@@ -64,7 +64,7 @@
             
             blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"/%@ ",value];
         }
-        else if([value isKindOfClass:[PDFObjectReference class]]) {
+        else if([value isKindOfClass:[YPObjectReference class]]) {
             blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@ ",value];
         }
         else if([value isKindOfClass:[NSNumber class]]) {

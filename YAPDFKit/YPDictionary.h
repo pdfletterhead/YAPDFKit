@@ -1,5 +1,5 @@
 //
-//  PDFDictionary.h
+//  YPDictionary.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -15,7 +15,7 @@
  * содержать тип (Type) и подтип (Subtype или S),
  * значения которых всегда имя (PDF Name).
  */
-@interface PDFDictionary : NSObject
+@interface YPDictionary : NSObject
 
 @property NSMutableDictionary* nsdict;
 

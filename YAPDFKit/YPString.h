@@ -1,5 +1,5 @@
 //
-//  PDFString.h
+//  YPString.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -14,6 +14,6 @@
  * закрытые парные не экранированные скобки или
  * не закрытые, но экранированные скобки.
  */
-@interface PDFString : NSString
+@interface YPString : NSString
 
 @end

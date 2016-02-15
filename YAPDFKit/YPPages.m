@@ -1,24 +1,24 @@
 //
-//  PDFPages.m
+//  YPPages.m
 //  YAPDFKit
 //
 //  Created by Aliona on 28.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFPages.h"
-#import "PDFDictionary.h"
-#import "PDFObject.h"
-#import "PDFObjectReference.h"
+#import "YPPages.h"
+#import "YPDictionary.h"
+#import "YPObject.h"
+#import "YPObjectReference.h"
 
-@implementation PDFPages
+@implementation YPPages
 {
-    PDFDocument* document;
+    YPDocument* document;
 }
 
 @synthesize pageInfoObjectNum;
 
-- (id)initWithDocument:(PDFDocument *)d
+- (id)initWithDocument:(YPDocument *)d
 {
     if (self = [super init]) {
         document = d;
@@ -37,7 +37,7 @@
 - (void)getPageObjectNum
 {
     NSString *catalogNum = [document getDocumentCatalog];
-    PDFObjectReference *pageObjRef = [document getInfoForKey:@"Pages" inObject:catalogNum];
+    YPObjectReference *pageObjRef = [document getInfoForKey:@"Pages" inObject:catalogNum];
     pageInfoObjectNum = [pageObjRef getReferenceNumber];
 }
 
@@ -58,7 +58,7 @@
     return pageTree;
 }
 
-- (id)getPageNumber:(PDFDocument *)d
+- (id)getPageNumber:(YPDocument *)d
 {
     id page;
     [self getPageObjectNum];

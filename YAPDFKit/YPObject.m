@@ -1,23 +1,23 @@
 //
-//  PDFObject.m
+//  YPObject.m
 //  YAPDFKit
 //
 //  Created by Aliona on 19.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFObject.h"
-#import "PDFArray.h"
-#import "PDFHexString.h"
-#import "PDFBool.h"
-#import "PDFDictionary.h"
-#import "PDFName.h"
-#import "PDFNumber.h"
-#import "PDFString.h"
-#import "PDFObjectReference.h"
+#import "YPObject.h"
+#import "YPArray.h"
+#import "YPHexString.h"
+#import "YPBool.h"
+#import "YPDictionary.h"
+#import "YPName.h"
+#import "YPNumber.h"
+#import "YPString.h"
+#import "YPObjectReference.h"
 #import "Utils.h"
 
-@implementation PDFObject
+@implementation YPObject
 {
     const char * rawData;
     NSUInteger dataLength;
@@ -84,7 +84,6 @@
     if (rawData[i] == '<') {
         if(rawData[i+1] == '<') {
             structure = [self checkDict:&i];
-            NSLog(@"class: %@", [structure class]);
         } else {
             structure = [self checkBinaryString:&i];
         }
@@ -148,7 +147,7 @@
     
     *idx = i;
 
-    dictionary = [[PDFDictionary alloc] initWithDictionary:(NSDictionary*)dict];
+    dictionary = [[YPDictionary alloc] initWithDictionary:(NSDictionary*)dict];
     
     return (NSDictionary*)dict;
 }
@@ -176,14 +175,14 @@
         }
     }
     
-    PDFArray *pdfArray = (PDFArray*)array;
+    YPArray *pdfArray = (YPArray*)array;
     *idx = i;
     return pdfArray;
 }
 
-- (PDFBool *)checkBool:(size_t *)idx
+- (YPBool *)checkBool:(size_t *)idx
 {
-    PDFBool *b = [[PDFBool alloc] init];
+    YPBool *b = [[YPBool alloc] init];
     NSUInteger i = *idx;
     
     if (i+4 < dataLength) {
@@ -201,10 +200,10 @@
     return b;
 }
 
-- (PDFHexString *)checkBinaryString:(size_t *)idx
+- (YPHexString *)checkBinaryString:(size_t *)idx
 {
     NSString *str = @"";
-    PDFHexString *binary;
+    YPHexString *binary;
     NSUInteger i = *idx;
     ++i;
     
@@ -226,15 +225,15 @@
     }
     
     *idx = i;
-    binary = (PDFHexString *)str;
+    binary = (YPHexString *)str;
     
     return binary;
 }
 
-- (PDFString *)checkString:(size_t *)idx
+- (YPString *)checkString:(size_t *)idx
 {
     NSString *str = @"";
-    PDFString *pdfString;
+    YPString *pdfString;
     NSUInteger i = *idx;
     NSUInteger brackets = 0;
     ++i;
@@ -254,14 +253,14 @@
     }
     
     *idx = i;
-    pdfString = (PDFString *)str;
+    pdfString = (YPString *)str;
     return pdfString;
 }
 
-- (PDFName *)checkName:(size_t *)idx
+- (YPName *)checkName:(size_t *)idx
 {
     NSString *name = @"";
-    PDFName *pdfName;
+    YPName *pdfName;
     NSUInteger i = *idx;
     ++i;
     
@@ -271,7 +270,7 @@
     }
     
     *idx = i;
-    pdfName = (PDFName *)name;
+    pdfName = (YPName *)name;
     return pdfName;
 }
 
@@ -297,7 +296,7 @@
     if (i+3< dataLength && isBlank(rawData[i]) && isNum(rawData[i+1]) && isBlank(rawData[i+2]) && rawData[i+3] == 'R') {
         char buffer[] = {rawData[i+1], 0};
         secondNum = [secondNum stringByAppendingString:@(buffer)];
-        PDFObjectReference *objRef = [self objRef:num:secondNum];
+        YPObjectReference *objRef = [self objRef:num:secondNum];
         i += 3;
         *idx = i;
         return objRef;
@@ -306,7 +305,7 @@
     --i;
     *idx = i;
     
-    PDFNumber *pdfNum = [[PDFNumber alloc] init];
+    YPNumber *pdfNum = [[YPNumber alloc] init];
     if(isReal) {
         float f = [num floatValue];
         [pdfNum initWithReal:f];
@@ -318,9 +317,9 @@
     return pdfNum;
 }
 
-- (PDFObjectReference *)objRef:(NSString *)firstNum :(NSString *)secondNum
+- (YPObjectReference *)objRef:(NSString *)firstNum :(NSString *)secondNum
 {
-    PDFObjectReference *ref = [[PDFObjectReference alloc]initWithNum:firstNum:secondNum];
+    YPObjectReference *ref = [[YPObjectReference alloc]initWithNum:firstNum:secondNum];
     NSString *refNum = [ref getReferenceNumber];
     if (!references) {
         references = [[NSMutableDictionary alloc] init];
@@ -330,7 +329,7 @@
 }
 
 
-- (PDFObjectStream *)checkStream:(size_t *)idx
+- (YPObjectStream *)checkStream:(size_t *)idx
 {
     NSUInteger i = *idx;
     
@@ -363,7 +362,7 @@
     }
     
     //NSLog(@"stream dict: %@",value);
-    PDFObjectStream * returnStream = [[PDFObjectStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
+    YPObjectStream * returnStream = [[YPObjectStream alloc] initWithData:[NSData dataWithBytes:b length:e - b]];
 
     i += 8;
     *idx = i;
@@ -373,7 +372,7 @@
 /// METHODS AVAILABLE AFTER PARSING
 /// -------------------------------
 
-- (PDFObjectStream *)getStreamObject {
+- (YPObjectStream *)getStreamObject {
     return stream;
 }
 
@@ -408,7 +407,7 @@
 - (id)getValueByName:(NSString *)n
 {
     NSObject *obj = [[NSObject alloc] init];
-    if ([value isKindOfClass:[PDFDictionary class]] && [value objectForKey:n]) {
+    if ([value isKindOfClass:[YPDictionary class]] && [value objectForKey:n]) {
         
     }
     return obj;
@@ -430,7 +429,7 @@
 {
     // For now we do not support Filters for created blocks, so we'll remove the key
     [dictionary removeObjectForKey:@"Filter"];
-    stream = [[PDFObjectStream alloc] initWithString:string andFilter:@"None"];
+    stream = [[YPObjectStream alloc] initWithString:string andFilter:@"None"];
 }
 
 - (NSString*) createObjectBlock

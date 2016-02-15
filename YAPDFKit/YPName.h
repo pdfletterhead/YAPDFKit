@@ -1,5 +1,5 @@
 //
-//  PDFName.h
+//  YPName.h
 //  YAPDFKit
 //
 //  Created by Aliona on 26.05.14.
@@ -14,6 +14,6 @@
  * шестнадцатеричного числа. Не содержит пробельных
  * символов.
  */
-@interface PDFName : NSMutableString
+@interface YPName : NSMutableString
 
 @end

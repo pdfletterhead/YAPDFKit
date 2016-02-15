@@ -1,15 +1,15 @@
 //
-//  PDFObjectReference.m
+//  YPObjectReference.m
 //  YAPDFKit
 //
 //  Created by Aliona on 24.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFObjectReference.h"
-#import "PDFObject.h"
+#import "YPObjectReference.h"
+#import "YPObject.h"
 
-@implementation PDFObjectReference
+@implementation YPObjectReference
 
 @synthesize link;
 

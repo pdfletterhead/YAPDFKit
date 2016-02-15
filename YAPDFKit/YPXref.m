@@ -1,14 +1,14 @@
 //
-//  PDFXref.m
+//  YPXref.m
 //  YAPDFKit
 //
 //  Created by Pim Snel on 13-02-16.
 //  Copyright © 2016 Lingewoud. All rights reserved.
 //
 
-#import "PDFXref.h"
+#import "YPXref.h"
 
-@implementation PDFXref
+@implementation YPXref
 
 @synthesize objectEntries;
 

@@ -1,5 +1,5 @@
 //
-//  PDFObject.h
+//  YPObject.h
 //  YAPDFKit
 //
 //  Created by Aliona on 19.05.14.
@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PDFObjectStream.h"
-#import "PDFDictionary.h"
+#import "YPObjectStream.h"
+#import "YPDictionary.h"
 
-@class PDFDocument;
+@class YPDocument;
 
-@interface PDFObject : NSObject
+@interface YPObject : NSObject
 
 @property NSInteger firstNumber;
 @property NSInteger secondNumber;
 
 
-@property PDFObjectStream *stream;
-@property PDFDictionary *dictionary;
+@property YPObjectStream *stream;
+@property YPDictionary *dictionary;
 
 
 @property id value;
@@ -30,7 +30,7 @@
 - (NSString *)getObjectNumber;
 - (id)getValueByName:(NSString *)n;
 - (NSArray*)getContents;
-- (PDFObjectStream *)getStreamObject;
+- (YPObjectStream *)getStreamObject;
 - (id)getObjectForKeyInDict:(NSString*)key;
 - (NSString*) createObjectBlock;
 - (void)setStreamContentsWithString:(NSString*)string;

@@ -1,5 +1,5 @@
 //
-//  PDFNumber.h
+//  YPNumber.h
 //  YAPDFKit
 //
 //  Created by Aliona on 27.05.14.
@@ -14,7 +14,7 @@
  * Может содержать знак + или -
  * Дробная часть отделяется точкой.
  */
-@interface PDFNumber : NSObject
+@interface YPNumber : NSObject
 
 /**
  * Принимает значение true, если число дробное 

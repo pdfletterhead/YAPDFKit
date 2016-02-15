@@ -1,5 +1,5 @@
 //
-//  PDFDocument.h
+//  YPDocument.h
 //  YAPDFKit
 //
 //  Created by Aliona on 10.05.14.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PDFObject.h"
-#import "PDFXref.h"
-#import "PDFPages.h"
-#import "PDFObjectReference.h"
+#import "YPObject.h"
+#import "YPXref.h"
+#import "YPPages.h"
+#import "YPObjectReference.h"
 #import "Utils.h"
 
-@class PDFObject;
+@class YPObject;
 
-@interface PDFDocument : NSObject
+@interface YPDocument : NSObject
 {
     NSString *_errorMessage;
     NSString *_version;
@@ -41,7 +41,7 @@
 - (NSDictionary*) getObjectsWithStreams;
 - (NSArray*) getAllObjectsWithKey:(NSString *)key;
 - (NSArray*) getAllObjectsWithKey:(NSString *)key value:(NSString *)value;
-- (PDFObject*) getObjectByNumber:(NSString*)number;
+- (YPObject*) getObjectByNumber:(NSString*)number;
 
 - (BOOL)isBinary;
 - (id) getInfoForKey:(NSString *)key;
@@ -50,6 +50,6 @@
 - (NSString *)getObjectNumberForKey:(NSString *)key value:(NSString*)value;
 - (NSDictionary*)allObjects;
 
-- (void) addObjectToUpdateQueue:(PDFObject *)pdfObject;
+- (void) addObjectToUpdateQueue:(YPObject *)pdfObject;
 - (void) updateDocumentData;
 @end

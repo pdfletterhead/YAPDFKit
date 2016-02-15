@@ -7,39 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* PDFDocument.m */; };
-		19871301192FFB290022A279 /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
-		198807661929F2F300D2770D /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
+		192F1D27191E483800D98CB6 /* YPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* YPDocument.m */; };
+		19871301192FFB290022A279 /* YPObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* YPObjectReference.m */; };
+		198807661929F2F300D2770D /* YPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* YPObject.m */; };
 		198DDE8C191E279B00B11929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		198DDE8F191E279B00B11929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198DDE8E191E279B00B11929 /* main.m */; };
-		198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
-		198E62451933422400D8C4D7 /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
-		198E6248193342AF00D8C4D7 /* PDFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* PDFString.m */; };
-		198E624B193342C900D8C4D7 /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
-		198E624E19334C8200D8C4D7 /* PDFBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* PDFBool.m */; };
-		198E62511933563100D8C4D7 /* PDFName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* PDFName.m */; };
+		198E62421933420700D8C4D7 /* YPDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* YPDictionary.m */; };
+		198E62451933422400D8C4D7 /* YPArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* YPArray.m */; };
+		198E6248193342AF00D8C4D7 /* YPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* YPString.m */; };
+		198E624B193342C900D8C4D7 /* YPHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* YPHexString.m */; };
+		198E624E19334C8200D8C4D7 /* YPBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* YPBool.m */; };
+		198E62511933563100D8C4D7 /* YPName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* YPName.m */; };
 		1991B7C0192D4A4C009C06FC /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
-		19958FC41935C3880018467C /* PDFPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* PDFPages.m */; };
-		19D8FF471933FB79003D557C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
-		3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
-		3E114A2E1C6E9DBD00664230 /* PDFXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* PDFXref.m */; };
-		3E114A2F1C6E9DBD00664230 /* PDFXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* PDFXref.m */; };
+		19958FC41935C3880018467C /* YPPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* YPPages.m */; };
+		19D8FF471933FB79003D557C /* YPNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* YPNumber.m */; };
+		3E02FE1B1C6B88BD0093CEEF /* YPObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* YPObjectStream.m */; };
+		3E114A2E1C6E9DBD00664230 /* YPXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* YPXref.m */; };
+		3E114A2F1C6E9DBD00664230 /* YPXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* YPXref.m */; };
 		3E5BFA551C6D3C050087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
 		3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */; };
-		3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
-		3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
-		3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
-		3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* PDFBool.m */; };
-		3E5BFA721C6D428B0087630B /* PDFName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* PDFName.m */; };
-		3E5BFA741C6D428B0087630B /* PDFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* PDFString.m */; };
+		3E5BFA6A1C6D428B0087630B /* YPHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* YPHexString.m */; };
+		3E5BFA6C1C6D428B0087630B /* YPDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* YPDictionary.m */; };
+		3E5BFA6E1C6D428B0087630B /* YPArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* YPArray.m */; };
+		3E5BFA701C6D428B0087630B /* YPBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* YPBool.m */; };
+		3E5BFA721C6D428B0087630B /* YPName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* YPName.m */; };
+		3E5BFA741C6D428B0087630B /* YPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* YPString.m */; };
 		3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 		3E5BFA781C6D428B0087630B /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
-		3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
-		3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
-		3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
-		3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* PDFDocument.m */; };
-		3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* PDFPages.m */; };
-		3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
+		3E5BFA7A1C6D428B0087630B /* YPNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* YPNumber.m */; };
+		3E5BFA7C1C6D428B0087630B /* YPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* YPObject.m */; };
+		3E5BFA7E1C6D428B0087630B /* YPObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* YPObjectStream.m */; };
+		3E5BFA801C6D428B0087630B /* YPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* YPDocument.m */; };
+		3E5BFA821C6D428B0087630B /* YPPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* YPPages.m */; };
+		3E5BFA841C6D428B0087630B /* YPObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* YPObjectReference.m */; };
 		3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
 		3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */; };
@@ -59,40 +59,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		192F1D25191E483800D98CB6 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDocument.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		192F1D26191E483800D98CB6 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198712FF192FFB290022A279 /* PDFObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectReference.h; sourceTree = "<group>"; };
-		19871300192FFB290022A279 /* PDFObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectReference.m; sourceTree = "<group>"; };
-		198807641929F2F300D2770D /* PDFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObject.h; sourceTree = "<group>"; };
-		198807651929F2F300D2770D /* PDFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObject.m; sourceTree = "<group>"; };
+		192F1D25191E483800D98CB6 /* YPDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPDocument.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		192F1D26191E483800D98CB6 /* YPDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198712FF192FFB290022A279 /* YPObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPObjectReference.h; sourceTree = "<group>"; };
+		19871300192FFB290022A279 /* YPObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPObjectReference.m; sourceTree = "<group>"; };
+		198807641929F2F300D2770D /* YPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPObject.h; sourceTree = "<group>"; };
+		198807651929F2F300D2770D /* YPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPObject.m; sourceTree = "<group>"; };
 		198A6A3D194C885E0085588C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		198DDE88191E279B00B11929 /* YAPDFKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = YAPDFKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = YAPDFKit/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
-		198E62401933420700D8C4D7 /* PDFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		198E62411933420700D8C4D7 /* PDFDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198E62431933422400D8C4D7 /* PDFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFArray.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		198E62441933422400D8C4D7 /* PDFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198E6246193342AF00D8C4D7 /* PDFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFString.h; sourceTree = "<group>"; };
-		198E6247193342AF00D8C4D7 /* PDFString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFString.m; sourceTree = "<group>"; };
-		198E6249193342C900D8C4D7 /* PDFHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFHexString.h; sourceTree = "<group>"; };
-		198E624A193342C900D8C4D7 /* PDFHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFHexString.m; sourceTree = "<group>"; };
-		198E624C19334C8200D8C4D7 /* PDFBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDFBool.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		198E624D19334C8200D8C4D7 /* PDFBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDFBool.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		198E624F1933563100D8C4D7 /* PDFName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFName.h; sourceTree = "<group>"; };
-		198E62501933563100D8C4D7 /* PDFName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFName.m; sourceTree = "<group>"; };
+		198E62401933420700D8C4D7 /* YPDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E62411933420700D8C4D7 /* YPDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E62431933422400D8C4D7 /* YPArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPArray.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E62441933422400D8C4D7 /* YPArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E6246193342AF00D8C4D7 /* YPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPString.h; sourceTree = "<group>"; };
+		198E6247193342AF00D8C4D7 /* YPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPString.m; sourceTree = "<group>"; };
+		198E6249193342C900D8C4D7 /* YPHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPHexString.h; sourceTree = "<group>"; };
+		198E624A193342C900D8C4D7 /* YPHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPHexString.m; sourceTree = "<group>"; };
+		198E624C19334C8200D8C4D7 /* YPBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPBool.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		198E624D19334C8200D8C4D7 /* YPBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPBool.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E624F1933563100D8C4D7 /* YPName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPName.h; sourceTree = "<group>"; };
+		198E62501933563100D8C4D7 /* YPName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPName.m; sourceTree = "<group>"; };
 		1991B7BE192D4A1B009C06FC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		1991B7BF192D4A4C009C06FC /* Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Utils.c; sourceTree = "<group>"; };
-		19958FC21935C3880018467C /* PDFPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPages.h; sourceTree = "<group>"; };
-		19958FC31935C3880018467C /* PDFPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPages.m; sourceTree = "<group>"; };
-		19D8FF451933FB79003D557C /* PDFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFNumber.h; sourceTree = "<group>"; };
-		19D8FF461933FB79003D557C /* PDFNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFNumber.m; sourceTree = "<group>"; };
+		19958FC21935C3880018467C /* YPPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPPages.h; sourceTree = "<group>"; };
+		19958FC31935C3880018467C /* YPPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPPages.m; sourceTree = "<group>"; };
+		19D8FF451933FB79003D557C /* YPNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPNumber.h; sourceTree = "<group>"; };
+		19D8FF461933FB79003D557C /* YPNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPNumber.m; sourceTree = "<group>"; };
 		3E02FE171C6B75810093CEEF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjectStream.h; sourceTree = "<group>"; };
-		3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjectStream.m; sourceTree = "<group>"; };
-		3E114A2C1C6E9DBD00664230 /* PDFXref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFXref.h; sourceTree = "<group>"; };
-		3E114A2D1C6E9DBD00664230 /* PDFXref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFXref.m; sourceTree = "<group>"; };
+		3E02FE191C6B88BC0093CEEF /* YPObjectStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPObjectStream.h; sourceTree = "<group>"; };
+		3E02FE1A1C6B88BD0093CEEF /* YPObjectStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPObjectStream.m; sourceTree = "<group>"; };
+		3E114A2C1C6E9DBD00664230 /* YPXref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPXref.h; sourceTree = "<group>"; };
+		3E114A2D1C6E9DBD00664230 /* YPXref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPXref.m; sourceTree = "<group>"; };
 		3E5BFA531C6D3B910087630B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		3E5BFA611C6D41930087630B /* YAPDFKit-TestSuite.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YAPDFKit-TestSuite.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPDFKit_TestSuite.m; sourceTree = "<group>"; };
@@ -159,14 +159,14 @@
 			children = (
 				3EC10EA81C64DD2D0079C21C /* ObjectAttributes */,
 				3EC10EA71C64DCF90079C21C /* Utils */,
-				198807641929F2F300D2770D /* PDFObject.h */,
-				198807651929F2F300D2770D /* PDFObject.m */,
-				192F1D25191E483800D98CB6 /* PDFDocument.h */,
-				192F1D26191E483800D98CB6 /* PDFDocument.m */,
-				3E114A2C1C6E9DBD00664230 /* PDFXref.h */,
-				3E114A2D1C6E9DBD00664230 /* PDFXref.m */,
-				19958FC21935C3880018467C /* PDFPages.h */,
-				19958FC31935C3880018467C /* PDFPages.m */,
+				198807641929F2F300D2770D /* YPObject.h */,
+				198807651929F2F300D2770D /* YPObject.m */,
+				192F1D25191E483800D98CB6 /* YPDocument.h */,
+				192F1D26191E483800D98CB6 /* YPDocument.m */,
+				3E114A2C1C6E9DBD00664230 /* YPXref.h */,
+				3E114A2D1C6E9DBD00664230 /* YPXref.m */,
+				19958FC21935C3880018467C /* YPPages.h */,
+				19958FC31935C3880018467C /* YPPages.m */,
 				198DDE8E191E279B00B11929 /* main.m */,
 				198DDE90191E279B00B11929 /* Supporting Files */,
 			);
@@ -205,24 +205,24 @@
 		3EC10EA81C64DD2D0079C21C /* ObjectAttributes */ = {
 			isa = PBXGroup;
 			children = (
-				19D8FF451933FB79003D557C /* PDFNumber.h */,
-				19D8FF461933FB79003D557C /* PDFNumber.m */,
-				198712FF192FFB290022A279 /* PDFObjectReference.h */,
-				19871300192FFB290022A279 /* PDFObjectReference.m */,
-				3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */,
-				3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */,
-				198E62401933420700D8C4D7 /* PDFDictionary.h */,
-				198E62411933420700D8C4D7 /* PDFDictionary.m */,
-				198E6249193342C900D8C4D7 /* PDFHexString.h */,
-				198E624A193342C900D8C4D7 /* PDFHexString.m */,
-				198E62431933422400D8C4D7 /* PDFArray.h */,
-				198E62441933422400D8C4D7 /* PDFArray.m */,
-				198E624C19334C8200D8C4D7 /* PDFBool.h */,
-				198E624D19334C8200D8C4D7 /* PDFBool.m */,
-				198E624F1933563100D8C4D7 /* PDFName.h */,
-				198E62501933563100D8C4D7 /* PDFName.m */,
-				198E6246193342AF00D8C4D7 /* PDFString.h */,
-				198E6247193342AF00D8C4D7 /* PDFString.m */,
+				19D8FF451933FB79003D557C /* YPNumber.h */,
+				19D8FF461933FB79003D557C /* YPNumber.m */,
+				198712FF192FFB290022A279 /* YPObjectReference.h */,
+				19871300192FFB290022A279 /* YPObjectReference.m */,
+				3E02FE191C6B88BC0093CEEF /* YPObjectStream.h */,
+				3E02FE1A1C6B88BD0093CEEF /* YPObjectStream.m */,
+				198E62401933420700D8C4D7 /* YPDictionary.h */,
+				198E62411933420700D8C4D7 /* YPDictionary.m */,
+				198E6249193342C900D8C4D7 /* YPHexString.h */,
+				198E624A193342C900D8C4D7 /* YPHexString.m */,
+				198E62431933422400D8C4D7 /* YPArray.h */,
+				198E62441933422400D8C4D7 /* YPArray.m */,
+				198E624C19334C8200D8C4D7 /* YPBool.h */,
+				198E624D19334C8200D8C4D7 /* YPBool.m */,
+				198E624F1933563100D8C4D7 /* YPName.h */,
+				198E62501933563100D8C4D7 /* YPName.m */,
+				198E6246193342AF00D8C4D7 /* YPString.h */,
+				198E6247193342AF00D8C4D7 /* YPString.m */,
 			);
 			name = ObjectAttributes;
 			sourceTree = "<group>";
@@ -314,21 +314,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				198DDE8F191E279B00B11929 /* main.m in Sources */,
-				3E114A2E1C6E9DBD00664230 /* PDFXref.m in Sources */,
-				198E62421933420700D8C4D7 /* PDFDictionary.m in Sources */,
+				3E114A2E1C6E9DBD00664230 /* YPXref.m in Sources */,
+				198E62421933420700D8C4D7 /* YPDictionary.m in Sources */,
 				3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */,
-				19958FC41935C3880018467C /* PDFPages.m in Sources */,
+				19958FC41935C3880018467C /* YPPages.m in Sources */,
 				1991B7C0192D4A4C009C06FC /* Utils.c in Sources */,
-				198807661929F2F300D2770D /* PDFObject.m in Sources */,
-				198E6248193342AF00D8C4D7 /* PDFString.m in Sources */,
-				192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */,
-				3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */,
-				198E62511933563100D8C4D7 /* PDFName.m in Sources */,
-				19871301192FFB290022A279 /* PDFObjectReference.m in Sources */,
-				198E624B193342C900D8C4D7 /* PDFHexString.m in Sources */,
-				198E62451933422400D8C4D7 /* PDFArray.m in Sources */,
-				198E624E19334C8200D8C4D7 /* PDFBool.m in Sources */,
-				19D8FF471933FB79003D557C /* PDFNumber.m in Sources */,
+				198807661929F2F300D2770D /* YPObject.m in Sources */,
+				198E6248193342AF00D8C4D7 /* YPString.m in Sources */,
+				192F1D27191E483800D98CB6 /* YPDocument.m in Sources */,
+				3E02FE1B1C6B88BD0093CEEF /* YPObjectStream.m in Sources */,
+				198E62511933563100D8C4D7 /* YPName.m in Sources */,
+				19871301192FFB290022A279 /* YPObjectReference.m in Sources */,
+				198E624B193342C900D8C4D7 /* YPHexString.m in Sources */,
+				198E62451933422400D8C4D7 /* YPArray.m in Sources */,
+				198E624E19334C8200D8C4D7 /* YPBool.m in Sources */,
+				19D8FF471933FB79003D557C /* YPNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,21 +336,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */,
-				3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */,
-				3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */,
-				3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */,
-				3E5BFA721C6D428B0087630B /* PDFName.m in Sources */,
-				3E5BFA741C6D428B0087630B /* PDFString.m in Sources */,
-				3E114A2F1C6E9DBD00664230 /* PDFXref.m in Sources */,
+				3E5BFA6A1C6D428B0087630B /* YPHexString.m in Sources */,
+				3E5BFA6C1C6D428B0087630B /* YPDictionary.m in Sources */,
+				3E5BFA6E1C6D428B0087630B /* YPArray.m in Sources */,
+				3E5BFA701C6D428B0087630B /* YPBool.m in Sources */,
+				3E5BFA721C6D428B0087630B /* YPName.m in Sources */,
+				3E5BFA741C6D428B0087630B /* YPString.m in Sources */,
+				3E114A2F1C6E9DBD00664230 /* YPXref.m in Sources */,
 				3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */,
 				3E5BFA781C6D428B0087630B /* Utils.c in Sources */,
-				3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */,
-				3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */,
-				3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */,
-				3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */,
-				3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */,
-				3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */,
+				3E5BFA7A1C6D428B0087630B /* YPNumber.m in Sources */,
+				3E5BFA7C1C6D428B0087630B /* YPObject.m in Sources */,
+				3E5BFA7E1C6D428B0087630B /* YPObjectStream.m in Sources */,
+				3E5BFA801C6D428B0087630B /* YPDocument.m in Sources */,
+				3E5BFA821C6D428B0087630B /* YPPages.m in Sources */,
+				3E5BFA841C6D428B0087630B /* YPObjectReference.m in Sources */,
 				3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

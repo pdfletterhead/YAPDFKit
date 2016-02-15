@@ -1,18 +1,17 @@
 //
-//  PDFDocument.m
+//  YPDocument.m
 //  YAPDFKit
 //
 //  Created by Aliona on 10.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //
 
-#import "PDFDocument.h"
-#import "PDFObject.h"
-#import "PDFXref.h"
-#import "PDFPages.h"
-#import "PDFObjectReference.h"
+#import "YPDocument.h"
+#import "YPObject.h"
+#import "YPXref.h"
+#import "YPPages.h"
+#import "YPObjectReference.h"
 #import "Utils.h"
-//#import "PDFObject.h"
 
 enum ParserStates {
     ERROR_STATE = -1,
@@ -33,7 +32,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     return p;
 }
 
-@implementation PDFDocument
+@implementation YPDocument
 
 @synthesize objects;
 @synthesize comments;
@@ -296,7 +295,7 @@ const char* strblock(const char* p, int(^func)(char ch))
         objectData = [NSData dataWithBytes:objBodyBegin length:objBodyEnd - objBodyBegin];
     }
 
-    PDFObject *p = [[PDFObject alloc] initWithData:objectData first:&first second:&second];
+    YPObject *p = [[YPObject alloc] initWithData:objectData first:&first second:&second];
     [objects setObject:p forKey:[p getObjectNumber]];
 
     *idx = i;
@@ -375,12 +374,12 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (void) linkObjectsWithContents
 {
     for (NSString *key in objects) {
-        PDFObject* object = [objects objectForKey:key];
+        YPObject* object = [objects objectForKey:key];
         if (object.references) {
             NSMutableDictionary *cpReference = [[NSMutableDictionary alloc] init];
             for(NSString *reference in object.references) {
                 if ([objects objectForKey:reference]) {
-                    PDFObject *referenceTo = [objects objectForKey:reference];
+                    YPObject *referenceTo = [objects objectForKey:reference];
                     [cpReference setObject:referenceTo forKey:reference];
                 }
             }
@@ -392,7 +391,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (NSArray*) getAllObjectsWithKey:(NSString *)key{
     NSMutableArray * infoArray = [[NSMutableArray alloc] init];
     for (NSString* obj in objects) {
-        PDFObject *current = [objects objectForKey:obj];
+        YPObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
 //            info = [currentValue objectForKey:key];
@@ -408,7 +407,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSMutableArray * infoArray = [[NSMutableArray alloc] init];
     NSArray* objWithKeyType = [self getAllObjectsWithKey:@"Type"];
     
-    for (PDFObject* obj in objWithKeyType) {
+    for (YPObject* obj in objWithKeyType) {
         NSString * valForKey = [self getInfoForKey:key inObject:[obj getObjectNumber]];
         if ([valForKey isEqualToString:value])
         {
@@ -423,7 +422,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 {
     id info = nil;
     for (NSString* obj in objects) {
-        PDFObject *current = [objects objectForKey:obj];
+        YPObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             info = [currentValue objectForKey:key];
@@ -436,7 +435,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (id) getInfoForKey:(NSString *)key inObject:(NSString *)objectNumber
 {
     id info = nil;
-    PDFObject *object = [objects objectForKey:objectNumber];
+    YPObject *object = [objects objectForKey:objectNumber];
     id objectValue = [object value];
     if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
         info = [objectValue objectForKey:key];
@@ -448,7 +447,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 {
     NSString *num = @"";
     for (NSString* obj in objects) {
-        PDFObject *current = [objects objectForKey:obj];
+        YPObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             if (value && ![value isEqualToString:[currentValue objectForKey:key] ]) {
@@ -529,13 +528,13 @@ const char* strblock(const char* p, int(^func)(char ch))
     return catalogNum;
 }
 
-- (PDFObject*) getObjectByNumber:(NSString*)number
+- (YPObject*) getObjectByNumber:(NSString*)number
 {
-    PDFObject* object = [objects objectForKey:number];
+    YPObject* object = [objects objectForKey:number];
     return object;
 }
 
-- (void) addObjectToUpdateQueue:(PDFObject *)pdfObject
+- (void) addObjectToUpdateQueue:(YPObject *)pdfObject
 {
     //add to update array
     [updateObjectQueue addObject:pdfObject];
@@ -548,10 +547,10 @@ const char* strblock(const char* p, int(^func)(char ch))
     //NSNumber* prevTrailer;
     
     //NSNumber* offSet; //[NSNumber numberWithInt: (int)[modifiedPDFData length]];
-    PDFXref * xref = [[PDFXref alloc] init];
+    YPXref * xref = [[YPXref alloc] init];
     
     //create object blocks and add to data
-    for (PDFObject * obj in updateObjectQueue) {
+    for (YPObject * obj in updateObjectQueue) {
         
         NSNumber* offset = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
         [xref addObjectEntry:offset generation:[NSNumber numberWithInt:1] deleted:NO];

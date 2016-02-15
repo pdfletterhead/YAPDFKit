@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #include "pdfzlib.h"
 
-// Stream contents in PDFObject
-@interface PDFObjectStream : NSObject
+// Stream contents in YPObject
+@interface YPObjectStream : NSObject
 
 @property NSData* rawData;
 
