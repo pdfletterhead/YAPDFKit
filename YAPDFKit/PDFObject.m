@@ -59,7 +59,7 @@
 - (void)run
 {
     index = 0;
-    NSUInteger i = 0;
+    size_t i = 0;
     contents = [[NSMutableArray alloc] init];
     for (; i < dataLength; ++i) {
         NSObject *obj = [[NSObject alloc] init];
