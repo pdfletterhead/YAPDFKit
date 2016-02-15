@@ -4,7 +4,7 @@
 Status](https://travis-ci.org/mipmip/YAPDFKit.svg?branch=master)](https://travis-ci.org/mipmip/YAPDFKit)
 
 Yet another PDF Kit is a independent PDF Kit written in objective-c for
-parsing and manipulating PDF's. YAPDFKit is completely independant of Apple's PDFKit
+parsing and manipulating PDF's. YAPDFKit is completely independent of Apple's PDFKit
 
 For specific cases YAPDFKit can be of great help, but it's currently in an Alpha state.
 
@@ -86,6 +86,7 @@ for (YPObject *page in allPages) {
 ### Milestone 2: first CocoaPod Release
 - [x] Make podspec
 - [x] Replace PDF prefix with YAPDF everywhere
+- [ ] add included pdf in main.c
 
 ### Backlog
 - [ ] Return all page objects / per page
