@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YAPDFKit"
-  s.version      = "0.0.7"
+  s.version      = "0.1.0"
   s.summary      = "Yet another PDF Kit for parsing and modifying PDF's."
 
   # This description is used to generate tags and improve search results.
@@ -82,7 +82,7 @@ DESC
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/mipmip/YAPDFKit.git", :tag => "0.0.7" }
+  s.source       = { :git => "https://github.com/mipmip/YAPDFKit.git", :tag => "0.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
