@@ -26,33 +26,19 @@
 		3E114A2F1C6E9DBD00664230 /* PDFXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* PDFXref.m */; };
 		3E5BFA551C6D3C050087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
 		3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */; };
-		3E5BFA691C6D428B0087630B /* PDFHexString.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E6249193342C900D8C4D7 /* PDFHexString.h */; };
 		3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624A193342C900D8C4D7 /* PDFHexString.m */; };
-		3E5BFA6B1C6D428B0087630B /* PDFDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E62401933420700D8C4D7 /* PDFDictionary.h */; };
 		3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62411933420700D8C4D7 /* PDFDictionary.m */; };
-		3E5BFA6D1C6D428B0087630B /* PDFArray.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E62431933422400D8C4D7 /* PDFArray.h */; };
 		3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62441933422400D8C4D7 /* PDFArray.m */; };
-		3E5BFA6F1C6D428B0087630B /* PDFBool.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E624C19334C8200D8C4D7 /* PDFBool.h */; };
 		3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E624D19334C8200D8C4D7 /* PDFBool.m */; };
-		3E5BFA711C6D428B0087630B /* PDFName.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E624F1933563100D8C4D7 /* PDFName.h */; };
 		3E5BFA721C6D428B0087630B /* PDFName.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E62501933563100D8C4D7 /* PDFName.m */; };
-		3E5BFA731C6D428B0087630B /* PDFString.h in Sources */ = {isa = PBXBuildFile; fileRef = 198E6246193342AF00D8C4D7 /* PDFString.h */; };
 		3E5BFA741C6D428B0087630B /* PDFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 198E6247193342AF00D8C4D7 /* PDFString.m */; };
-		3E5BFA751C6D428B0087630B /* pdfzlib.h in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA41C62CA140079C21C /* pdfzlib.h */; };
 		3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
-		3E5BFA771C6D428B0087630B /* Utils.h in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BE192D4A1B009C06FC /* Utils.h */; };
 		3E5BFA781C6D428B0087630B /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
-		3E5BFA791C6D428B0087630B /* PDFNumber.h in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF451933FB79003D557C /* PDFNumber.h */; };
 		3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
-		3E5BFA7B1C6D428B0087630B /* PDFObject.h in Sources */ = {isa = PBXBuildFile; fileRef = 198807641929F2F300D2770D /* PDFObject.h */; };
 		3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 198807651929F2F300D2770D /* PDFObject.m */; };
-		3E5BFA7D1C6D428B0087630B /* PDFObjectStream.h in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE191C6B88BC0093CEEF /* PDFObjectStream.h */; };
 		3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
-		3E5BFA7F1C6D428B0087630B /* PDFDocument.h in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D25191E483800D98CB6 /* PDFDocument.h */; };
 		3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F1D26191E483800D98CB6 /* PDFDocument.m */; };
-		3E5BFA811C6D428B0087630B /* PDFPages.h in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC21935C3880018467C /* PDFPages.h */; };
 		3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* PDFPages.m */; };
-		3E5BFA831C6D428B0087630B /* PDFObjectReference.h in Sources */ = {isa = PBXBuildFile; fileRef = 198712FF192FFB290022A279 /* PDFObjectReference.h */; };
 		3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 19871300192FFB290022A279 /* PDFObjectReference.m */; };
 		3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
@@ -285,7 +271,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Lingewoud;
 				TargetAttributes = {
 					3E5BFA601C6D41930087630B = {
@@ -350,34 +336,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5BFA691C6D428B0087630B /* PDFHexString.h in Sources */,
 				3E5BFA6A1C6D428B0087630B /* PDFHexString.m in Sources */,
-				3E5BFA6B1C6D428B0087630B /* PDFDictionary.h in Sources */,
 				3E5BFA6C1C6D428B0087630B /* PDFDictionary.m in Sources */,
-				3E5BFA6D1C6D428B0087630B /* PDFArray.h in Sources */,
 				3E5BFA6E1C6D428B0087630B /* PDFArray.m in Sources */,
-				3E5BFA6F1C6D428B0087630B /* PDFBool.h in Sources */,
 				3E5BFA701C6D428B0087630B /* PDFBool.m in Sources */,
-				3E5BFA711C6D428B0087630B /* PDFName.h in Sources */,
 				3E5BFA721C6D428B0087630B /* PDFName.m in Sources */,
-				3E5BFA731C6D428B0087630B /* PDFString.h in Sources */,
 				3E5BFA741C6D428B0087630B /* PDFString.m in Sources */,
-				3E5BFA751C6D428B0087630B /* pdfzlib.h in Sources */,
 				3E114A2F1C6E9DBD00664230 /* PDFXref.m in Sources */,
 				3E5BFA761C6D428B0087630B /* pdfzlib.m in Sources */,
-				3E5BFA771C6D428B0087630B /* Utils.h in Sources */,
 				3E5BFA781C6D428B0087630B /* Utils.c in Sources */,
-				3E5BFA791C6D428B0087630B /* PDFNumber.h in Sources */,
 				3E5BFA7A1C6D428B0087630B /* PDFNumber.m in Sources */,
-				3E5BFA7B1C6D428B0087630B /* PDFObject.h in Sources */,
 				3E5BFA7C1C6D428B0087630B /* PDFObject.m in Sources */,
-				3E5BFA7D1C6D428B0087630B /* PDFObjectStream.h in Sources */,
 				3E5BFA7E1C6D428B0087630B /* PDFObjectStream.m in Sources */,
-				3E5BFA7F1C6D428B0087630B /* PDFDocument.h in Sources */,
 				3E5BFA801C6D428B0087630B /* PDFDocument.m in Sources */,
-				3E5BFA811C6D428B0087630B /* PDFPages.h in Sources */,
 				3E5BFA821C6D428B0087630B /* PDFPages.m in Sources */,
-				3E5BFA831C6D428B0087630B /* PDFObjectReference.h in Sources */,
 				3E5BFA841C6D428B0087630B /* PDFObjectReference.m in Sources */,
 				3E5BFA641C6D41930087630B /* YAPDFKit_TestSuite.m in Sources */,
 			);
@@ -403,6 +375,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
