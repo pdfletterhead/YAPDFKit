@@ -21,7 +21,7 @@
 {
     const char * rawData;
     NSUInteger dataLength;
-    NSUInteger * index;
+    size_t * index;
     NSMutableArray * contents;
     NSMutableDictionary * pdfContents;
 }
