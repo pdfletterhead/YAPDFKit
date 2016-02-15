@@ -246,7 +246,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     const char *rawData = (const char*)[data bytes];
     NSUInteger dataLength = data.length;
 
-    NSUInteger i = *idx;
+    size_t i = *idx;
     NSString *firstObjNum = @"";
     NSString *secondObjNum = @"";
 
@@ -305,7 +305,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 - (enum ParserStates)handleInPDFXrefState:(NSData*)data idx:(NSUInteger*)idx
 {
-    NSUInteger i = *idx;
+    size_t i = *idx;
     const char *rawData = (const char*)[data bytes];
     NSUInteger dataLength = data.length;
 
@@ -510,9 +510,9 @@ const char* strblock(const char* p, int(^func)(char ch))
     {
         infoString = (NSMutableString*)[infoString stringByAppendingString:@"Binary: False\n"];
     }
-    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",[objects count]];
-    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",[[self getObjectsWithStreams] count]];
-    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Comments: %ld\n",[comments count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Objects: %ld\n",(size_t)[objects count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Streams: %ld\n",(size_t)[[self getObjectsWithStreams] count]];
+    infoString = (NSMutableString*)[infoString stringByAppendingFormat:@"Comments: %ld\n",(size_t)[comments count]];
     
     return (NSString*)infoString;
 }

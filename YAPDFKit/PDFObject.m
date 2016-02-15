@@ -73,7 +73,7 @@
 
 - (NSObject *)checkNextStruct:(NSUInteger *)idx
 {
-    NSUInteger i = *idx;
+    size_t i = *idx;
     
     NSObject *structure;
     
@@ -117,7 +117,7 @@
 - (NSDictionary *)checkDict:(NSUInteger *)idx
 {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    NSUInteger i = *idx;
+    size_t i = *idx;
     i += 2;
     
     for(; i < dataLength; ++i) {
@@ -156,7 +156,7 @@
 - (NSArray *)checkArray:(NSUInteger *)idx
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    NSUInteger i = *idx;
+    size_t i = *idx;
     ++i;
     
     for(; i < dataLength; ++i) {
