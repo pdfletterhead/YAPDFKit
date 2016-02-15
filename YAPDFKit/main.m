@@ -46,11 +46,11 @@ int main(int argc, const char * argv[])
             
             NSLog(@"plain: %@", plainContent);
             
-            NSString * newplain = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc" withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
+            NSString * newplain = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc"
+                                                                          withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
             [pageContentsObject setStreamContentsWithString:newplain];
             
             [document addObjectToUpdateQueue:pageContentsObject];
-            //NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
         }
         
         [document updateDocumentData];

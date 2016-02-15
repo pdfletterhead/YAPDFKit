@@ -356,7 +356,7 @@ Comments: 2\n";
 
 }
 
-- (void)testDocumentMetaData
+- (void)xtestDocumentMetaData
 {
     PDFDocument * document = [self setupDocumentCMethod:@"2-page-pages-export"];
     
