@@ -21,7 +21,6 @@
 		1991B7C0192D4A4C009C06FC /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 1991B7BF192D4A4C009C06FC /* Utils.c */; };
 		19958FC41935C3880018467C /* PDFPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 19958FC31935C3880018467C /* PDFPages.m */; };
 		19D8FF471933FB79003D557C /* PDFNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FF461933FB79003D557C /* PDFNumber.m */; };
-		3E02FE181C6B75810093CEEF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE171C6B75810093CEEF /* README.md */; };
 		3E02FE1B1C6B88BD0093CEEF /* PDFObjectStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E02FE1A1C6B88BD0093CEEF /* PDFObjectStream.m */; };
 		3E114A2E1C6E9DBD00664230 /* PDFXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* PDFXref.m */; };
 		3E114A2F1C6E9DBD00664230 /* PDFXref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E114A2D1C6E9DBD00664230 /* PDFXref.m */; };
@@ -334,7 +333,6 @@
 				3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */,
 				19958FC41935C3880018467C /* PDFPages.m in Sources */,
 				1991B7C0192D4A4C009C06FC /* Utils.c in Sources */,
-				3E02FE181C6B75810093CEEF /* README.md in Sources */,
 				198807661929F2F300D2770D /* PDFObject.m in Sources */,
 				198E6248193342AF00D8C4D7 /* PDFString.m in Sources */,
 				192F1D27191E483800D98CB6 /* PDFDocument.m in Sources */,

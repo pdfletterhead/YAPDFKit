@@ -12,7 +12,7 @@
 #import "PDFPages.h"
 #import "PDFObjectReference.h"
 #import "Utils.h"
-
+//#import "PDFObject.h"
 
 enum ParserStates {
     ERROR_STATE = -1,
@@ -279,7 +279,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     skipBlankSymbols(rawData, &i);
 
     const char* objBodyBegin = &rawData[i];
-    const char* objBodyEnd;
+    const char* objBodyEnd = &rawData[i];
 
     for (; i+6 < dataLength; ++i) {
         if (rawData[i-1] != '\\' && rawData[i] == 'e' && rawData[i+1] == 'n' && rawData[i+2] == 'd' && rawData[i+3] == 'o' && rawData[i+4] == 'b' && rawData[i+5] == 'j') {
@@ -333,7 +333,8 @@ const char* strblock(const char* p, int(^func)(char ch))
         }
     }
 
-    NSData *xrefData = [NSData dataWithBytes:xrefBegin length:xrefEnd - xrefBegin];
+    // NOTE We may use xrefData in the future
+    //NSData *xrefData = [NSData dataWithBytes:xrefBegin length:xrefEnd - xrefBegin];
 
     skipBlankSymbols(rawData, &i);
     const char* trailerBegin = &rawData[i];
@@ -354,7 +355,8 @@ const char* strblock(const char* p, int(^func)(char ch))
         }
     }
 
-    NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
+    // NOTE We may use trailerData in the future
+    //NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
 
     //NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
 
