@@ -114,7 +114,7 @@
     return structure;
 }
 
-- (NSDictionary *)checkDict:(NSUInteger *)idx
+- (NSDictionary *)checkDict:(size_t *)idx
 {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     size_t i = *idx;
@@ -153,7 +153,7 @@
     return (NSDictionary*)dict;
 }
 
-- (NSArray *)checkArray:(NSUInteger *)idx
+- (NSArray *)checkArray:(size_t *)idx
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     size_t i = *idx;
@@ -181,7 +181,7 @@
     return pdfArray;
 }
 
-- (PDFBool *)checkBool:(NSUInteger *)idx
+- (PDFBool *)checkBool:(size_t *)idx
 {
     PDFBool *b = [[PDFBool alloc] init];
     NSUInteger i = *idx;
@@ -201,7 +201,7 @@
     return b;
 }
 
-- (PDFHexString *)checkBinaryString:(NSUInteger *)idx
+- (PDFHexString *)checkBinaryString:(size_t *)idx
 {
     NSString *str = @"";
     PDFHexString *binary;
@@ -231,7 +231,7 @@
     return binary;
 }
 
-- (PDFString *)checkString:(NSUInteger *)idx
+- (PDFString *)checkString:(size_t *)idx
 {
     NSString *str = @"";
     PDFString *pdfString;
@@ -258,7 +258,7 @@
     return pdfString;
 }
 
-- (PDFName *)checkName:(NSUInteger *)idx
+- (PDFName *)checkName:(size_t *)idx
 {
     NSString *name = @"";
     PDFName *pdfName;
@@ -275,7 +275,7 @@
     return pdfName;
 }
 
-- (id)checkNum:(NSUInteger *)idx
+- (id)checkNum:(size_t *)idx
 {
     NSString *num = @"";
     NSString *secondNum = @"";
@@ -330,7 +330,7 @@
 }
 
 
-- (PDFObjectStream *)checkStream:(NSUInteger *)idx
+- (PDFObjectStream *)checkStream:(size_t *)idx
 {
     NSUInteger i = *idx;
     

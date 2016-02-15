@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 NSString* deflateData(NSData * data);
 NSData* inflateStringToData(NSString* string);
+void ZeroMemory(void * buffer, long sizeOf);

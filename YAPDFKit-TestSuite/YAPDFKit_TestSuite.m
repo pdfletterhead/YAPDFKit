@@ -416,7 +416,7 @@ Comments: 2\n";
         }
     }
     
-    id pdfObject = [pdfObjs objectForKey:@"21 0"];
+    //id pdfObject = [pdfObjs objectForKey:@"21 0"];
     //NSLog(@"class %@", [[pdfObject getContents] class]);
 
     XCTAssert([[[pdfObjs[@"21 0"] getContents] firstObject] isKindOfClass:[NSDictionary class]], @"Wrong content type");
