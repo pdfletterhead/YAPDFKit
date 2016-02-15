@@ -71,7 +71,7 @@
     index = &i;
 }
 
-- (NSObject *)checkNextStruct:(NSUInteger *)idx
+- (NSObject *)checkNextStruct:(size_t *)idx
 {
     size_t i = *idx;
     
