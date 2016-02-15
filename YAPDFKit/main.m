@@ -41,9 +41,16 @@ int main(int argc, const char * argv[])
             
             NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
             PDFObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
-            [pageContentsObject setStreamContentsWithString:@"BT\ /TT1 1 Tf\ 17 72 Td\ (Hello World!)Tj\n"];
+            
+            NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
+            
+            NSLog(@"plain: %@", plainContent);
+            
+            NSString * newplain = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc" withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
+            [pageContentsObject setStreamContentsWithString:newplain];
+            
             [document addObjectToUpdateQueue:pageContentsObject];
-             //NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
+            //NSLog(@"block:\n\n%@\n\n",[pageContentsObject createObjectBlock]);
         }
         
         [document updateDocumentData];

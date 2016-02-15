@@ -44,9 +44,9 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] Add new object at file bottom
 - [x] Add new xref table at file bottom
 - [x] Add new trailer
-- [ ] calculate file length
-- [ ] calc object length
-- [ ] fix and check all offsets;
+- [x] calculate file length
+- [x] calc object length
+- [x] fix and check all offsets;
 
 ### Backlog
 - [ ] Return all page objects / per page

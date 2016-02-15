@@ -34,6 +34,6 @@
 - (id)getObjectForKeyInDict:(NSString*)key;
 - (NSString*) createObjectBlock;
 - (void)setStreamContentsWithString:(NSString*)string;
-
+- (NSString*)getUncompressedStreamContents;
 
 @end

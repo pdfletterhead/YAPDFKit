@@ -322,6 +322,7 @@ const char* strblock(const char* p, int(^func)(char ch))
                 _errorMessage = @"Xref unknown syntax";
                 return ERROR_STATE;
             }
+            lastTrailerOffset = (NSInteger*)i;
             
             xrefEnd = &rawData[i];
             i += 7;
@@ -343,8 +344,8 @@ const char* strblock(const char* p, int(^func)(char ch))
                 _errorMessage = @"Xref unknown syntax";
                 return ERROR_STATE;
             }
+
             trailerEnd = &rawData[i];
-            lastTrailerOffset = i;
             i += 9;
             break;
         }
@@ -540,9 +541,9 @@ const char* strblock(const char* p, int(^func)(char ch))
 - (void) updateDocumentData
 {
     //previous trailor
-    NSNumber* prevTrailer;
+    //NSNumber* prevTrailer;
     
-    NSNumber* offSet; //[NSNumber numberWithInt: (int)[modifiedPDFData length]];
+    //NSNumber* offSet; //[NSNumber numberWithInt: (int)[modifiedPDFData length]];
     PDFXref * xref = [[PDFXref alloc] init];
     
     //create object blocks and add to data
@@ -559,7 +560,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSNumber* startXref = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
     [modifiedPDFData appendData:[[xref stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    [modifiedPDFData appendData:[[self createTrailerBlock:startXref previousTrailorOffset:lastTrailerOffset] dataUsingEncoding:NSUTF8StringEncoding]];
+    [modifiedPDFData appendData:[[self createTrailerBlock:startXref previousTrailorOffset:(int)lastTrailerOffset] dataUsingEncoding:NSUTF8StringEncoding]];
     
     //write new trailer
 }
