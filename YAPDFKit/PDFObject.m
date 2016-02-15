@@ -84,6 +84,7 @@
     if (rawData[i] == '<') {
         if(rawData[i+1] == '<') {
             structure = [self checkDict:&i];
+            NSLog(@"class: %@", [structure class]);
         } else {
             structure = [self checkBinaryString:&i];
         }
@@ -106,7 +107,6 @@
         skipBlankSymbols(rawData, &i);
 
         [self checkNextStruct:&i];
-        
     }
     
     *idx = i;
@@ -116,8 +116,6 @@
 
 - (NSDictionary *)checkDict:(NSUInteger *)idx
 {
-    PDFDictionary *pdfDict = [[PDFDictionary alloc] init];
-    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSUInteger i = *idx;
     i += 2;
@@ -149,12 +147,10 @@
     }
     
     *idx = i;
-    pdfDict = (PDFDictionary *)dict;
 
-    //dictionary = (PDFDictionary *)dict; //will be the prefered
     dictionary = [[PDFDictionary alloc] initWithDictionary:(NSDictionary*)dict];
     
-    return pdfDict;
+    return (NSDictionary*)dict;
 }
 
 - (NSArray *)checkArray:(NSUInteger *)idx
