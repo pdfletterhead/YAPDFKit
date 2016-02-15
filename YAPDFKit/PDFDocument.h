@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "PDFObject.h"
+#import "PDFXref.h"
+#import "PDFPages.h"
+#import "PDFObjectReference.h"
+#import "Utils.h"
+
 @class PDFObject;
 
 @interface PDFDocument : NSObject

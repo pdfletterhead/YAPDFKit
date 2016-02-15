@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Foundation/NSObject.h>
-
 #import "PDFDocument.h"
-#import "PDFObject.h"
-#import "PDFPages.h"
-#import "PDFObjectReference.h"
 
 enum ParserStates {
     BEGIN_STATE = 0,

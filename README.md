@@ -4,22 +4,57 @@
 Status](https://travis-ci.org/mipmip/YAPDFKit.svg?branch=master)](https://travis-ci.org/mipmip/YAPDFKit)
 
 Yet another PDF Kit is a independent PDF Kit written in objective-c for
-parsing and manipulating PDF's.
+parsing and manipulating PDF's. YAPDFKit is completely independant of Apple's PDFKit
 
-WARNING: Currently the state of YAPDFKit is experimental.
+For specific cases YAPDFKit can be of great help, but it's currently in an Alpha state.
 
-## Motivation
-This project started because I wanted to remove white
-backgrounds from PDF's made by Applications like Apple Pages. YAPDFKit
-is used in the [PDF Letterhead App](http://pdfletterhead.net).
+## Example
 
-YAPDFKit tries to be completely independant of Apple's PDFKit
+Use these includes:
+
+```objective-c
+
+#import <Foundation/Foundation.h>
+#import "PDFDocument.h"
+```
+
+In this example we remove all non-transparent white backgrounds from every page in an 
+PDF file and we save the result in a new PDF file
+
+```objective-c
+
+NSData *fileData = [NSData dataWithContentsOfFile:@"/path/to/pdf/PDF-with-non-transparent-background.pdf"];
+PDFDocument *document = [[PDFDocument alloc] initWithData:fileData];
+
+PDFPages *pg = [[PDFPages alloc] initWithDocument:document];
+
+// Get all pages unsorted
+NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
+
+for (PDFObject *page in allPages) {
+
+    NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
+    PDFObject *pageContentsObject = [document getObjectByNumber:docContentNumber];
+
+    NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
+
+    NSString *newPlainContent = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc"
+                                                                        withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
+
+    [pageContentsObject setStreamContentsWithString:newPlainContent];
+
+    [document addObjectToUpdateQueue:pageContentsObject];
+}
+
+[document updateDocumentData];
+[[document modifiedPDFData] writeToFile:@"/path/to/pdf/PDF-with-transparent-background.pdf" atomically:YES];
+```
 
 ## Requirements
 
 ### Platform targets
 
-- Usable in OSX and iOS projects
+- Usable in OS X and iOS projects
 - Oldest Mac target: Mac OS X 10.7
 
 ### Functionality targets
@@ -49,16 +84,25 @@ YAPDFKit tries to be completely independant of Apple's PDFKit
 - [x] fix and check all offsets;
 
 ### Backlog
+- [ ] Make podspec
 - [ ] Return all page objects / per page
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
-- [ ] Make podspec
 - [ ] Code Coverage
 - [ ] Rename all object attributes classes with a name including object
 - [ ] cleanup file reader
 
-## Credits
+## Motivation
+This project started because we needed to remove white
+backgrounds from PDF's made by Applications like Apple Pages. YAPDFKit
+is used in the [PDF Letterhead App](http://pdfletterhead.net).
 
+![image](http://picdrop.t3lab.com/DXf3SaNc8d.png)
+
+![image](http://picdrop.t3lab.com/cAobHdySJ6.png)
+
+## Credits
 - YAPDFKit is a fork of [PDFCoolParser](https://github.com/kozliappi/PDFCoolParser) by @kozliappi.
 - YAPDFKit is sponsored by [Lingewoud](http://lingewoud.com) and [MunsterMade](http://munstermade.com).
 
+![image](http://picdrop.t3lab.com/yCWqnH5FWq.png)

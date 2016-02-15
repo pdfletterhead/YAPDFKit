@@ -9,7 +9,10 @@
 #import "PDFDocument.h"
 #import "PDFObject.h"
 #import "PDFXref.h"
+#import "PDFPages.h"
+#import "PDFObjectReference.h"
 #import "Utils.h"
+
 
 enum ParserStates {
     ERROR_STATE = -1,
