@@ -334,7 +334,7 @@ const char* strblock(const char* p, int(^func)(char ch))
     }
 
     // NOTE We may use xrefData in the future
-    //NSData *xrefData = [NSData dataWithBytes:xrefBegin length:xrefEnd - xrefBegin];
+    NSData *xrefData = [NSData dataWithBytes:xrefBegin length:xrefEnd - xrefBegin];
 
     skipBlankSymbols(rawData, &i);
     const char* trailerBegin = &rawData[i];
@@ -356,9 +356,8 @@ const char* strblock(const char* p, int(^func)(char ch))
     }
 
     // NOTE We may use trailerData in the future
-    //NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
-
-    //NSLog(@"Xref: %@ \r Trailer: %@", xrefData, trailerData);
+    NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
+    NSLog(@"\nXref: %@ \nTrailer: %@", xrefData, trailerData);
 
     skipBlankSymbols(rawData, &i);
 

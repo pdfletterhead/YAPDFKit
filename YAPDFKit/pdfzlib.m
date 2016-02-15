@@ -220,8 +220,8 @@ NSString* deflateData(NSData * data)
     z_stream zstrm;
     ZeroMemory(&zstrm, sizeof(zstrm));
     
-    zstrm.avail_in = streamend - streamstart + 1;
-    zstrm.avail_out = outsize;
+    zstrm.avail_in = (uInt)streamend - (uInt)streamstart + (uInt)1;
+    zstrm.avail_out = (uInt)outsize;
     zstrm.next_in = (Bytef*)(buffer + streamstart);
     zstrm.next_out = (Bytef*)output;
     
