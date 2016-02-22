@@ -418,7 +418,6 @@
     if(stream)
     {
         NSString *filter = [dictionary objectForKey:@"Filter"];
-        NSLog(@"filter: %@",filter);
         return [[self stream] getDecompressedDataAsString:filter];
     }
     
@@ -430,7 +429,6 @@
     if(stream)
     {
         NSString *filter = [dictionary objectForKey:@"Filter"];
-        NSLog(@"filter: %@",filter);
         return [[self stream] getDecompressedData:filter];
     }
     
@@ -454,12 +452,10 @@
 
 - (NSData*) createObjectDataBlock
 {
-    
     NSString* startstring =[@"" stringByAppendingFormat:@"%@ obj\n",[self getObjectNumber]];
     NSData*startData =[startstring dataUsingEncoding:NSASCIIStringEncoding];
     
     NSMutableData* blockData = [[NSMutableData alloc] initWithData:startData];
-    NSLog(@"startstring: %@",startstring);
     
     if(dictionary)
     {
@@ -471,59 +467,19 @@
             // For now we do not support Filters for created blocks, so we'll remove the key
             [dictionary removeObjectForKey:@"Filter"];
         }
-        
-        //blockString = (NSMutableString*)[blockString stringByAppendingString:@"<< "];
-//        blockString = (NSMutableString*)[blockString stringByAppendingString:[dictionary stringValue]];
+
         [blockData appendData:[[dictionary stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
-        //blockString = (NSMutableString*)[blockString stringByAppendingString:@" >>\n"];
         
         if(stream)
         {
             [blockData appendData:[@"stream\n" dataUsingEncoding:NSUTF8StringEncoding]];
             [blockData appendData:[self getUncompressedStreamContentsAsData]];
             [blockData appendData:[@"endstream\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//            blockString = (NSMutableString*)[blockString stringByAppendingString:@"stream\n"];
-  //          blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@",[self getUncompressedStreamContents]];
-//            blockString = (NSMutableString*)[blockString stringByAppendingString:@"endstream\n"];
         }
     }
-    
     
     [blockData appendData:[@"endobj\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"blockData: %s",[blockData bytes]);
     return (NSData*)blockData;
-}
-
-- (NSString*) createObjectBlock
-{
-    NSMutableString* blockString = (NSMutableString*)@"";
-    blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@ obj\n",[self getObjectNumber]];
-    //if([[value firstObject] isKindOfClass:[NSDictionary class]])
-    if(dictionary)
-    {
-        //if stream set of replace length
-        if(stream)
-        {
-            [dictionary setObject:[NSNumber numberWithInt:(int)[stream length]] forKey:@"Length"];
-            
-            // For now we do not support Filters for created blocks, so we'll remove the key
-            [dictionary removeObjectForKey:@"Filter"];
-        }
-            
-        //blockString = (NSMutableString*)[blockString stringByAppendingString:@"<< "];
-        blockString = (NSMutableString*)[blockString stringByAppendingString:[dictionary stringValue]];
-        //blockString = (NSMutableString*)[blockString stringByAppendingString:@" >>\n"];
-        
-        if(stream)
-        {
-            blockString = (NSMutableString*)[blockString stringByAppendingString:@"stream\n"];
-            blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@",[self getUncompressedStreamContents]];
-            blockString = (NSMutableString*)[blockString stringByAppendingString:@"endstream\n"];
-        }
-    }
-    
-    blockString = (NSMutableString*)[blockString stringByAppendingString:@"endobj\n"];
-    return (NSString*)blockString;
 }
 
 @end

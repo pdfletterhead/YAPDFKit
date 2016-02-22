@@ -86,15 +86,11 @@
 {
     if([filter isEqualToString:@"FlateDecode"])
     {
-        //NSLog(@"raw: %@",_rawData);
         return deflateData(_rawData);
     }
     else if([filter isEqualToString:@"None"])
     {
         return _rawData;
-        //NSString* plain = [[NSString alloc] initWithData:_rawData encoding:NSUTF8StringEncoding];
-        
-        //return plain;
     }
     else
     {
@@ -108,7 +104,6 @@
 {
     if([filter isEqualToString:@"FlateDecode"])
     {
-        //NSLog(@"raw: %@",_rawData);
         return deflateDataAsString(_rawData);
     }
     else if([filter isEqualToString:@"None"])

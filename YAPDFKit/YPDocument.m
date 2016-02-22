@@ -396,11 +396,8 @@ const char* strblock(const char* p, int(^func)(char ch))
         YPObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
         
-        //NSLog(@"halloooo: %@", [current getContents]);
-        
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             [infoArray addObject:current];
-            //NSLog(@"obj num %@", [current getObjectNumber]);
         }
     }
     return (NSArray*)infoArray;
@@ -450,7 +447,6 @@ const char* strblock(const char* p, int(^func)(char ch))
     if(!info && objectContents && [objectContents containsObject:@"Contents"])
     {
         size_t index = [objectContents indexOfObject:@"Contents"];
-        NSLog(@"object dlength: %lu\nindex +1: %lu", [objectContents count], (index+1));
         if([objectContents count] > index+1)
         {
             YPAttribute* attr = [[YPAttribute alloc] initWithString: objectContents[(index+1)]];
@@ -463,7 +459,6 @@ const char* strblock(const char* p, int(^func)(char ch))
             {
                 info = objectContents[index+1];
             }
-            NSLog(@"info: %@", info);
         }
     }
     
@@ -581,7 +576,6 @@ const char* strblock(const char* p, int(^func)(char ch))
         NSNumber* offset = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
         [xref addObjectEntry:offset generation:[NSNumber numberWithInt:1] deleted:NO];
         
-//        NSData *data = [[obj createObjectBlock] dataUsingEncoding:NSUTF8StringEncoding];
         NSData *data = [obj createObjectDataBlock];
         [modifiedPDFData appendData:data];
     }

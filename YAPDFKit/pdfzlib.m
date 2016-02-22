@@ -234,7 +234,7 @@ NSData* deflateData(NSData * data)
     if (rsti == Z_OK)
     {
         int rst2 = inflate (&zstrm, Z_FINISH);
-        NSLog(@"z code: %d", rst2);
+//        NSLog(@"z code: %d", rst2);
 //        if (rst2 >= 0 || rst2 == -5)
         if (rst2 >= 0)
         {
@@ -297,7 +297,6 @@ NSString* deflateDataAsString(NSData * data)
     if (rsti == Z_OK)
     {
         int rst2 = inflate (&zstrm, Z_FINISH);
-        NSLog(@"z code: %d", rst2);
 //        if (rst2 >= 0 || rst2 == -5)
         if (rst2 >= 0)
         {
