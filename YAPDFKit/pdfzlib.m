@@ -197,7 +197,9 @@ NSData* inflateStringToData(NSString* string)
     return nil;
 }
 
-NSString* deflateData(NSData * data)
+
+
+NSData* deflateData(NSData * data)
 {
     
     //Skip to beginning and end of the data stream:
@@ -211,8 +213,8 @@ NSString* deflateData(NSData * data)
     if (buffer[streamend-2]==0x0d && buffer[streamend-1]==0x0a) streamend-=2;
     else if (buffer[streamend-1]==0x0a) streamend--;
     
-    //Assume output will fit into 10 times input buffer:
-    size_t outsize = (streamend - streamstart)*10;
+    //Assume output will fit into 100 times input buffer:
+    size_t outsize = (streamend - streamstart)*100;
     char *output = malloc(outsize*sizeof(char)); //Allocates the output
     ZeroMemory(output, outsize);
     
@@ -222,6 +224,9 @@ NSString* deflateData(NSData * data)
     
     zstrm.avail_in = (uInt)streamend - (uInt)streamstart + (uInt)1;
     zstrm.avail_out = (uInt)outsize;
+    
+    
+//    NSLog(@"z avail_in : %d, z avail_out: %d", zstrm.avail_in , zstrm.avail_out);
     zstrm.next_in = (Bytef*)(buffer + streamstart);
     zstrm.next_out = (Bytef*)output;
     
@@ -229,6 +234,71 @@ NSString* deflateData(NSData * data)
     if (rsti == Z_OK)
     {
         int rst2 = inflate (&zstrm, Z_FINISH);
+        NSLog(@"z code: %d", rst2);
+//        if (rst2 >= 0 || rst2 == -5)
+        if (rst2 >= 0)
+        {
+            NSData * retdata = [[NSData alloc] initWithBytes:output length: zstrm.total_out];
+            //Ok, got something, extract the text:
+            //size_t totout = zstrm.total_out;
+            //printf("rawxxx: %s",output);
+            //ProcessOutput(output, totout);
+            //NSLog(@"text %@",result);
+            //NSString *decompr = [NSString stringWithCString:output encoding:NSUTF8StringEncoding];
+            
+           // printf("\nraw: %s",output);
+//            NSString *decompr = [NSString stringWithUTF8String:(char *)output];
+            
+            free(output);
+            return retdata;
+            
+
+        }
+        
+
+    }
+
+    free(output);
+    return nil;
+}
+
+NSString* deflateDataAsString(NSData * data)
+{
+    
+    //Skip to beginning and end of the data stream:
+    const char* buffer = data.bytes;
+    size_t streamstart = 0;
+    size_t streamend = data.length;
+    
+    if (buffer[streamstart]==0x0d && buffer[streamstart+1]==0x0a) streamstart+=2;
+    else if (buffer[streamstart]==0x0a) streamstart++;
+    
+    if (buffer[streamend-2]==0x0d && buffer[streamend-1]==0x0a) streamend-=2;
+    else if (buffer[streamend-1]==0x0a) streamend--;
+    
+    //Assume output will fit into 100 times input buffer:
+    size_t outsize = (streamend - streamstart)*100;
+    char *output = malloc(outsize*sizeof(char)); //Allocates the output
+    ZeroMemory(output, outsize);
+    
+    //Now use zlib to inflate:
+    z_stream zstrm;
+    ZeroMemory(&zstrm, sizeof(zstrm));
+    
+    zstrm.avail_in = (uInt)streamend - (uInt)streamstart + (uInt)1;
+    zstrm.avail_out = (uInt)outsize;
+    
+    
+//    NSLog(@"z avail_in : %d, z avail_out: %d", zstrm.avail_in , zstrm.avail_out);
+    zstrm.next_in = (Bytef*)(buffer + streamstart);
+    zstrm.next_out = (Bytef*)output;
+    
+    int rsti = inflateInit(&zstrm);
+    if (rsti == Z_OK)
+    {
+        int rst2 = inflate (&zstrm, Z_FINISH);
+        NSLog(@"z code: %d", rst2);
+//        if (rst2 >= 0 || rst2 == -5)
         if (rst2 >= 0)
         {
             //Ok, got something, extract the text:
@@ -236,10 +306,29 @@ NSString* deflateData(NSData * data)
             //printf("raw: %s",output);
             //ProcessOutput(output, totout);
             //NSLog(@"text %@",result);
-            NSString *decompr = [NSString stringWithCString:output encoding:NSUTF8StringEncoding];           
-            free(output);
+            NSString *decompr = [NSString stringWithCString:output encoding:NSUTF8StringEncoding];
+           // printf("\nraw: %s",output);
+//            NSString *decompr = [NSString stringWithUTF8String:(char *)output];
+            
+            if(decompr)
+            {
+                free(output);
+                return decompr;
+            }
+            else
+            {
+                NSString *decompr2 = [NSString stringWithCString:output encoding:NSMacOSRomanStringEncoding];
+               // NSLog(@"\nraw2: %@",decompr2);
+                free(output);
+                return decompr2;
+            }
+            
+            
+            
             return decompr;
         }
+        
+
     }
 
     free(output);

@@ -17,5 +17,6 @@
 @property YPObject* link;
 
 - (id)initWithNum :(NSString *)first :(NSString *)second;
+- (id)initWithReferenceString:(NSString *)string;
 - (NSString *)getReferenceNumber;
 @end

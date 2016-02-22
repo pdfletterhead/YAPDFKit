@@ -31,7 +31,6 @@
     
     for(NSDictionary* e in objectEntries)
     {
-        NSLog(@"e: %@",e);
         blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@ %@ %@\n",e[@"offset"],e[@"generation"],e[@"deleted"]];
     }
 
@@ -40,7 +39,6 @@
 
 - (void) addObjectEntry:(NSNumber*)offset generation:(NSNumber*)aGeneration deleted:(BOOL)isDeleted
 {
-    //65535
     NSString *offsetString = [NSString stringWithFormat:@"%010d",[offset intValue]] ;
     NSString *generationString = [NSString stringWithFormat:@"%05d",[aGeneration intValue]] ;
     
@@ -50,9 +48,6 @@
                           isDeleted?@"f":@"n", @"deleted",
                           nil];
     [objectEntries addObject:[NSDictionary dictionaryWithDictionary:dict]];
-    
-        NSLog(@"hallo: %@",objectEntries);
-   
 }
 
 @end

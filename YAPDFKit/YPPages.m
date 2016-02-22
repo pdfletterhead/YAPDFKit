@@ -45,7 +45,6 @@
 {
     [self getPageObjectNum];
     NSString* pageCount = [document getInfoForKey:@"Count" inObject:pageInfoObjectNum];
-    //NSLog(@"pages: %@ pages: %@",pageInfoObjectNum, pageCount);
     return [pageCount intValue];
 }
 

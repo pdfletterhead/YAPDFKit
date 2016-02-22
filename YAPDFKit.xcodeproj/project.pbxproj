@@ -43,6 +43,8 @@
 		3E5BFA851C6D43310087630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198DDE8B191E279B00B11929 /* Foundation.framework */; };
 		3E5BFA871C6D45C00087630B /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5BFA531C6D3B910087630B /* libz.1.dylib */; };
 		3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */; };
+		3E9250941C73471400744747 /* YPAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9250931C73471400744747 /* YPAttribute.m */; };
+		3E9250951C73471400744747 /* YPAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9250931C73471400744747 /* YPAttribute.m */; };
 		3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +72,8 @@
 		198DDE8B191E279B00B11929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		198DDE8E191E279B00B11929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = YAPDFKit/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		198DDE91191E279B00B11929 /* YAPDFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YAPDFKit-Prefix.pch"; sourceTree = "<group>"; };
-		198E62401933420700D8C4D7 /* YPDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		198E62411933420700D8C4D7 /* YPDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		198E62401933420700D8C4D7 /* YPDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPDictionary.h; sourceTree = "<group>"; };
+		198E62411933420700D8C4D7 /* YPDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPDictionary.m; sourceTree = "<group>"; };
 		198E62431933422400D8C4D7 /* YPArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YPArray.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		198E62441933422400D8C4D7 /* YPArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YPArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		198E6246193342AF00D8C4D7 /* YPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPString.h; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		3E5BFA631C6D41930087630B /* YAPDFKit_TestSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPDFKit_TestSuite.m; sourceTree = "<group>"; };
 		3E5BFA651C6D41930087630B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "2-page-pages-export.pdf"; sourceTree = "<group>"; };
+		3E9250921C73471400744747 /* YPAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAttribute.h; sourceTree = "<group>"; };
+		3E9250931C73471400744747 /* YPAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAttribute.m; sourceTree = "<group>"; };
 		3EC10EA41C62CA140079C21C /* pdfzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfzlib.h; sourceTree = "<group>"; };
 		3EC10EA51C62CA140079C21C /* pdfzlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pdfzlib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,8 @@
 				3EC10EA71C64DCF90079C21C /* Utils */,
 				198807641929F2F300D2770D /* YPObject.h */,
 				198807651929F2F300D2770D /* YPObject.m */,
+				3E9250921C73471400744747 /* YPAttribute.h */,
+				3E9250931C73471400744747 /* YPAttribute.m */,
 				192F1D25191E483800D98CB6 /* YPDocument.h */,
 				192F1D26191E483800D98CB6 /* YPDocument.m */,
 				3E114A2C1C6E9DBD00664230 /* YPXref.h */,
@@ -315,6 +321,7 @@
 			files = (
 				198DDE8F191E279B00B11929 /* main.m in Sources */,
 				3E114A2E1C6E9DBD00664230 /* YPXref.m in Sources */,
+				3E9250941C73471400744747 /* YPAttribute.m in Sources */,
 				198E62421933420700D8C4D7 /* YPDictionary.m in Sources */,
 				3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */,
 				19958FC41935C3880018467C /* YPPages.m in Sources */,
@@ -338,6 +345,7 @@
 			files = (
 				3E5BFA6A1C6D428B0087630B /* YPHexString.m in Sources */,
 				3E5BFA6C1C6D428B0087630B /* YPDictionary.m in Sources */,
+				3E9250951C73471400744747 /* YPAttribute.m in Sources */,
 				3E5BFA6E1C6D428B0087630B /* YPArray.m in Sources */,
 				3E5BFA701C6D428B0087630B /* YPBool.m in Sources */,
 				3E5BFA721C6D428B0087630B /* YPName.m in Sources */,

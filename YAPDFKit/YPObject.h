@@ -33,7 +33,10 @@
 - (YPObjectStream *)getStreamObject;
 - (id)getObjectForKeyInDict:(NSString*)key;
 - (NSString*) createObjectBlock;
+- (NSData*) createObjectDataBlock;
+- (void) setStreamContentsWithData:(NSData*)data;
 - (void)setStreamContentsWithString:(NSString*)string;
 - (NSString*)getUncompressedStreamContents;
+- (NSData*)getUncompressedStreamContentsAsData;
 
 @end

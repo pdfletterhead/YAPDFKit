@@ -7,11 +7,14 @@
 //
 
 #import "YPDocument.h"
+/*
 #import "YPObject.h"
 #import "YPXref.h"
 #import "YPPages.h"
 #import "YPObjectReference.h"
+#import "YPAttribute.h"
 #import "Utils.h"
+ */
 
 enum ParserStates {
     ERROR_STATE = -1,
@@ -230,7 +233,6 @@ const char* strblock(const char* p, int(^func)(char ch))
     buffer[endOfCommentIdx - i] = 0;
     NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
 //    NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
-//    NSLog(@"%@", comment);
     i = endOfCommentIdx;
 
     //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
@@ -356,7 +358,7 @@ const char* strblock(const char* p, int(^func)(char ch))
 
     // NOTE We may use trailerData in the future
     NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
-    NSLog(@"\nXref: %@ \nTrailer: %@", xrefData, trailerData);
+//    NSLog(@"\nXref: %@ \nTrailer: %@", xrefData, trailerData);
 
     skipBlankSymbols(rawData, &i);
 
@@ -393,10 +395,12 @@ const char* strblock(const char* p, int(^func)(char ch))
     for (NSString* obj in objects) {
         YPObject *current = [objects objectForKey:obj];
         id currentValue = [current value];
+        
+        //NSLog(@"halloooo: %@", [current getContents]);
+        
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
-//            info = [currentValue objectForKey:key];
             [infoArray addObject:current];
-            //NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
+            //NSLog(@"obj num %@", [current getObjectNumber]);
         }
     }
     return (NSArray*)infoArray;
@@ -426,7 +430,6 @@ const char* strblock(const char* p, int(^func)(char ch))
         id currentValue = [current value];
         if ([currentValue isKindOfClass:[NSDictionary class]] && [currentValue objectForKey:key]) {
             info = [currentValue objectForKey:key];
-            //NSLog(@"%@ : obj num %@",info, [current getObjectNumber]);
         }
     }
     return info;
@@ -437,9 +440,33 @@ const char* strblock(const char* p, int(^func)(char ch))
     id info = nil;
     YPObject *object = [objects objectForKey:objectNumber];
     id objectValue = [object value];
+    id objectContents = [object getContents];
+    
     if ([objectValue isKindOfClass:[NSDictionary class]] && [objectValue objectForKey:key]) {
         info = [objectValue objectForKey:key];
     }
+    
+    //Some times the key is defined as name. Try to search for it:
+    if(!info && objectContents && [objectContents containsObject:@"Contents"])
+    {
+        size_t index = [objectContents indexOfObject:@"Contents"];
+        NSLog(@"object dlength: %lu\nindex +1: %lu", [objectContents count], (index+1));
+        if([objectContents count] > index+1)
+        {
+            YPAttribute* attr = [[YPAttribute alloc] initWithString: objectContents[(index+1)]];
+            if([attr.attributeType isEqualToString:@"reference"])
+            {
+                YPObjectReference* ref = [[YPObjectReference alloc] initWithReferenceString:objectContents[(index+1)]];
+                info = ref;
+            }
+            else
+            {
+                info = objectContents[index+1];
+            }
+            NSLog(@"info: %@", info);
+        }
+    }
+    
     return info;
 }
 
@@ -454,7 +481,6 @@ const char* strblock(const char* p, int(^func)(char ch))
                 continue;
             }
             num = [current getObjectNumber];
-            //NSLog(@"%@", num);
         }
     }
     return num;
@@ -555,7 +581,8 @@ const char* strblock(const char* p, int(^func)(char ch))
         NSNumber* offset = [NSNumber numberWithInt: (int)[modifiedPDFData length]];
         [xref addObjectEntry:offset generation:[NSNumber numberWithInt:1] deleted:NO];
         
-        NSData *data = [[obj createObjectBlock] dataUsingEncoding:NSUTF8StringEncoding];
+//        NSData *data = [[obj createObjectBlock] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [obj createObjectDataBlock];
         [modifiedPDFData appendData:data];
     }
     

@@ -70,8 +70,6 @@
         else if([value isKindOfClass:[NSNumber class]]) {
             blockString = (NSMutableString*)[blockString stringByAppendingFormat:@"%@ ",value];
         }
-
-        NSLog(@"dval: %@ :%@", value, [value class]);
     }
     
     blockString = (NSMutableString*)[blockString stringByAppendingString:@">>\n"];

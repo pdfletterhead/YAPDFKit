@@ -22,6 +22,21 @@
     }
     return nil;
 }
+
+- (id)initWithReferenceString:(NSString *)string
+{
+    if (self = [super init]) {
+        
+        NSLog(@"hallo: %@", string);
+        NSArray *chunks = [string componentsSeparatedByString: @" "];
+
+        firstNumber = [chunks[0] integerValue];
+        secondNumber = [chunks[1] integerValue];
+        return self;
+    }
+    return nil;
+}
+
 - (NSString *)description
 {
     NSString *desc = @"";

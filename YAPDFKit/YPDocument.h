@@ -12,6 +12,7 @@
 #import "YPXref.h"
 #import "YPPages.h"
 #import "YPObjectReference.h"
+#import "YPAttribute.h"
 #import "Utils.h"
 
 @class YPObject;

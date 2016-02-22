@@ -20,36 +20,41 @@ int main(int argc, const char * argv[])
 {
     @autoreleasepool {
 
-        NSString *file2 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-multi-export-naar-pdf.pdf";
-        NSData *fileData = [NSData dataWithContentsOfFile:file2];
-
-        YPDocument *document = [[YPDocument alloc] initWithData:fileData];
+     //   NSString *file1 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/pages-geprint-naar-pdf.pdf";
+     //   NSString *file2 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/creatingalightboxeffect.pages.pdf";
+        NSString *file3 = @"/Users/pim/RnD/Studies/PDF-transparant/pdfs/raratekens.pages.pdf";
         
-        YPPages *pg = [[YPPages alloc] initWithDocument:document];
-        NSLog(@"page count: %d", [pg getPageCount]);
+        NSData *fileData = [NSData dataWithContentsOfFile:file3];
+
+//            NSLog(@"data: %@", fileData);
+        YPDocument *document = [[YPDocument alloc] initWithData:fileData];
+
+//        YPPages *pg = [[YPPages alloc] initWithDocument:document];
+//        NSLog(@"page count: %d", [pg getPageCount]);
         
         //All Pages unsorted
         NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
-        NSLog(@"all: %@ ", allPages);
+//        NSLog(@"all: %@ ", allPages);
         
         for (YPObject* page in allPages) {
             
             NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
             YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
             
-            NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
+            NSString *plainContent = [pageContentsObject getUncompressedStreamContentsAsData];
             
+            NSLog(@"plain1: %@", [pageContentsObject getContents]);
             NSLog(@"plain: %@", plainContent);
             
-            NSString * newplain = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc"
-                                                                          withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
-            [pageContentsObject setStreamContentsWithString:newplain];
+//            NSString * newplain = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc"
+ //                                                                         withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
+  //          [pageContentsObject setStreamContentsWithString:newplain];
             
-            [document addObjectToUpdateQueue:pageContentsObject];
+   //         [document addObjectToUpdateQueue:pageContentsObject];
         }
         
-        [document updateDocumentData];
-        [[document modifiedPDFData] writeToFile:@"/Users/pim/Desktop/test.pdf" atomically:YES];
+     //   [document updateDocumentData];
+     //   [[document modifiedPDFData] writeToFile:@"/Users/pim/Desktop/test.pdf" atomically:YES];
         
      }
     return 0;
