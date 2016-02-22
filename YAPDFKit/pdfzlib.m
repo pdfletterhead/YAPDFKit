@@ -192,7 +192,7 @@ void ProcessOutput(char* output, size_t len)
 	}
 }
 
-NSData* inflateStringToData(NSString* string)
+NSData* inflateStringData(NSData* data)
 {
     return nil;
 }

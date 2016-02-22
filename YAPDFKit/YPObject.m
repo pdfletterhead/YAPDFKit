@@ -435,15 +435,6 @@
     return nil;
 }
 
-
-// returns lenght if success
-- (void)setStreamContentsWithString:(NSString*)string
-{
-    // For now we do not support Filters for created blocks, so we'll remove the key
-    [dictionary removeObjectForKey:@"Filter"];
-    stream = [[YPObjectStream alloc] initWithString:string andFilter:@"None"];
-}
-
 - (void) setStreamContentsWithData:(NSData*)data
 {
     [dictionary removeObjectForKey:@"Filter"];

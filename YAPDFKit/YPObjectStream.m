@@ -31,7 +31,7 @@
         
         if([filter isEqualToString:@"FlateDecode"])
         {
-            _rawData = inflateStringToData(data);
+            _rawData = inflateStringData(data);
         }
         else if([filter isEqualToString:@"None"])
         {
@@ -47,28 +47,7 @@
     
     return nil;
 }
-- (id)initWithString:(NSString*)string andFilter:(NSString*)filter
-{
-    if (self = [super init]) {
-        
-        if([filter isEqualToString:@"FlateDecode"])
-        {
-            _rawData = inflateStringToData(string);
-        }
-        else if([filter isEqualToString:@"None"])
-        {
-            _rawData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        }
-        else
-        {
-            _rawData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        }
-        
-        return self;
-    }
-    
-    return nil;
-}
+
 
 
 

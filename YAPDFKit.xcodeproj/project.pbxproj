@@ -45,18 +45,20 @@
 		3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */; };
 		3E9250941C73471400744747 /* YPAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9250931C73471400744747 /* YPAttribute.m */; };
 		3E9250951C73471400744747 /* YPAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9250931C73471400744747 /* YPAttribute.m */; };
+		3E9250A11C7B68C800744747 /* 2-page-pages-export.pdf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E5BFA881C6DDF020087630B /* 2-page-pages-export.pdf */; };
 		3EC10EA61C62CA140079C21C /* pdfzlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC10EA51C62CA140079C21C /* pdfzlib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		198DDE86191E279B00B11929 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 12;
+			dstPath = /tmp;
 			dstSubfolderSpec = 0;
 			files = (
+				3E9250A11C7B68C800744747 /* 2-page-pages-export.pdf in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -243,6 +245,7 @@
 				198DDE84191E279B00B11929 /* Sources */,
 				198DDE85191E279B00B11929 /* Frameworks */,
 				198DDE86191E279B00B11929 /* CopyFiles */,
+				3E92509F1C7B678A00744747 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -309,6 +312,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E5BFA891C6DDF020087630B /* 2-page-pages-export.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E92509F1C7B678A00744747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
