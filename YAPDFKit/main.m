@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
         "- It reads a two page PDF (/tmp/2-page-pages-export.pdf)\n"\
         "- iterates through all pages\n"\
         "- unpacks the content stream\n"\
-        "- add's a purple rectangle at below the text\n"\
+        "- adds a purple rectangle below the text\n"\
         "- updates the PDF by adding an updates object block and  writing a new xref\n"\
         "  table.\n"\
         "\n"\

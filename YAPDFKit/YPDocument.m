@@ -358,7 +358,13 @@ const char* strblock(const char* p, int(^func)(char ch))
 
     // NOTE We may use trailerData in the future
     NSData *trailerData = [NSData dataWithBytes:trailerBegin length:trailerEnd - trailerBegin];
-//    NSLog(@"\nXref: %@ \nTrailer: %@", xrefData, trailerData);
+    
+    
+    BOOL logTrailerData = NO;
+    if(logTrailerData)
+    {
+        NSLog(@"\nXref: %@ \nTrailer: %@", xrefData, trailerData);
+    }
 
     skipBlankSymbols(rawData, &i);
 

@@ -18,36 +18,47 @@ Use these includes:
 #import "YPDocument.h"
 ```
 
-In this example we remove all non-transparent white backgrounds from every page in an 
-PDF file and we save the result in a new PDF file
+In this example we add a purple rectangle below the text of every page. See main.c for a working version of this example.
 
 ```objective-c
 
-NSData *fileData = [NSData dataWithContentsOfFile:@"/path/to/pdf/PDF-with-non-transparent-background.pdf"];
+NSString *file =@"/tmp/2-page-pages-export.pdf";
+
+NSData *fileData = [NSData dataWithContentsOfFile:file];
+
 YPDocument *document = [[YPDocument alloc] initWithData:fileData];
 
 YPPages *pg = [[YPPages alloc] initWithDocument:document];
+NSLog(@"page count: %d", [pg getPageCount]);
 
-// Get all pages unsorted
+//All Pages unsorted
 NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
 
-for (YPObject *page in allPages) {
-
+for (YPObject* page in allPages) {
+    
     NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
-    YPObject *pageContentsObject = [document getObjectByNumber:docContentNumber];
-
-    NSString *plainContent = [pageContentsObject getUncompressedStreamContents];
-
-    NSString *newPlainContent = [plainContent stringByReplacingOccurrencesOfString:@"0 0 595 842 re W n /Cs1 cs 1 1 1 sc"
-                                                                        withString:@"0 0 000 000 re W n /Cs1 cs 1 1 1 sc"];
-
-    [pageContentsObject setStreamContentsWithString:newPlainContent];
-
+    YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
+    
+    NSData *plainContent = [pageContentsObject getUncompressedStreamContentsAsData];
+    
+    NSData *data2 = [@"q /Cs1 cs 0.4 0 0.6 sc 250 600 100 100 re f q " dataUsingEncoding:NSASCIIStringEncoding];
+    
+    NSRange firstPartRange = {0,64};
+    NSRange lastPartRange = {64, ([plainContent length]-64)};
+    NSData *data1 = [plainContent subdataWithRange:firstPartRange];
+    NSData *data3 = [plainContent subdataWithRange:lastPartRange];
+    
+    NSMutableData * newPlainContent = [data1 mutableCopy];
+    [newPlainContent appendData:data2];
+    [newPlainContent appendData:data3];
+    
+    [pageContentsObject setStreamContentsWithData:newPlainContent];
     [document addObjectToUpdateQueue:pageContentsObject];
 }
 
 [document updateDocumentData];
-[[document modifiedPDFData] writeToFile:@"/path/to/pdf/PDF-with-transparent-background.pdf" atomically:YES];
+[[document modifiedPDFData] writeToFile:@"/tmp/2-page-pages-export-mod.pdf" atomically:YES];
+
 ```
 
 ## Requirements
@@ -89,16 +100,16 @@ for (YPObject *page in allPages) {
 
 ### Milestone 3: first CocoaPod Release
 - [x] remove nsstring convertion for streams
+- [x] add included pdf in main.c
+- [x] cleanup file reader
 
 ### Backlog
-- [ ] add included pdf in main.c
 - [ ] more examples
 - [ ] Return all page objects / per page
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
 - [ ] Code Coverage
 - [ ] Rename all object attributes classes with a name including object
-- [ ] cleanup file reader
 
 ## Motivation
 This project started because we needed to remove white
