@@ -87,12 +87,12 @@ for (YPObject *page in allPages) {
 - [x] Make podspec
 - [x] Replace PDF prefix with YAPDF everywhere
 
-### Milestone 2: first CocoaPod Release
-- [ ] add included pdf in main.c
+### Milestone 3: first CocoaPod Release
 - [x] remove nsstring convertion for streams
-- [ ] more examples
 
 ### Backlog
+- [ ] add included pdf in main.c
+- [ ] more examples
 - [ ] Return all page objects / per page
 - [ ] add inflate function
 - [ ] Exact Text (ProcessOutput)
