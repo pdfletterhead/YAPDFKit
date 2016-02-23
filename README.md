@@ -20,7 +20,7 @@ Use these includes:
 
 In this example we add a purple rectangle below the text of every page. See main.c for a working version of this example.
 
-![image](http://picdrop.t3lab.com/NSrEN4xSRj.png =400x) ![image](http://picdrop.t3lab.com/3uoRlT8HjT.png =400x)
+![image](http://picdrop.t3lab.com/NSrEN4xSRj.png) ![image](http://picdrop.t3lab.com/3uoRlT8HjT.png)
 
 ```objective-c
 
