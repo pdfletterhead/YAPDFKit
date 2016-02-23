@@ -20,6 +20,8 @@ Use these includes:
 
 In this example we add a purple rectangle below the text of every page. See main.c for a working version of this example.
 
+![image](http://picdrop.t3lab.com/NSrEN4xSRj.png =400x) ![image](http://picdrop.t3lab.com/3uoRlT8HjT.png =400x)
+
 ```objective-c
 
 NSString *file =@"/tmp/2-page-pages-export.pdf";
@@ -35,23 +37,23 @@ NSLog(@"page count: %d", [pg getPageCount]);
 NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
 
 for (YPObject* page in allPages) {
-    
+
     NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
     YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
-    
+
     NSData *plainContent = [pageContentsObject getUncompressedStreamContentsAsData];
-    
+
     NSData *data2 = [@"q /Cs1 cs 0.4 0 0.6 sc 250 600 100 100 re f q " dataUsingEncoding:NSASCIIStringEncoding];
-    
+
     NSRange firstPartRange = {0,64};
     NSRange lastPartRange = {64, ([plainContent length]-64)};
     NSData *data1 = [plainContent subdataWithRange:firstPartRange];
     NSData *data3 = [plainContent subdataWithRange:lastPartRange];
-    
+
     NSMutableData * newPlainContent = [data1 mutableCopy];
     [newPlainContent appendData:data2];
     [newPlainContent appendData:data3];
-    
+
     [pageContentsObject setStreamContentsWithData:newPlainContent];
     [document addObjectToUpdateQueue:pageContentsObject];
 }
@@ -60,6 +62,7 @@ for (YPObject* page in allPages) {
 [[document modifiedPDFData] writeToFile:@"/tmp/2-page-pages-export-mod.pdf" atomically:YES];
 
 ```
+
 
 ## Requirements
 
