@@ -8,6 +8,21 @@ parsing and manipulating PDF's. YAPDFKit is completely independent of Apple's PD
 
 For specific cases YAPDFKit can be of great help, but it's currently in an Alpha state.
 
+
+## Requirements
+
+### Platform targets
+
+- Usable in OS X and iOS projects
+- Oldest Mac target: Mac OS X 10.7
+
+### Functionality targets
+
+- Parser to create PDF Structure
+- Extract Deflated and other filtered content
+- Some essential Postscript knowledge and features
+- Modify PDF Objects directly in PDF
+
 ## Example
 
 Use these includes:
@@ -64,19 +79,7 @@ for (YPObject* page in allPages) {
 ```
 
 
-## Requirements
 
-### Platform targets
-
-- Usable in OS X and iOS projects
-- Oldest Mac target: Mac OS X 10.7
-
-### Functionality targets
-
-- Parser to create PDF Structure
-- Extract Deflated and other filtered content
-- Some essential Postscript knowledge and features
-- Modify PDF Objects directly in PDF
 
 ## Roadmap
 
