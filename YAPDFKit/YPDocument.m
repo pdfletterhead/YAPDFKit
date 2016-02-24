@@ -225,17 +225,15 @@ const char* strblock(const char* p, int(^func)(char ch))
     NSUInteger i = *idx;
 
     NSUInteger endOfCommentIdx = i;
-    while (rawData[endOfCommentIdx] != '\r' && rawData[endOfCommentIdx] != '\n') {
+    while (rawData[endOfCommentIdx] != '\r' && rawData[endOfCommentIdx] != '\n' && endOfCommentIdx < data.length) {
         ++endOfCommentIdx;
     }
     char* buffer = malloc((endOfCommentIdx - i) + 1);
     memcpy(buffer, &rawData[i], (endOfCommentIdx - i) + 1);
     buffer[endOfCommentIdx - i] = 0;
     NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
-//    NSString* comment = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
     i = endOfCommentIdx;
 
-    //NSDictionary *dict = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
     [comments addObject:comment];
 
     *idx = i;

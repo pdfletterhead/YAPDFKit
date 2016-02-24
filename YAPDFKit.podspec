@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YAPDFKit"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "Yet another PDF Kit for parsing and modifying PDF's."
 
   # This description is used to generate tags and improve search results.
