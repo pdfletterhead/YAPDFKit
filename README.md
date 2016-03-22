@@ -126,6 +126,13 @@ is used in the [PDF Letterhead App](http://pdfletterhead.net).
 
 ![image](http://picdrop.t3lab.com/cAobHdySJ6.png)
 
+## Contributing
+1. Fork it ( https://github.com/[my-github-username]/YAPDFKit/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
 ## Credits
 - YAPDFKit is a fork of [PDFCoolParser](https://github.com/kozliappi/PDFCoolParser) by @kozliappi.
 - YAPDFKit is sponsored by [Lingewoud](http://lingewoud.com) and [MunsterMade](http://munstermade.com).
