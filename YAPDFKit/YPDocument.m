@@ -4,7 +4,7 @@
 //
 //  Created by Aliona on 10.05.14.
 //  Copyright (c) 2014 Ptenster. All rights reserved.
-//
+//  Modify by LiuQiang 3.23.16
 
 #import "YPDocument.h"
 /*
@@ -555,12 +555,20 @@ const char* strblock(const char* p, int(^func)(char ch))
 
 - (YPObject*) getObjectByNumber:(NSString*)number
 {
+    //number is nil
+    if([number length] == 0)
+        return nil;
+    
     YPObject* object = [objects objectForKey:number];
     return object;
 }
 
 - (void) addObjectToUpdateQueue:(YPObject *)pdfObject
 {
+    //pdfObject is nil
+    if(!pdfObject)
+        return;
+    
     //add to update array
     [updateObjectQueue addObject:pdfObject];
     //[pdfObject getUncompressedStreamContents];
