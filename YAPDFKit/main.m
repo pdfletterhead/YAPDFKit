@@ -44,45 +44,31 @@ int main(int argc, const char * argv[])
         "Enjoy using YAPDFKit\n";
         
         NSLog(@"%@\n",intro);
-        
-        
+
         NSString *file =@"/tmp/2-page-pages-export.pdf";
-        
         NSData *fileData = [NSData dataWithContentsOfFile:file];
-
         YPDocument *document = [[YPDocument alloc] initWithData:fileData];
-
         YPPages *pg = [[YPPages alloc] initWithDocument:document];
         NSLog(@"page count: %d", [pg getPageCount]);
-        
         //All Pages unsorted
         NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
-        
         for (YPObject* page in allPages) {
-            
             NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
             YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
-            
             NSData *plainContent = [pageContentsObject getUncompressedStreamContentsAsData];
-            
             NSData *data2 = [@"q /Cs1 cs 0.4 0 0.6 sc 250 600 100 100 re f q " dataUsingEncoding:NSASCIIStringEncoding];
-            
             NSRange firstPartRange = {0,64};
             NSRange lastPartRange = {64, ([plainContent length]-64)};
             NSData *data1 = [plainContent subdataWithRange:firstPartRange];
             NSData *data3 = [plainContent subdataWithRange:lastPartRange];
-            
             NSMutableData * newPlainContent = [data1 mutableCopy];
             [newPlainContent appendData:data2];
             [newPlainContent appendData:data3];
-            
             [pageContentsObject setStreamContentsWithData:newPlainContent];
             [document addObjectToUpdateQueue:pageContentsObject];
         }
-        
         [document updateDocumentData];
         [[document modifiedPDFData] writeToFile:@"/tmp/2-page-pages-export-mod.pdf" atomically:YES];
-        
      }
     return 0;
 }
