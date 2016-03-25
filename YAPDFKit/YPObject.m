@@ -426,12 +426,20 @@
 
 - (NSData*)getUncompressedStreamContentsAsData
 {
+    //filter may be array
+    NSString *flateDecode = nil;
     if(stream)
     {
-        NSString *filter = [dictionary objectForKey:@"Filter"];
-        return [[self stream] getDecompressedData:filter];
+        id filter = [dictionary objectForKey:@"Filter"];
+        
+        if ([filter isKindOfClass:[NSString class]]) {
+              flateDecode = filter;
+        }
+        if ([filter isKindOfClass:[NSArray class]]) {
+             flateDecode = filter[0];
+        }
+        return [[self stream] getDecompressedData:flateDecode];
     }
-    
     return nil;
 }
 
