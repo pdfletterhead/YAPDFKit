@@ -53,8 +53,16 @@ int main(int argc, const char * argv[])
         //All Pages unsorted
         NSArray * allPages = [document getAllObjectsWithKey:@"Type" value:@"Page"];
         for (YPObject* page in allPages) {
-            NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:[page getObjectNumber]] getReferenceNumber];
-            YPObject * pageContentsObject = [document getObjectByNumber:docContentNumber];
+            
+            NSString *ob_num = [page getObjectNumber];
+           // NSString *rn_num = [ob_num getReferenceNumber];
+            
+            NSString *docContentNumber = [[document getInfoForKey:@"Contents" inObject:ob_num] getReferenceNumber];
+            if (!docContentNumber) {
+                NSLog(@"docContentNumber is nil");
+                return nil;
+            }
+            YPObject *pageContentsObject = [document getObjectByNumber:docContentNumber];
             NSData *plainContent = [pageContentsObject getUncompressedStreamContentsAsData];
             NSData *data2 = [@"q /Cs1 cs 0.4 0 0.6 sc 250 600 100 100 re f q " dataUsingEncoding:NSASCIIStringEncoding];
             NSRange firstPartRange = {0,64};
