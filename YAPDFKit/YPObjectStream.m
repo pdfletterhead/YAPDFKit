@@ -4,6 +4,7 @@
 //
 //  Created by Pim Snel on 10-02-16.
 //  Copyright © 2016 Lingewoud. All rights reserved.
+//  Modify by Liuqiang on 25-03-16.
 //
 
 #import "YPObjectStream.h"
@@ -61,13 +62,15 @@
     return [_rawData length];
 }
 
--(NSData*)getDecompressedData:(NSString*)filter
+-(NSData*)getDecompressedData:(NSArray*)filter
 {
-    if([filter isEqualToString:@"FlateDecode"])
+    //filter may be array
+    NSString *flateDecode = filter;
+    if([flateDecode isEqualToString:@"FlateDecode"])
     {
         return deflateData(_rawData);
     }
-    else if([filter isEqualToString:@"None"])
+    else if([flateDecode isEqualToString:@"None"])
     {
         return _rawData;
     }
