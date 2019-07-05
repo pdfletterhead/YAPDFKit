@@ -3,8 +3,7 @@
 //  YAPDFKit-TestSuite
 //
 //  Created by Pim Snel on 11-02-16.
-//  Copyright © 2016 Lingewoud. All rights reserved.
-//
+//  Copyright © 2016-2019 Lingewoud. All rights reserved.
 
 #import <XCTest/XCTest.h>
 #import <Foundation/Foundation.h>

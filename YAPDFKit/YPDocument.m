@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Ptenster. All rights reserved.
 //  Modify by LiuQiang 3.23.16
 //  mail:liulcsy@163.com
+//  Copyright © 2016-2019 Lingewoud. All rights reserved.
+
 
 #import "YPDocument.h"
 /*
